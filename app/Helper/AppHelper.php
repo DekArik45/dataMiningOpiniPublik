@@ -7,7 +7,5 @@ class AppHelper
      {
          return new AppHelper();
      }
-
-
      
 }
