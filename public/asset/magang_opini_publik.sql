@@ -40,7 +40,8 @@ CREATE TABLE `tb_comment` (
   `foto_profile` varchar(255) DEFAULT NULL,
   `like` int(11) DEFAULT NULL,
   `dislike` int(11) DEFAULT NULL,
-  `sentiment` int(11) DEFAULT NULL,
+  `sentiment` varchar(50) DEFAULT NULL,
+  `nilai_sentiment` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_comment`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -91,7 +92,8 @@ CREATE TABLE `tb_post` (
   `like` int(11) DEFAULT NULL,
   `dislike` int(11) DEFAULT NULL,
   `share` int(11) DEFAULT NULL,
-  `sentiment` int(11) DEFAULT NULL,
+  `sentiment` varchar(50) DEFAULT NULL,
+  `nilai_sentiment` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_post`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -122,55 +124,6 @@ CREATE TABLE `tb_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `tb_user` */
-
-/*Table structure for table `tm_akhiran` */
-
-DROP TABLE IF EXISTS `tm_akhiran`;
-
-CREATE TABLE `tm_akhiran` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `akhiran` varchar(10) DEFAULT NULL,
-  `len` tinyint(2) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
-
-/*Data for the table `tm_akhiran` */
-
-insert  into `tm_akhiran`(`id`,`akhiran`,`len`) values 
-(1,'i',1),
-(2,'an',2),
-(3,'in',2),
-(4,'wi',2),
-(5,'kan',3),
-(6,'nya',3),
-(8,'kah',3),
-(9,'lah',3),
-(10,'mu',2),
-(11,'ku',2);
-
-/*Table structure for table `tm_awalan` */
-
-DROP TABLE IF EXISTS `tm_awalan`;
-
-CREATE TABLE `tm_awalan` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `awalan` varchar(10) DEFAULT NULL,
-  `len` tinyint(2) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
-
-/*Data for the table `tm_awalan` */
-
-insert  into `tm_awalan`(`id`,`awalan`,`len`) values 
-(1,'me',2),
-(2,'di',2),
-(3,'ke',2),
-(4,'pe',2),
-(5,'se',2),
-(6,'be',3),
-(7,'ter',3),
-(9,'ber',3),
-(10,'per',2);
 
 /*Table structure for table `tm_delim` */
 
@@ -28763,24 +28716,29 @@ insert  into `tm_katadasar`(`id_katadasar`,`katadasar`,`tipe_katadasar`) values
 (28592,'dewa',''),
 (28593,'desak','');
 
-/*Table structure for table `tm_sisipan` */
+/*Table structure for table `tm_negatif` */
 
-DROP TABLE IF EXISTS `tm_sisipan`;
+DROP TABLE IF EXISTS `tm_negatif`;
 
-CREATE TABLE `tm_sisipan` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `sisipan` varchar(10) DEFAULT NULL,
-  `len` tinyint(2) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+CREATE TABLE `tm_negatif` (
+  `id_negatif` int(11) NOT NULL AUTO_INCREMENT,
+  `kata` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_negatif`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-/*Data for the table `tm_sisipan` */
+/*Data for the table `tm_negatif` */
 
-insert  into `tm_sisipan`(`id`,`sisipan`,`len`) values 
-(1,'el',2),
-(2,'em',2),
-(3,'er',2),
-(4,'in',2);
+/*Table structure for table `tm_positif` */
+
+DROP TABLE IF EXISTS `tm_positif`;
+
+CREATE TABLE `tm_positif` (
+  `id_positif` int(11) NOT NULL AUTO_INCREMENT,
+  `kata` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_positif`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `tm_positif` */
 
 /*Table structure for table `tm_stopword` */
 

@@ -12,19 +12,31 @@ class SentimentHelper
          return new SentimentHelper();
      }
 
-     public function LowerCase($string)
+     public function getDataFromCSV()
+     {
+         //0=id_post_sosmed,1=username,2=foto_profile,3=tanggal,4=jam,5=lokasi,6=content,7=like,8=dislike,9=share
+
+        $f_pointer=fopen("dataset.csv","r"); // file pointer
+        while(!feof($f_pointer)){
+            $array = fgetcsv($f_pointer);
+            
+        }
+        
+     }
+
+     public function lowerCase($string)
      {
         $data = strtolower($string);
         return $data;
      }
 
-     public function MenghilangkanSimbol($string)
+     public function menghilangkanSimbol($string)
      {
         $data = preg_replace("/[^a-zA-Z\s,-\/0-9]/", "", $string);
         return $data;
      }
 
-     public function StopWord($string)
+     public function stopWord($string)
      {
         $data = explode(" ", $string);
         
@@ -43,7 +55,7 @@ class SentimentHelper
         return $data;
      }
 
-     public function Stemming($string)
+     public function stemming($string)
      {
         $data = explode(" ", $string);
 
@@ -58,4 +70,9 @@ class SentimentHelper
         return $data;
      }
      
+     public function sentimentAnalysis()
+     {
+         
+     }
+
 }
