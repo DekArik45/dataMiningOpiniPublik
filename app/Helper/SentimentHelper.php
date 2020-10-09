@@ -12,16 +12,23 @@ class SentimentHelper
          return new SentimentHelper();
      }
 
-     public function getDataFromCSV()
+     public function getDataFromCSV($namaFile="null")
      {
          //0=id_post_sosmed,1=username,2=foto_profile,3=tanggal,4=jam,5=lokasi,6=content,7=like,8=dislike,9=share
-
-        $f_pointer=fopen("dataset.csv","r"); // file pointer
-        while(!feof($f_pointer)){
-            $array = fgetcsv($f_pointer);
-            
+        $dataArray = array();
+        $file = public_path("file/".$namaFile);
+        if (file_exists($file)) {
+            $f_pointer=fopen($file,"r"); // file pointer
+            fgetcsv($f_pointer);
+            while(!feof($f_pointer)){
+                array_push($dataArray,fgetcsv($f_pointer));
+            }
+            fclose($f_pointer);
+            return $dataArray;
         }
-        
+        else{
+            return "File Not Found";
+        }
      }
 
      public function lowerCase($string)
@@ -64,7 +71,6 @@ class SentimentHelper
 
         for ($i=0; $i < count($data); $i++) { 
             $data[$i] = $stemmer->stem($data[$i]);
-            
         }
         $data = implode(" ",$data);
         return $data;
