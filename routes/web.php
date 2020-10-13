@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get("testing","TestController@index");
+
+Route::get('crawl', "TwitterCrawlerController@crawl");
