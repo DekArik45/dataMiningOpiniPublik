@@ -30,9 +30,15 @@
   <link rel="stylesheet" href="{{asset('asset/global/vendor/slidepanel/slidePanel.minfd53.css?v4.0.1')}}">
   <link rel="stylesheet" href="{{asset('asset/global/vendor/flag-icon-css/flag-icon.minfd53.css?v4.0.1')}}">
   <link rel="stylesheet" href="{{asset('asset/global/vendor/waves/waves.minfd53.css?v4.0.1')}}">
-
+  <link rel="stylesheet" href="{{asset('asset/global/vendor/bootstrap-datepicker/bootstrap-datepicker.minfd53.css?v4.0.1')}}">
+  <link rel="stylesheet" href="{{asset('asset/global/vendor/bootstrap-touchspin/bootstrap-touchspin.minfd53.css?v4.0.1')}}">
+  <link rel="stylesheet" href="{{asset('asset/global/vendor/ladda/ladda.minfd53.css?v4.0.1')}}">
+  <!-- <link rel="stylesheet" href="{{asset('asset/global/vendor/morris/morris.minfd53.css?v4.0.1')}}"> -->
+  
   <!-- Page -->
   <link rel="stylesheet" href="{{asset('asset/examples/css/pages/user.minfd53.css?v4.0.1')}}">
+  <link rel="stylesheet" href="{{asset('asset/examples/css/uikit/buttons.minfd53.css?v4.0.1')}}">
+  <!-- <link rel="stylesheet" href="{{asset('asset/examples/css/charts/chartjs.minfd53.css?v4.0.1')}}"> -->
 
   <!-- Fonts -->
   <link rel="stylesheet" href="{{asset('asset/global/fonts/material-design/material-design.minfd53.css?v4.0.1')}}">
@@ -54,229 +60,353 @@
   <!-- Page -->
   <div class="page">
     <div class="page-content">
-      <!-- Panel -->
+      <!-- Panel 1 -->
       <div class="panel">
-        <div class="panel-body">
+        <div class="panel-body container-fluid" style="height: auto; padding-bottom:0">
           <form class="page-search-form" role="search">
 
-            <div class="input-search input-search-dark" style="margin-bottom:10px">
+            <!-- <div class="input-search input-search-dark" style="margin-bottom:10px">
               <i class="input-search-icon md-search" aria-hidden="true"></i>
               <input type="text" class="form-control" id="inputSearch" name="search" placeholder="Search Users">
               <button type="button" class="input-search-close icon md-close" aria-label="Close"></button>
+            </div> -->
+
+            <div class="example-wrap" style="margin-bottom:10px">
+              <h4 class="example-title" style="margin-bottom:10px">Judul</h4>
+                <div class="form-group">
+                  <div class="input-group">
+                    <input type="text" class="form-control" name="" placeholder="Cari Topik...">
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-default disabled"><i class="icon md-search" aria-hidden="true"></i></button>
+                    </span>
+                  </div>
+                </div>
+                <!-- <div class="form-group">
+                  <div class="input-search">
+                    <button type="submit" class="input-search-btn"><i class="icon md-search" aria-hidden="true"></i></button>
+                    <input type="text" class="form-control" name="" placeholder="Search...">
+                  </div>
+                </div> -->
             </div>
 
             <div class="row">
                 <div class="col-sm-6">
-                    <div class="example">
-                        <div class="input-daterange" data-plugin="datepicker">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                            <i class="icon md-calendar" aria-hidden="true"></i>
-                            </span>
-                            <input type="text" class="form-control" name="start" />
-                        </div>
-                        <div class="input-group">
-                            <span class="input-group-addon">to</span>
-                            <input type="text" class="form-control" name="end" />
-                        </div>
-                        </div>
-                    </div>
+                  <div class="example-wrap" style="margin-bottom:10px">
+                    <h4 class="example-title" style="margin-bottom:-5px">Rentang Hari</h4>
+                      <div class="example">
+                          <div class="input-daterange" data-plugin="datepicker">
+                          <div class="input-group">
+                              <span class="input-group-addon">
+                              <i class="icon md-calendar" aria-hidden="true"></i>
+                              </span>
+                              <input type="text" class="form-control" name="start" />
+                          </div>
+                          <div class="input-group">
+                              <span class="input-group-addon">to</span>
+                              <input type="text" class="form-control" name="end" />
+                          </div>
+                          </div>
+                      </div>
+                  </div>
                 </div>
                 <div class="col-sm-6">
-                    <div class="example">
-                        <!-- <h4 class="example-title">Vertical</h4> -->
-                        <input type="text" class="form-control" name="touchSpinVertical" data-plugin="TouchSpin"
-                        data-verticalbuttons="true" value="0" />
-                    </div>
+                  <div class="example-wrap" style="margin-bottom:10px">
+                      <h4 class="example-title" style="margin-bottom:-5px">Jumlah Postingan</h4>
+                      <div class="example">
+                      <input type="text" class="form-control" name="touchSpinPrefix" data-plugin="TouchSpin"
+                    data-min="-1000000000" data-max="1000000000" data-stepinterval="50"
+                    data-maxboostedstep="10000000" value="0" />
+                      </div>
+                  </div>
                 </div>
             </div>
 
-            
-
-            
+            <div class="example example-buttons" style="margin-bottom:0">
+              <div class="float-left">
+                <button type="button" class="btn btn-primary ladda-button" data-style="slide-left"
+                  data-plugin="ladda">
+                  <span class="ladda-label"><i class="icon md-search mr-10" aria-hidden="true"></i>Telusuri Topik</span>
+                </button>
+              </div>
+            </div>
 
           </form>
 
-          <div class="nav-tabs-horizontal nav-tabs-animate" data-plugin="tabs">
-            <div class="dropdown page-user-sortlist">
-              Order By: <a class="dropdown-toggle inline-block" data-toggle="dropdown"
-                href="#" aria-expanded="false">Last Active</a>
-              <div class="dropdown-menu animation-scale-up animation-top-right animation-duration-250"
-                role="menu">
-                <a class="active dropdown-item" href="javascript:void(0)">Last Active</a>
-                <a class="dropdown-item" href="javascript:void(0)">Username</a>
-                <a class="dropdown-item" href="javascript:void(0)">Location</a>
-                <a class="dropdown-item" href="javascript:void(0)">Register Date</a>
-              </div>
-            </div>
+        </div>
+      </div>
+      <!-- End Panel -->
 
-            <ul class="nav nav-tabs nav-tabs-line" role="tablist">
-              <li class="nav-item" role="presentation"><a class="active nav-link" data-toggle="tab" href="#all_contacts"
-                  aria-controls="all_contacts" role="tab">All Contacts</a></li>
-              <li class="nav-item" role="presentation"><a class="nav-link" data-toggle="tab" href="#my_contacts" aria-controls="my_contacts"
-                  role="tab">My Contacts</a></li>
-              <li class="nav-item" role="presentation"><a class="nav-link" data-toggle="tab" href="#google_contacts" aria-controls="google_contacts"
-                  role="tab">Google Contacts</a></li>
-              <li class="dropdown nav-item" role="presentation">
-                <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#" aria-expanded="false">Contacts </a>
-                <div class="dropdown-menu" role="menu">
-                  <a class="dropdown-item" data-toggle="tab" href="#all_contacts" aria-controls="all_contacts"
-                    role="tab">All Contacts</a>
-                  <a class="active dropdown-item" data-toggle="tab" href="#my_contacts" aria-controls="my_contacts"
-                    role="tab">My Contacts</a>
-                  <a class="dropdown-item" data-toggle="tab" href="#google_contacts" aria-controls="google_contacts"
-                    role="tab">Google Contacts</a>
+      <!-- Panel 2 -->
+      <div class="panel">
+        <div class="panel-body container-fluid">
+          <div class="row row-lg">
+
+            <div class="col-lg-6 col-xl-4" style="display: none !important">
+              <!-- Area -->
+              <div class="example-wrap m-md-0">
+                <h4 class="example-title">Pie</h4>
+                <div class="example text-center max-width">
+                <canvas id="areaChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
                 </div>
-              </li>
-            </ul>
-            <div class="tab-content">
-              <div class="tab-pane animation-fade active" id="all_contacts" role="tabpanel">
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    <div class="media">
-                      <div class="pr-0 pr-sm-20 align-self-center">
-                        <div class="avatar avatar-online">
-                          <img src="../../global/portraits/1.jpg" alt="...">
-                          <i class="avatar avatar-busy"></i>
-                        </div>
-                      </div>
-                      <div class="media-body align-self-center">
-                        <h5 class="mt-0 mb-5">
-                          Herman Beck
-                          <small>Last Access: 1 hour ago</small>
-                        </h5>
-                        <p>
-                          <i class="icon icon-color md-pin" aria-hidden="true"></i>                          Street 4425 Golf Course Rd
-                        </p>
-                        <div>
-                          <a class="text-action" href="javascript:void(0)">
-                          <i class="icon icon-color md-email" aria-hidden="true"></i>
-                        </a>
-                          <a class="text-action" href="javascript:void(0)">
-                          <i class="icon icon-color md-smartphone" aria-hidden="true"></i>
-                        </a>
-                          <a class="text-action" href="javascript:void(0)">
-                          <i class="icon icon-color bd-twitter" aria-hidden="true"></i>
-                        </a>
-                          <a class="text-action" href="javascript:void(0)">
-                          <i class="icon icon-color bd-facebook" aria-hidden="true"></i>
-                        </a>
-                          <a class="text-action" href="javascript:void(0)">
-                          <i class="icon icon-color bd-dribbble" aria-hidden="true"></i>
-                        </a>
-                        </div>
-                      </div>
-                      <div class="pl-0 pl-sm-20 mt-15 mt-sm-0 align-self-center">
-                        <button type="button" class="btn btn-primary btn-sm">Follow</button>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-                <nav>
-                  <ul data-plugin="paginator" data-total="50" data-skin="pagination-no-border"></ul>
-                </nav>
               </div>
+              <!-- End Area -->
+            </div>
 
-              <div class="tab-pane animation-fade" id="my_contacts" role="tabpanel">
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    <div class="media">
-                      <div class="pr-0 pr-sm-20 align-self-center">
-                        <div class="avatar avatar-online">
-                          <img src="../../global/portraits/13.jpg" alt="...">
-                          <i></i>
-                        </div>
-                      </div>
-                      <div class="media-body align-self-center">
-                        <h5 class="mt-0 mb-5">
-                          Sarah Graves
-                          <small>Last Access: 1 hour ago</small>
-                        </h5>
-                        <p>
-                          <i class="icon icon-color md-pin" aria-hidden="true"></i>                          Street 4190 W Lone Mountain Rd
-                        </p>
-                        <div>
-                          <a class="text-action" href="javascript:void(0)">
-                          <i class="icon icon-color md-email" aria-hidden="true"></i>
-                        </a>
-                          <a class="text-action" href="javascript:void(0)">
-                          <i class="icon icon-color md-smartphone" aria-hidden="true"></i>
-                        </a>
-                          <a class="text-action" href="javascript:void(0)">
-                          <i class="icon icon-color bd-twitter" aria-hidden="true"></i>
-                        </a>
-                          <a class="text-action" href="javascript:void(0)">
-                          <i class="icon icon-color bd-facebook" aria-hidden="true"></i>
-                        </a>
-                          <a class="text-action" href="javascript:void(0)">
-                          <i class="icon icon-color bd-dribbble" aria-hidden="true"></i>
-                        </a>
-                        </div>
-                      </div>
-                      <div class="pl-0 pl-sm-20 mt-15 mt-sm-0 align-self-center">
-                        <button type="button" class="btn btn-primary btn-sm">Follow</button>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-                <nav>
-                  <ul data-plugin="paginator" data-total="50" data-skin="pagination-no-border"></ul>
-                </nav>
+            <div class="col-lg-6 col-xl-4" style="display: none !important">
+              <!-- Donut -->
+              <div class="example-wrap m-md-0">
+                <h4 class="example-title">Pie</h4>
+                <div class="example text-center max-width">
+                <canvas id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
               </div>
+              <!-- End Donut -->
+            </div>
 
-              <div class="tab-pane animation-fade" id="google_contacts" role="tabpanel">
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    <div class="media">
-                      <div class="pr-0 pr-sm-20 align-self-center">
-                        <div class="avatar avatar-online">
-                          <img src="../../global/portraits/8.jpg" alt="...">
-                          <i></i>
-                        </div>
-                      </div>
-                      <div class="media-body align-self-center">
-                        <h5 class="mt-0 mb-5">
-                          Heather Harper
-                          <small>Last Access: 1 hour ago</small>
-                        </h5>
-                        <p>
-                          <i class="icon icon-color md-pin" aria-hidden="true"></i>                          Street 4393 Kelly Dr
-                        </p>
-                        <div>
-                          <a class="text-action" href="javascript:void(0)">
-                          <i class="icon icon-color md-email" aria-hidden="true"></i>
-                        </a>
-                          <a class="text-action" href="javascript:void(0)">
-                          <i class="icon icon-color md-smartphone" aria-hidden="true"></i>
-                        </a>
-                          <a class="text-action" href="javascript:void(0)">
-                          <i class="icon icon-color bd-twitter" aria-hidden="true"></i>
-                        </a>
-                          <a class="text-action" href="javascript:void(0)">
-                          <i class="icon icon-color bd-facebook" aria-hidden="true"></i>
-                        </a>
-                          <a class="text-action" href="javascript:void(0)">
-                          <i class="icon icon-color bd-dribbble" aria-hidden="true"></i>
-                        </a>
-                        </div>
-                      </div>
-                      <div class="pl-0 pl-sm-20 mt-15 mt-sm-0 align-self-center">
-                        <button type="button" class="btn btn-success btn-sm">
-                          <i class="icon md-check" aria-hidden="true"></i>Following
-                        </button>
-                      </div>
+            <div class="col-lg-6 col-xl-4" style="display: none !important">
+              <!-- Line -->
+              <div class="example-wrap m-md-0">
+                <h4 class="example-title">Pie</h4>
+                <div class="example text-center max-width">
+                <canvas id="lineChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+              <!-- End Line -->
+            </div>
+
+            <div class="col-12">
+              <!-- FB -->
+              <div class="example-wrap m-md-0">
+                <h4 class="example-title">Data Perbandigan Masing-Masing Sosial Media</h4>
+                <div class="example text-center max-width">
+                <canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+              <!-- End FB -->
+            </div>
+
+            <div class="col-lg-6 col-xl-4">
+              <!-- FB -->
+              <div class="example-wrap m-md-0">
+                <h4 class="example-title"><i class="icon bd-facebook" aria-hidden="true"></i> FACEBOOK</h4>
+                <div class="example text-center max-width">
+                  <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+              <!-- End FB -->
+            </div>
+
+            <div class="col-lg-6 col-xl-4">
+              <!-- IG -->
+              <div class="example-wrap m-md-0">
+                <h4 class="example-title"><i class="icon bd-instagram" aria-hidden="true"></i> INSTAGRAM</h4>
+                <div class="example text-center max-width">
+                  <canvas id="pieChart2" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+              <!-- End IG -->
+            </div>
+
+            <div class="col-lg-6 col-xl-4">
+              <!-- Twitter -->
+              <div class="example-wrap m-md-0">
+                <h4 class="example-title"><i class="icon bd-twitter" aria-hidden="true"></i> TWITTER</h4>
+                <div class="example text-center max-width">
+                  <canvas id="pieChart3" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+              <!-- End Twitter -->
+            </div>
+
+            <div class="col-12">
+              <div class="nav-tabs-horizontal nav-tabs-animate" data-plugin="tabs">
+                <div class="dropdown page-user-sortlist">
+                  Urutkan: <a class="dropdown-toggle inline-block" data-toggle="dropdown"
+                    href="#" aria-expanded="false">Waktu</a>
+                  <div class="dropdown-menu animation-scale-up animation-top-right animation-duration-250"
+                    role="menu">
+                    <a class="active dropdown-item" href="javascript:void(0)">Waktu</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Username</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Lokasi</a>
+                    <a class="dropdown-item" href="javascript:void(0)">Jumlah Like</a>
+                  </div>
+                </div>
+
+                <ul class="nav nav-tabs nav-tabs-line" role="tablist">
+                  <li class="nav-item" role="presentation"><a class="active nav-link" data-toggle="tab" href="#facebook_data"
+                      aria-controls="facebook_data" role="tab">Facebook</a></li>
+                  <li class="nav-item" role="presentation"><a class="nav-link" data-toggle="tab" href="#instagram_data" aria-controls="instagram_data"
+                      role="tab">Instagram</a></li>
+                  <li class="nav-item" role="presentation"><a class="nav-link" data-toggle="tab" href="#twitter_data" aria-controls="twitter_data"
+                      role="tab">Twitter</a></li>
+                  <li class="dropdown nav-item" role="presentation">
+                    <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#" aria-expanded="false">Media Sosial</a>
+                    <div class="dropdown-menu" role="menu">
+                      <a class="dropdown-item" data-toggle="tab" href="#facebook_data" aria-controls="facebook_data"
+                        role="tab">Facebook</a>
+                      <a class="active dropdown-item" data-toggle="tab" href="#instagram_data" aria-controls="instagram_data"
+                        role="tab">Instagram</a>
+                      <a class="dropdown-item" data-toggle="tab" href="#twitter_data" aria-controls="twitter_data"
+                        role="tab">Twiiter</a>
                     </div>
                   </li>
                 </ul>
-                <nav>
-                  <ul data-plugin="paginator" data-total="50" data-skin="pagination-no-border"></ul>
-                </nav>
+                <div class="tab-content">
+                  <div class="tab-pane animation-fade active" id="facebook_data" role="tabpanel">
+                    <ul class="list-group">
+                      <li class="list-group-item">
+                        <div class="media">
+                          <div class="pr-0 pr-sm-20 align-self-center">
+                            <div class="avatar avatar-online">
+                              <img src="{{asset('asset/global/portraits/1.jpg')}}" alt="...">
+                              <i class="avatar avatar-busy"></i>
+                            </div>
+                          </div>
+                          <div class="media-body align-self-center">
+                            <h5 class="mt-0 mb-5">
+                              Nama nya
+                              <small>12 Juli 2020</small>
+                            </h5>
+                            <p>
+                              ...ini tempat teks...
+                            </p>
+                            <p>
+                              <i class="icon icon-color md-pin" aria-hidden="true"></i>
+                              Lokasi
+                            </p>
+                            <div>
+                              <a class="text-action" href="javascript:void(0)">
+                                <i class="icon icon-color md-thumb-up" aria-hidden="true"></i>
+                              </a>
+                              
+                            </div>
+                          </div>
+                          <div class="pl-0 pl-sm-20 mt-15 mt-sm-0 align-self-center">
+                            <button type="button" class="btn btn-primary btn-sm" data-toggle="button">
+                              <i class="icon md-tag text" aria-hidden="true"></i>
+                              <span class="text">Track</span>
+                              <i class="icon md-check text-active" aria-hidden="true"></i>
+                              <span class="text-active">Tracked</span>
+                            </button>
+                            <button type="button" class="btn btn-success btn-sm" data-toggle="button">
+                              <i class="icon md-book text" aria-hidden="true"></i>
+                              <span class="text">Pin</span>
+                              <i class="icon md-bookmark text-active" aria-hidden="true"></i>
+                              <span class="text-active">Unpin</span>
+                            </button>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                    <nav>
+                      <ul data-plugin="paginator" data-total="50" data-skin="pagination-no-border"></ul>
+                    </nav>
+                  </div>
+
+                  <div class="tab-pane animation-fade" id="instagram_data" role="tabpanel">
+                    <ul class="list-group">
+                      <li class="list-group-item">
+                        <div class="media">
+                          <div class="pr-0 pr-sm-20 align-self-center">
+                            <div class="avatar avatar-online">
+                              <img src="{{asset('asset/global/portraits/13.jpg')}}" alt="...">
+                              <i></i>
+                            </div>
+                          </div>
+                          <div class="media-body align-self-center">
+                            <h5 class="mt-0 mb-5">
+                              Sarah Graves
+                              <small>Last Access: 1 hour ago</small>
+                            </h5>
+                            <p>
+                              <i class="icon icon-color md-pin" aria-hidden="true"></i>                          Street 4190 W Lone Mountain Rd
+                            </p>
+                            <div>
+                              <a class="text-action" href="javascript:void(0)">
+                              <i class="icon icon-color md-email" aria-hidden="true"></i>
+                            </a>
+                              <a class="text-action" href="javascript:void(0)">
+                              <i class="icon icon-color md-smartphone" aria-hidden="true"></i>
+                            </a>
+                              <a class="text-action" href="javascript:void(0)">
+                              <i class="icon icon-color bd-twitter" aria-hidden="true"></i>
+                            </a>
+                              <a class="text-action" href="javascript:void(0)">
+                              <i class="icon icon-color bd-facebook" aria-hidden="true"></i>
+                            </a>
+                              <a class="text-action" href="javascript:void(0)">
+                              <i class="icon icon-color bd-dribbble" aria-hidden="true"></i>
+                            </a>
+                            </div>
+                          </div>
+                          <div class="pl-0 pl-sm-20 mt-15 mt-sm-0 align-self-center">
+                            <button type="button" class="btn btn-primary btn-sm">Follow</button>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                    <nav>
+                      <ul data-plugin="paginator" data-total="50" data-skin="pagination-no-border"></ul>
+                    </nav>
+                  </div>
+
+                  <div class="tab-pane animation-fade" id="twitter_data" role="tabpanel">
+                    <ul class="list-group">
+                      <li class="list-group-item">
+                        <div class="media">
+                          <div class="pr-0 pr-sm-20 align-self-center">
+                            <div class="avatar avatar-online">
+                              <img src="{{asset('asset/global/portraits/8.jpg')}}" alt="...">
+                              <i></i>
+                            </div>
+                          </div>
+                          <div class="media-body align-self-center">
+                            <h5 class="mt-0 mb-5">
+                              Heather Harper
+                              <small>Last Access: 1 hour ago</small>
+                            </h5>
+                            <p>
+                              <i class="icon icon-color md-pin" aria-hidden="true"></i>                          Street 4393 Kelly Dr
+                            </p>
+                            <div>
+                              <a class="text-action" href="javascript:void(0)">
+                              <i class="icon icon-color md-email" aria-hidden="true"></i>
+                            </a>
+                              <a class="text-action" href="javascript:void(0)">
+                              <i class="icon icon-color md-smartphone" aria-hidden="true"></i>
+                            </a>
+                              <a class="text-action" href="javascript:void(0)">
+                              <i class="icon icon-color bd-twitter" aria-hidden="true"></i>
+                            </a>
+                              <a class="text-action" href="javascript:void(0)">
+                              <i class="icon icon-color bd-facebook" aria-hidden="true"></i>
+                            </a>
+                              <a class="text-action" href="javascript:void(0)">
+                              <i class="icon icon-color bd-dribbble" aria-hidden="true"></i>
+                            </a>
+                            </div>
+                          </div>
+                          <div class="pl-0 pl-sm-20 mt-15 mt-sm-0 align-self-center">
+                            <button type="button" class="btn btn-success btn-sm">
+                              <i class="icon md-check" aria-hidden="true"></i>Following
+                            </button>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                    <nav>
+                      <ul data-plugin="paginator" data-total="50" data-skin="pagination-no-border"></ul>
+                    </nav>
+                  </div>
+                </div>
               </div>
             </div>
+            
           </div>
         </div>
       </div>
       <!-- End Panel -->
+
     </div>
   </div>
   <!-- End Page -->
@@ -305,6 +435,13 @@
 
   <!-- Plugins For This Page -->
   <script src="{{asset('asset/global/vendor/aspaginator/jquery-asPaginator.minfd53.js?v4.0.1')}}"></script>
+  <script src="{{asset('asset/global/vendor/bootstrap-datepicker/bootstrap-datepicker.minfd53.js?v4.0.1')}}"></script>
+  <script src="{{asset('asset/global/vendor/bootstrap-touchspin/bootstrap-touchspin.minfd53.js?v4.0.1')}}"></script>
+  <script src="{{asset('asset/global/vendor/ladda/spin.minfd53.js?v4.0.1')}}"></script>
+  <script src="{{asset('asset/global/vendor/ladda/ladda.minfd53.js?v4.0.1')}}"></script>
+  <script src="{{asset('asset/global/vendor/raphael/raphael.minfd53.js?v4.0.1')}}"></script>
+  <!-- <script src="{{asset('asset/global/vendor/morris/morris.minfd53.js?v4.0.1')}}"></script> -->
+  <!-- <script src="{{asset('asset/global/vendor/chart-js/Chart.minfd53.js?v4.0.1')}}"></script> -->
 
   <!-- Scripts -->
   <script src="{{asset('asset/global/js/State.minfd53.js?v4.0.1')}}"></script>
@@ -338,6 +475,23 @@
   <script src="{{asset('asset/global/js/Plugin/responsive-tabs.minfd53.js?v4.0.1')}}"></script>
   <script src="{{asset('asset/global/js/Plugin/tabs.minfd53.js?v4.0.1')}}"></script>
 
+  <script src="{{asset('asset/global/js/Plugin/bootstrap-datepicker.minfd53.js?v4.0.1')}}"></script>
+  <script src="{{asset('asset/global/js/Plugin/bootstrap-touchspin.minfd53.js?v4.0.1')}}"></script>
+
+  <script src="{{asset('asset/global/js/Plugin/loading-button.minfd53.js?v4.0.1')}}"></script>
+  <script src="{{asset('asset/global/js/Plugin/more-button.minfd53.js?v4.0.1')}}"></script>
+  
+  <script src="{{asset('asset/global/js/Plugin/ladda.minfd53.js?v4.0.1')}}"></script>
+  
+  <!-- <script src="{{asset('asset/examples/js/charts/morris.minfd53.js?v4.0.1')}}"></script> -->
+
+  <!-- <script src="{{asset('asset/examples/js/charts/chartjs.minfd53.js?v4.0.1')}}"></script> -->
+
+  <!-- ChartJS -->
+  <script src="{{asset('asset2/plugins/chart.js/Chart.min.js')}}"></script>
+  <!-- jQuery -->
+  <script src="{{asset('asset2/plugins/jquery/jquery.min.js')}}"></script>
+
 
   <script>
     (function(document, window, $) {
@@ -368,6 +522,238 @@
 
     ga('create', 'UA-65522665-1', 'auto');
     ga('send', 'pageview');
+  </script>
+
+  <!-- page script -->
+  <script>
+    $(function () {
+      /* ChartJS
+      * -------
+      * Here we will create a few charts using ChartJS
+      */
+
+      //--------------
+      //- AREA CHART -
+      //--------------
+
+      // Get context with jQuery - using jQuery's .get() method.
+      var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
+
+      var areaChartData = {
+        labels  : ['Positif', 'Negatif', 'Netral'],
+        datasets: [
+          {
+            label               : 'Facebook',
+            backgroundColor     : 'rgba(59,89,152,0.9)',
+            borderColor         : 'rgba(59,89,152,0.8)',
+            pointRadius          : false,
+            pointColor          : '#3b5998',
+            pointStrokeColor    : 'rgba(60,141,188,1)',
+            pointHighlightFill  : '#fff',
+            pointHighlightStroke: 'rgba(60,141,188,1)',
+            data                : [28, 48, 40]
+          },
+          {
+            label               : 'Instagram',
+            backgroundColor     : 'rgba(210, 214, 222, 1)',
+            borderColor         : 'rgba(210, 214, 222, 1)',
+            pointRadius         : false,
+            pointColor          : 'rgba(210, 214, 222, 1)',
+            pointStrokeColor    : '#c1c7d1',
+            pointHighlightFill  : '#fff',
+            pointHighlightStroke: 'rgba(220,220,220,1)',
+            data                : [65, 59, 80]
+          },
+          {
+            label               : 'Twitter',
+            backgroundColor     : 'rgba(85,172,238,0.9)',
+            borderColor         : 'rgba(85,172,238,0.8)',
+            pointRadius          : false,
+            pointColor          : '#55acee',
+            pointStrokeColor    : 'rgba(60,141,188,1)',
+            pointHighlightFill  : '#fff',
+            pointHighlightStroke: 'rgba(60,141,188,1)',
+            data                : [28, 48, 40]
+          },
+        ]
+      }
+
+      var areaChartOptions = {
+        maintainAspectRatio : false,
+        responsive : true,
+        legend: {
+          display: false
+        },
+        scales: {
+          xAxes: [{
+            gridLines : {
+              display : false,
+            }
+          }],
+          yAxes: [{
+            gridLines : {
+              display : false,
+            }
+          }]
+        }
+      }
+
+      // This will get the first returned node in the jQuery collection.
+      var areaChart       = new Chart(areaChartCanvas, { 
+        type: 'line',
+        data: areaChartData, 
+        options: areaChartOptions
+      })
+
+      //-------------
+      //- LINE CHART -
+      //--------------
+      var lineChartCanvas = $('#lineChart').get(0).getContext('2d')
+      var lineChartOptions = jQuery.extend(true, {}, areaChartOptions)
+      var lineChartData = jQuery.extend(true, {}, areaChartData)
+      lineChartData.datasets[0].fill = false;
+      lineChartData.datasets[1].fill = false;
+      lineChartOptions.datasetFill = false
+
+      var lineChart = new Chart(lineChartCanvas, { 
+        type: 'line',
+        data: lineChartData, 
+        options: lineChartOptions
+      })
+
+      //-------------
+      //- DONUT CHART -
+      //-------------
+      // Get context with jQuery - using jQuery's .get() method.
+      var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
+      var donutData        = {
+        labels: [
+            'Positif', 
+            'Negatif',
+            'Netral', 
+        ],
+        datasets: [
+          {
+            data: [700,500,100],
+            backgroundColor : ['#00a65a', '#f56954', '#d2d6de'],
+          }
+        ]
+      }
+      var donutOptions     = {
+        maintainAspectRatio : false,
+        responsive : true,
+      }
+      //Create pie or douhnut chart
+      // You can switch between pie and douhnut using the method below.
+      var donutChart = new Chart(donutChartCanvas, {
+        type: 'doughnut',
+        data: donutData,
+        options: donutOptions      
+      })
+
+      //-------------
+      //- PIE CHART 1 -
+      //-------------
+      // Get context with jQuery - using jQuery's .get() method.
+      var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+      var pieData        = donutData;
+      var pieOptions     = {
+        maintainAspectRatio : false,
+        responsive : true,
+      }
+      //Create pie or douhnut chart
+      // You can switch between pie and douhnut using the method below.
+      var pieChart = new Chart(pieChartCanvas, {
+        type: 'pie',
+        data: pieData,
+        options: pieOptions      
+      })
+
+      //-------------
+      //- PIE CHART 2 -
+      //-------------
+      // Get context with jQuery - using jQuery's .get() method.
+      var pieChartCanvas = $('#pieChart2').get(0).getContext('2d')
+      var pieData        = donutData;
+      var pieOptions     = {
+        maintainAspectRatio : false,
+        responsive : true,
+      }
+      //Create pie or douhnut chart
+      // You can switch between pie and douhnut using the method below.
+      var pieChart2 = new Chart(pieChartCanvas, {
+        type: 'pie',
+        data: pieData,
+        options: pieOptions      
+      })
+
+      //-------------
+      //- PIE CHART 3 -
+      //-------------
+      // Get context with jQuery - using jQuery's .get() method.
+      var pieChartCanvas = $('#pieChart3').get(0).getContext('2d')
+      var pieData        = donutData;
+      var pieOptions     = {
+        maintainAspectRatio : false,
+        responsive : true,
+      }
+      //Create pie or douhnut chart
+      // You can switch between pie and douhnut using the method below.
+      var pieChart3 = new Chart(pieChartCanvas, {
+        type: 'pie',
+        data: pieData,
+        options: pieOptions      
+      })
+
+      //-------------
+      //- BAR CHART -
+      //-------------
+      var barChartCanvas = $('#barChart').get(0).getContext('2d')
+      var barChartData = jQuery.extend(true, {}, areaChartData)
+      var temp0 = areaChartData.datasets[0]
+      var temp1 = areaChartData.datasets[1]
+      var temp2 = areaChartData.datasets[2]
+      barChartData.datasets[0] = temp0
+      barChartData.datasets[1] = temp1
+      barChartData.datasets[2] = temp2
+
+      var barChartOptions = {
+        responsive              : true,
+        maintainAspectRatio     : false,
+        datasetFill             : false
+      }
+
+      var barChart = new Chart(barChartCanvas, {
+        type: 'bar', 
+        data: barChartData,
+        options: barChartOptions
+      })
+
+      //---------------------
+      //- STACKED BAR CHART -
+      //---------------------
+      var stackedBarChartCanvas = $('#stackedBarChart').get(0).getContext('2d')
+      var stackedBarChartData = jQuery.extend(true, {}, barChartData)
+
+      var stackedBarChartOptions = {
+        responsive              : true,
+        maintainAspectRatio     : false,
+        scales: {
+          xAxes: [{
+            stacked: true,
+          }],
+          yAxes: [{
+            stacked: true
+          }]
+        }
+      }
+
+      var stackedBarChart = new Chart(stackedBarChartCanvas, {
+        type: 'bar', 
+        data: stackedBarChartData,
+        options: stackedBarChartOptions
+      })
+    })
   </script>
 </body>
 
