@@ -15,9 +15,10 @@ class TwitterCrawlerController extends Controller
         $jsonDecoded = json_decode($task,true);
         // print("<pre>".print_r ($jsonDecoded,true)."</pre>");
         // echo ($jsonDecoded['statuses'][0]['user']['screen_name']);
-        $csvFileName = 'twitter.csv';
+        $csvFileName = public_path("file/twitter.csv");
         $columns = array('id_sosmed', 'id_post_sosmed', 'username', 'foto_profile', 'tanggal', 'jam','lokasi ', 'content', 'like', 'dislike', 'share', 'sentiment');
         $file = fopen($csvFileName, 'w');
+        
         fputcsv($file, $columns);
         for ($i = 0; $i < count($jsonDecoded['statuses']); $i++){
             $date = $jsonDecoded['statuses'][$i]['created_at'];
