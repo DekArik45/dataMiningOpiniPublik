@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/tracking', function () {
+    return view('tracking');
+});
+
 Route::get("testing","TestController@index");
 
 Route::get('crawl', "TwitterCrawlerController@crawl");
