@@ -111,7 +111,10 @@
                             <label class="floating-label">Token</label>
                         </div>
                         <div class="example example-buttons">
-                            <button type="button" class="btn btn-success float-right">Update</button>
+                            <button type="button" class="btn btn-success float-right ladda-button" data-style="expand-left"
+                                data-plugin="ladda">
+                                <span class="ladda-label">Update</span>
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -134,7 +137,10 @@
                             <label class="floating-label">Token</label>
                         </div>
                         <div class="example example-buttons">
-                            <button type="button" class="btn btn-success float-right">Update</button>
+                            <button type="button" class="btn btn-success float-right ladda-button" data-style="expand-left"
+                                data-plugin="ladda">
+                                <span class="ladda-label">Update</span>
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -157,7 +163,10 @@
                             <label class="floating-label">Token</label>
                         </div>
                         <div class="example example-buttons">
-                            <button type="button" class="btn btn-success float-right">Update</button>
+                        <button type="button" class="btn btn-success float-right ladda-button" data-style="expand-left"
+                            data-plugin="ladda">
+                            <span class="ladda-label">Update</span>
+                        </button>
                         </div>
                     </form>
                 </div>
