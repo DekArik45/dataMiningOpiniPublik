@@ -17,8 +17,12 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/tracking', function () {
+Route::get('tracking', function () {
     return view('tracking');
+});
+
+Route::get('api', function () {
+    return view('api');
 });
 
 Route::get("testing","TestController@index");

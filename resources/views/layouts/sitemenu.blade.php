@@ -4,21 +4,21 @@
         <div>
           <ul class="site-menu" data-plugin="menu">
             <li class="site-menu-category">Menu</li>
-            <li class="site-menu-item active">
-              <a href="index.html">
+            <li class="site-menu-item {{ (request()->is('/')) ? 'active' : '' }}">
+              <a href="{{ url('/') }}">
                   <i class="site-menu-icon md-view-dashboard" aria-hidden="true"></i>
                   <span class="site-menu-title">Dashboard</span>
               </a>
             </li>
-            <li class="site-menu-item has-sub">
-              <a href="/tracking">
-                  <i class="site-menu-icon md-view-compact" aria-hidden="true"></i>
+            <li class="site-menu-item {{ (request()->is('tracking')) ? 'active' : '' }}">
+              <a href="{{ url('tracking') }}">
+                  <i class="site-menu-icon md-chart" aria-hidden="true"></i>
                   <span class="site-menu-title">Tracking</span>
                   <!-- <span class="site-menu-arrow"></span> -->
               </a>
             </li>
-            <li class="site-menu-item has-sub">
-              <a href="javascript:void(0)">
+            <li class="site-menu-item {{ (request()->is('api')) ? 'active' : '' }}">
+              <a href="{{ url('api') }}">
                 <i class="site-menu-icon md-google-pages" aria-hidden="true"></i>
                 <span class="site-menu-title">API</span>
                 <!-- <span class="site-menu-arrow"></span> -->

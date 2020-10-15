@@ -125,12 +125,10 @@
             </div>
 
             <div class="example example-buttons" style="margin-bottom:0">
-              <div class="float-left">
-                <button type="button" class="btn btn-primary ladda-button" data-style="slide-left"
-                  data-plugin="ladda">
-                  <span class="ladda-label"><i class="icon md-search mr-10" aria-hidden="true"></i>Telusuri Topik</span>
-                </button>
-              </div>
+              <button type="button" class="btn btn-primary float-right ladda-button" data-style="slide-left"
+                data-plugin="ladda">
+                <span class="ladda-label"><i class="icon md-search mr-10" aria-hidden="true"></i>Telusuri Topik</span>
+              </button>
             </div>
 
 

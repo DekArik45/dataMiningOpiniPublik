@@ -65,7 +65,7 @@
     <div class="page-content">
       <!-- Panel 1 -->
       <div class="panel">
-        <div class="panel-body container-fluid" style="height: auto; padding-bottom:0">
+        <div class="panel-body container-fluid">
           <form class="page-search-form" role="search">
 
             <div class="input-search input-search-dark" style="margin-bottom:10px">
