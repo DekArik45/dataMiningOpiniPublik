@@ -263,23 +263,23 @@
                             </div>
                           </div>
                           <div class="media-body align-self-center">
-                            <h5 class="mt-0 mb-5">
+                            <h5 class="mt-0 mb-5" style="display:inline-block;">
                               Nama nya
-                              <small>12 Juli 2020</small>
                             </h5>
+                            <p style="float:right; display:inline-block;"><small>12 Juli 2020</small> &nbsp&nbsp&nbsp&nbsp <small>11.11</small></p>
                             <p>
-                              ...ini tempat teks...
+                              ...ini baris 1... <br>
+                              ...ini baris 2... <br>
+                              ...ini baris 3... <br>
+                              ...ini baris 4... <br>
+                              ...ini baris 5... <br>
                             </p>
                             <p>
                               <i class="icon icon-color md-pin" aria-hidden="true"></i>
                               Lokasi
                             </p>
-                            <div>
-                              <a class="text-action" href="javascript:void(0)">
-                                <i class="icon icon-color md-thumb-up" aria-hidden="true"></i>
-                              </a>
-                              
-                            </div>
+                              <i class="icon icon-color md-thumb-up" aria-hidden="true"></i>
+                              10K
                           </div>
                           <div class="pl-0 pl-sm-20 mt-15 mt-sm-0 align-self-center">
                             <button type="button" class="btn btn-primary btn-sm" data-toggle="button">
@@ -294,6 +294,10 @@
                               <i class="icon md-bookmark text-active" aria-hidden="true"></i>
                               <span class="text-active">Unpin</span>
                             </button>
+                            <div style="margin:10px; text-align: center;">
+                              <p style="font-size:12px; margin-bottom:-5px;">Sentiment</p>
+                              <p style="font-size:25px; font-weight: bold;"> Positif 0.5</p>
+                            </div>
                           </div>
                         </div>
                       </li>
