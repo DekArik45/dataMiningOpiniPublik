@@ -25,6 +25,10 @@ Route::get('api', function () {
     return view('api');
 });
 
+Route::get('keyword', function () {
+    return view('keyword');
+});
+
 Route::get("testing","TestController@index");
 
 Route::get('crawl', "TwitterCrawlerController@crawl");

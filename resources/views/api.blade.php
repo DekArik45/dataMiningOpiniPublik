@@ -148,19 +148,19 @@
                     <form autocomplete="off">
                         <div class="form-group form-material floating" data-plugin="formMaterial">
                             <input type="text" class="form-control" name="inputFloatingText" value="Twitter" />
-                            <label class="floating-label">TWITTER ACCESS TOKEN</label>
+                            <label class="floating-label">Access Token</label>
                         </div>
                         <div class="form-group form-material floating" data-plugin="formMaterial">
                             <input type="text" class="form-control" name="inputFloatingText" />
-                            <label class="floating-label">TWITTER ACCESS TOKEN SECRET</label>
+                            <label class="floating-label">Access Token Secret</label>
                         </div>
                         <div class="form-group form-material floating" data-plugin="formMaterial">
                             <input type="text" class="form-control" name="inputFloatingText" />
-                            <label class="floating-label">TWITTER CONSUMER KEY</label>
+                            <label class="floating-label">Consumer Key</label>
                         </div>
                         <div class="form-group form-material floating" data-plugin="formMaterial">
                             <input type="text" class="form-control" name="inputFloatingText" />
-                            <label class="floating-label">TWITTER CONSUMER SECRET</label>
+                            <label class="floating-label">Consumer Secret</label>
                         </div>
                         <div class="example example-buttons">
                         <button type="button" class="btn btn-success float-right ladda-button" data-style="expand-left"
