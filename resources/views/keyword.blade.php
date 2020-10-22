@@ -34,11 +34,13 @@
   <link rel="stylesheet" href="{{asset('asset/global/vendor/bootstrap-touchspin/bootstrap-touchspin.minfd53.css?v4.0.1')}}">
   <link rel="stylesheet" href="{{asset('asset/global/vendor/ladda/ladda.minfd53.css?v4.0.1')}}">
   <!-- <link rel="stylesheet" href="{{asset('asset/global/vendor/morris/morris.minfd53.css?v4.0.1')}}"> -->
-  
+  <link rel="stylesheet" href="{{asset('asset/global/vendor/jsgrid/jsgrid.minfd53.css?v4.0.1')}}">
+
   <!-- Page -->
   <link rel="stylesheet" href="{{asset('asset/examples/css/pages/user.minfd53.css?v4.0.1')}}">
   <link rel="stylesheet" href="{{asset('asset/examples/css/uikit/buttons.minfd53.css?v4.0.1')}}">
   <!-- <link rel="stylesheet" href="{{asset('asset/examples/css/charts/chartjs.minfd53.css?v4.0.1')}}"> -->
+  <link rel="stylesheet" href="{{asset('asset/assets/examples/css/tables/jsgrid.minfd53.css?v4.0.1')}}">
 
   <!-- Fonts -->
   <link rel="stylesheet" href="{{asset('asset/global/fonts/material-design/material-design.minfd53.css?v4.0.1')}}">
@@ -66,266 +68,49 @@
       <!-- Panel 1 -->
       <div class="panel">
         <div class="panel-body container-fluid">
-          <form class="page-search-form" role="search">
-
-            <div class="input-search input-search-dark" style="margin-bottom:10px">
-              <i class="input-search-icon md-search" aria-hidden="true"></i>
-              <input type="text" class="form-control" id="inputSearch" name="search" placeholder="Search Users">
-              <button type="button" class="input-search-close icon md-close" aria-label="Close"></button>
-            </div>
-
-            <div class="nav-tabs-horizontal nav-tabs-animate" data-plugin="tabs">
-                <div class="dropdown page-user-sortlist">
-                  Urutkan: <a class="dropdown-toggle inline-block" data-toggle="dropdown"
-                    href="#" aria-expanded="false">Waktu</a>
-                  <div class="dropdown-menu animation-scale-up animation-top-right animation-duration-250"
-                    role="menu">
-                    <a class="active dropdown-item" href="javascript:void(0)">Waktu</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Username</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Lokasi</a>
-                    <a class="dropdown-item" href="javascript:void(0)">Jumlah Like</a>
-                  </div>
-                </div>
-
-                <ul class="nav nav-tabs nav-tabs-line" role="tablist">
-                  <li class="nav-item" role="presentation"><a class="active nav-link" data-toggle="tab" href="#facebook_data"
-                      aria-controls="facebook_data" role="tab">Facebook</a></li>
-                  <li class="nav-item" role="presentation"><a class="nav-link" data-toggle="tab" href="#instagram_data" aria-controls="instagram_data"
-                      role="tab">Instagram</a></li>
-                  <li class="nav-item" role="presentation"><a class="nav-link" data-toggle="tab" href="#twitter_data" aria-controls="twitter_data"
-                      role="tab">Twitter</a></li>
-                  <li class="dropdown nav-item" role="presentation">
-                    <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#" aria-expanded="false">Media Sosial</a>
-                    <div class="dropdown-menu" role="menu">
-                      <a class="dropdown-item" data-toggle="tab" href="#facebook_data" aria-controls="facebook_data"
-                        role="tab">Facebook</a>
-                      <a class="active dropdown-item" data-toggle="tab" href="#instagram_data" aria-controls="instagram_data"
-                        role="tab">Instagram</a>
-                      <a class="dropdown-item" data-toggle="tab" href="#twitter_data" aria-controls="twitter_data"
-                        role="tab">Twiiter</a>
-                    </div>
-                  </li>
-                </ul>
-                <div class="tab-content">
-                  <div class="tab-pane animation-fade active" id="facebook_data" role="tabpanel">
-                    <ul class="list-group">
-                      <li class="list-group-item" style="padding: 0;">
-                        <div class="media">
-                          <div class="pr-0 pr-sm-20 align-self-center">
-                            <div class="avatar avatar-online">
-                              <img src="{{asset('asset/global/portraits/1.jpg')}}" alt="...">
-                              <i class="avatar avatar-busy"></i>
-                            </div>
-                          </div>
-                          <div class="media-body align-self-center">
-                            <h5 class="mt-0 mb-5" style="display:inline-block;">
-                              Nama nya
-                            </h5>
-                            <p style="float:right; display:inline-block;"><small>12 Juli 2020</small> &nbsp&nbsp&nbsp&nbsp <small>11.11</small></p>
-                            <p>
-                              ...ini baris 1... <br>
-                              ...ini baris 2... <br>
-                              ...ini baris 3... <br>
-                              ...ini baris 4... <br>
-                              ...ini baris 5... <br>
-                            </p>
-                            <p>
-                              <i class="icon icon-color md-pin" aria-hidden="true"></i>
-                              Lokasi
-                            </p>
-                              <i class="icon icon-color md-thumb-up" aria-hidden="true"></i>
-                              10K
-                          </div>
-                          <div class="pl-0 pl-sm-20 mt-15 mt-sm-0 align-self-center">
-                            <button type="button" class="btn btn-primary btn-sm" data-toggle="button">
-                              <i class="icon md-tag text" aria-hidden="true"></i>
-                              <span class="text">Track</span>
-                              <i class="icon md-check text-active" aria-hidden="true"></i>
-                              <span class="text-active">Tracked</span>
-                            </button>
-                            <button type="button" class="btn btn-success btn-sm" data-toggle="button">
-                              <i class="icon md-book text" aria-hidden="true"></i>
-                              <span class="text">Pin</span>
-                              <i class="icon md-bookmark text-active" aria-hidden="true"></i>
-                              <span class="text-active">Unpin</span>
-                            </button>
-                            <div style="margin:10px; text-align: center;">
-                              <p style="font-size:12px; margin-bottom:-5px;">Sentiment</p>
-                              <p style="font-size:25px; font-weight: bold;"> Positif 0.5</p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="example">
-                          <div class="panel-group panel-group-simple mb-0" id="exampleAccordion" aria-multiselectable="true"
-                            role="tablist">
-                            <div class="panel">
-                              <div class="panel-heading" id="tampilkanDetail" role="tab">
-                                <a class="panel-title collapsed" data-parent="#exampleAccordion" data-toggle="collapse"
-                                  href="#detailKonten" aria-controls="detailKonten"
-                                  aria-expanded="false">
-                                Tampilkan Tracking
-                              </a>
-                              </div>
-                              <div class="panel-collapse collapse" id="detailKonten" aria-labelledby="tampilkanDetail"
-                                role="tabpanel">
-                                <div class="panel-body">
-                                <div class="example table-responsive">
-                                  <table class="table table-hover">
-                                    <thead>
-                                      <tr>
-                                        <th>No</th>
-                                        <th>Tanggal</th>
-                                        <th>Like</th>
-                                        <th>Perkembangan</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                      <tr>
-                                        <td>1</td>
-                                        <td>Milk Powder</td>
-                                        <td>
-                                          <i class="icon md-favorite" aria-hidden="true"></i> 200
-                                        </td>
-                                        <td>
-                                          <span class="text-danger text-semibold"><i class="icon md-chevron-down" aria-hidden="true"></i>                            28.76%</span>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td>2</td>
-                                        <td>Air Conditioner</td>
-                                        <td>
-                                          <span data-plugin="peityLine">1,-1,-2,1,2,1,0,1,3,2</span>
-                                        </td>
-                                        <td>
-                                          <span class="text-warning text-semibold"><i class="icon md-chevron-down" aria-hidden="true"></i>                            8.55%</span>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td>3</td>
-                                        <td>RC Cars</td>
-                                        <td>
-                                          <span data-plugin="peityLine">3,2,3,-1,-3,-1,0,2,4,5</span>
-                                        </td>
-                                        <td>
-                                          <span class="text-success text-semibold"><i class="icon md-chevron-up" aria-hidden="true"></i>                            58.56%</span>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                      </li>
-                    </ul>
-                    <nav>
-                      <ul data-plugin="paginator" data-total="50" data-skin="pagination-no-border"></ul>
-                    </nav>
-                  </div>
-
-                  <div class="tab-pane animation-fade" id="instagram_data" role="tabpanel">
-                    <ul class="list-group">
-                      <li class="list-group-item">
-                        <div class="media">
-                          <div class="pr-0 pr-sm-20 align-self-center">
-                            <div class="avatar avatar-online">
-                              <img src="{{asset('asset/global/portraits/13.jpg')}}" alt="...">
-                              <i></i>
-                            </div>
-                          </div>
-                          <div class="media-body align-self-center">
-                            <h5 class="mt-0 mb-5">
-                              Sarah Graves
-                              <small>Last Access: 1 hour ago</small>
-                            </h5>
-                            <p>
-                              <i class="icon icon-color md-pin" aria-hidden="true"></i>                          Street 4190 W Lone Mountain Rd
-                            </p>
-                            <div>
-                              <a class="text-action" href="javascript:void(0)">
-                              <i class="icon icon-color md-email" aria-hidden="true"></i>
-                            </a>
-                              <a class="text-action" href="javascript:void(0)">
-                              <i class="icon icon-color md-smartphone" aria-hidden="true"></i>
-                            </a>
-                              <a class="text-action" href="javascript:void(0)">
-                              <i class="icon icon-color bd-twitter" aria-hidden="true"></i>
-                            </a>
-                              <a class="text-action" href="javascript:void(0)">
-                              <i class="icon icon-color bd-facebook" aria-hidden="true"></i>
-                            </a>
-                              <a class="text-action" href="javascript:void(0)">
-                              <i class="icon icon-color bd-dribbble" aria-hidden="true"></i>
-                            </a>
-                            </div>
-                          </div>
-                          <div class="pl-0 pl-sm-20 mt-15 mt-sm-0 align-self-center">
-                            <button type="button" class="btn btn-primary btn-sm">Follow</button>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                    <nav>
-                      <ul data-plugin="paginator" data-total="50" data-skin="pagination-no-border"></ul>
-                    </nav>
-                  </div>
-
-                  <div class="tab-pane animation-fade" id="twitter_data" role="tabpanel">
-                    <ul class="list-group">
-                      <li class="list-group-item">
-                        <div class="media">
-                          <div class="pr-0 pr-sm-20 align-self-center">
-                            <div class="avatar avatar-online">
-                              <img src="{{asset('asset/global/portraits/8.jpg')}}" alt="...">
-                              <i></i>
-                            </div>
-                          </div>
-                          <div class="media-body align-self-center">
-                            <h5 class="mt-0 mb-5">
-                              Heather Harper
-                              <small>Last Access: 1 hour ago</small>
-                            </h5>
-                            <p>
-                              <i class="icon icon-color md-pin" aria-hidden="true"></i>                          Street 4393 Kelly Dr
-                            </p>
-                            <div>
-                              <a class="text-action" href="javascript:void(0)">
-                              <i class="icon icon-color md-email" aria-hidden="true"></i>
-                            </a>
-                              <a class="text-action" href="javascript:void(0)">
-                              <i class="icon icon-color md-smartphone" aria-hidden="true"></i>
-                            </a>
-                              <a class="text-action" href="javascript:void(0)">
-                              <i class="icon icon-color bd-twitter" aria-hidden="true"></i>
-                            </a>
-                              <a class="text-action" href="javascript:void(0)">
-                              <i class="icon icon-color bd-facebook" aria-hidden="true"></i>
-                            </a>
-                              <a class="text-action" href="javascript:void(0)">
-                              <i class="icon icon-color bd-dribbble" aria-hidden="true"></i>
-                            </a>
-                            </div>
-                          </div>
-                          <div class="pl-0 pl-sm-20 mt-15 mt-sm-0 align-self-center">
-                            <button type="button" class="btn btn-success btn-sm">
-                              <i class="icon md-check" aria-hidden="true"></i>Following
-                            </button>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                    <nav>
-                      <ul data-plugin="paginator" data-total="50" data-skin="pagination-no-border"></ul>
-                    </nav>
-                  </div>
-                </div>
-              </div>
-
-
+          <div class="btn-group hidden-sm-down" id="exampleToolbar" role="group">
+            <button type="button" class="btn btn-info btn-icon" data-target="#examplePositionCenter" data-toggle="modal">
+              <i class="icon md-plus" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="example table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Keyword</th>
+                  <th>Dari Tanggal</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Pemerintah Bali</td>
+                  <td>
+                    31 Desember 2020
+                  </td>
+                  <td class="text-nowrap">
+                    <button type="button" class="btn btn-danger btn-icon">
+                      <i class="icon md-delete" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Bali</td>
+                  <td>
+                    31 Desember 2020
+                  </td>
+                  <td class="text-nowrap">
+                    <button type="button" class="btn btn-danger btn-icon">
+                      <i class="icon md-delete" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
       <!-- End Panel -->
@@ -337,6 +122,41 @@
 
   <!-- Footer -->
   @include('layouts.footer')
+
+  <!-- Modal -->
+  <!-- Modal -->
+  <div class="modal fade" id="examplePositionCenter" aria-hidden="true" aria-labelledby="examplePositionCenter"
+    role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-simple modal-center">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+          <h4 class="modal-title">Tambah Keyword</h4>
+        </div>
+        <div class="modal-body">
+          <div class="panel-body container-fluid">
+            <form autocomplete="off">
+              <div class="form-group form-material floating" data-plugin="formMaterial">
+                <input type="text" class="form-control" name="keyword" />
+                <label class="floating-label">Keyword</label>
+              </div>
+              <div class="form-group form-material floating" data-plugin="formMaterial">
+                <input type="text" class="form-control" name="dariTanggal" data-plugin="datepicker" />
+                <label class="floating-label">Dari Tanggal</label>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-default btn-pure" data-dismiss="modal">Close</button> -->
+          <button type="button" class="btn btn-success">Simpan</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal -->
 
   <!-- Core  -->
   <script src="{{asset('asset/global/vendor/babel-external-helpers/babel-external-helpersfd53.js?v4.0.1')}}"></script>
@@ -366,6 +186,9 @@
   <!-- <script src="{{asset('asset/global/vendor/morris/morris.minfd53.js?v4.0.1')}}"></script> -->
   <!-- <script src="{{asset('asset/global/vendor/chart-js/Chart.minfd53.js?v4.0.1')}}"></script> -->
   <script src="{{asset('asset/global/vendor/matchheight/jquery.matchHeight-minfd53.js?v4.0.1')}}"></script>
+  <script src="{{asset('asset/global/vendor/jsgrid/jsgrid.minfd53.js?v4.0.1')}}"></script>
+  <script src="{{asset('asset/global/vendor/jquery-ui/jquery-ui.minfd53.js?v4.0.1')}}"></script>
+  <script src="{{asset('asset/global/vendor/jquery-placeholder/jquery.placeholder.minfd53.js?v4.0.1')}}"></script>
 
   <!-- Scripts -->
   <script src="{{asset('asset/global/js/State.minfd53.js?v4.0.1')}}"></script>
@@ -414,6 +237,12 @@
   <script src="{{asset('asset/global/js/Plugin/responsive-tabs.minfd53.js?v4.0.1')}}"></script>
   <script src="{{asset('asset/global/js/Plugin/closeable-tabs.minfd53.js?v4.0.1')}}"></script>
   <script src="{{asset('asset/global/js/Plugin/tabs.minfd53.js?v4.0.1')}}"></script>
+
+  <script src="{{asset('asset/assets/examples/js/tables/jsgrid-db.minfd53.js?v4.0.1')}}"></script>
+  <script src="{{asset('asset/assets/examples/js/tables/jsgrid.minfd53.js?v4.0.1')}}"></script>
+
+  <script src="{{asset('asset/global/js/Plugin/jquery-placeholder.minfd53.js?v4.0.1')}}"></script>
+  <script src="{{asset('asset/global/js/Plugin/material.minfd53.js?v4.0.1')}}"></script>
 
   <!-- ChartJS -->
   <script src="{{asset('asset2/plugins/chart.js/Chart.min.js')}}"></script>

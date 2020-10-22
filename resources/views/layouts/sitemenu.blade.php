@@ -19,8 +19,15 @@
             </li>
             <li class="site-menu-item {{ (request()->is('api')) ? 'active' : '' }}">
               <a href="{{ url('api') }}">
-                <i class="site-menu-icon md-google-pages" aria-hidden="true"></i>
+                <i class="site-menu-icon md-puzzle-piece" aria-hidden="true"></i>
                 <span class="site-menu-title">API</span>
+                <!-- <span class="site-menu-arrow"></span> -->
+              </a>
+            </li>
+            <li class="site-menu-item {{ (request()->is('keyword')) ? 'active' : '' }}">
+              <a href="{{ url('keyword') }}">
+                <i class="site-menu-icon md-google-pages" aria-hidden="true"></i>
+                <span class="site-menu-title">Keyword</span>
                 <!-- <span class="site-menu-arrow"></span> -->
               </a>
             </li>
