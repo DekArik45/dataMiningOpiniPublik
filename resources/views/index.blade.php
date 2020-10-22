@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
   <meta name="description" content="Opini Publik">
   <meta name="author" content="F4">
-
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>Opini Publik</title>
 
   <link rel="apple-touch-icon" href="{{asset('asset/images/Lambang Daerah Provinsi Bali.png')}}">
@@ -38,7 +38,6 @@
   <!-- Page -->
   <link rel="stylesheet" href="{{asset('asset/examples/css/pages/user.minfd53.css?v4.0.1')}}">
   <link rel="stylesheet" href="{{asset('asset/examples/css/uikit/buttons.minfd53.css?v4.0.1')}}">
-  <!-- <link rel="stylesheet" href="{{asset('asset/examples/css/charts/chartjs.minfd53.css?v4.0.1')}}"> -->
 
   <!-- Fonts -->
   <link rel="stylesheet" href="{{asset('asset/global/fonts/material-design/material-design.minfd53.css?v4.0.1')}}">
@@ -52,9 +51,6 @@
   </script>
 </head>
 <body class="animsition page-user">
-  <!--[if lt IE 8]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
 
     @include('layouts.navbar')
 
@@ -78,7 +74,7 @@
               <h4 class="example-title" style="margin-bottom:10px">Judul</h4>
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="text" class="form-control" name="" placeholder="Cari Topik...">
+                    <input type="text" class="form-control" id="keyword" name="" placeholder="Cari Topik...">
                     <span class="input-group-btn">
                       <button type="button" class="btn btn-default disabled"><i class="icon md-search" aria-hidden="true"></i></button>
                     </span>
@@ -102,11 +98,11 @@
                               <span class="input-group-addon">
                               <i class="icon md-calendar" aria-hidden="true"></i>
                               </span>
-                              <input type="text" class="form-control" name="start" />
+                              <input type="text" id="tgl_dari" class="form-control" name="start" />
                           </div>
                           <div class="input-group">
                               <span class="input-group-addon">to</span>
-                              <input type="text" class="form-control" name="end" />
+                              <input type="text" class="form-control" id="tgl_sampai" name="end" />
                           </div>
                           </div>
                       </div>
@@ -116,7 +112,7 @@
                   <div class="example-wrap" style="margin-bottom:10px">
                       <h4 class="example-title" style="margin-bottom:-5px">Jumlah Postingan</h4>
                       <div class="example">
-                      <input type="text" class="form-control" name="touchSpinPrefix" data-plugin="TouchSpin"
+                      <input type="text" class="form-control" id="jumlah_data" name="touchSpinPrefix" data-plugin="TouchSpin"
                     data-min="-1000000000" data-max="1000000000" data-stepinterval="50"
                     data-maxboostedstep="10000000" value="0" />
                       </div>
@@ -125,9 +121,8 @@
             </div>
 
             <div class="example example-buttons" style="margin-bottom:0">
-              <button type="button" class="btn btn-primary float-right ladda-button" data-style="slide-left"
-                data-plugin="ladda">
-                <span class="ladda-label"><i class="icon md-search mr-10" aria-hidden="true"></i>Telusuri Topik</span>
+              <button type="button" class="btn btn-primary float-right ladda-button search-post-button" data-style="slide-left">
+                <span class="ladda-label"><i class="icon md-search mr-10 "  aria-hidden="true"></i>Telusuri Topik</span>
               </button>
             </div>
 
@@ -254,53 +249,7 @@
                 <div class="tab-content">
                   <div class="tab-pane animation-fade active" id="facebook_data" role="tabpanel">
                     <ul class="list-group">
-                      <li class="list-group-item">
-                        <div class="media">
-                          <div class="pr-0 pr-sm-20 align-self-center">
-                            <div class="avatar avatar-online">
-                              <img src="{{asset('asset/global/portraits/1.jpg')}}" alt="...">
-                              <i class="avatar avatar-busy"></i>
-                            </div>
-                          </div>
-                          <div class="media-body align-self-center">
-                            <h5 class="mt-0 mb-5" style="display:inline-block;">
-                              Nama nya
-                            </h5>
-                            <p style="float:right; display:inline-block;"><small>12 Juli 2020</small> &nbsp&nbsp&nbsp&nbsp <small>11.11</small></p>
-                            <p>
-                              ...ini baris 1... <br>
-                              ...ini baris 2... <br>
-                              ...ini baris 3... <br>
-                              ...ini baris 4... <br>
-                              ...ini baris 5... <br>
-                            </p>
-                            <p>
-                              <i class="icon icon-color md-pin" aria-hidden="true"></i>
-                              Lokasi
-                            </p>
-                              <i class="icon icon-color md-thumb-up" aria-hidden="true"></i>
-                              10K
-                          </div>
-                          <div class="pl-0 pl-sm-20 mt-15 mt-sm-0 align-self-center">
-                            <button type="button" class="btn btn-primary btn-sm" data-toggle="button">
-                              <i class="icon md-tag text" aria-hidden="true"></i>
-                              <span class="text">Track</span>
-                              <i class="icon md-check text-active" aria-hidden="true"></i>
-                              <span class="text-active">Tracked</span>
-                            </button>
-                            <button type="button" class="btn btn-success btn-sm" data-toggle="button">
-                              <i class="icon md-book text" aria-hidden="true"></i>
-                              <span class="text">Pin</span>
-                              <i class="icon md-bookmark text-active" aria-hidden="true"></i>
-                              <span class="text-active">Unpin</span>
-                            </button>
-                            <div style="margin:10px; text-align: center;">
-                              <p style="font-size:12px; margin-bottom:-5px;">Sentiment</p>
-                              <p style="font-size:25px; font-weight: bold;"> Positif 0.5</p>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
+                      
                     </ul>
                     <nav>
                       <ul data-plugin="paginator" data-total="50" data-skin="pagination-no-border"></ul>
@@ -355,48 +304,7 @@
                   </div>
 
                   <div class="tab-pane animation-fade" id="twitter_data" role="tabpanel">
-                    <ul class="list-group">
-                      <li class="list-group-item">
-                        <div class="media">
-                          <div class="pr-0 pr-sm-20 align-self-center">
-                            <div class="avatar avatar-online">
-                              <img src="{{asset('asset/global/portraits/8.jpg')}}" alt="...">
-                              <i></i>
-                            </div>
-                          </div>
-                          <div class="media-body align-self-center">
-                            <h5 class="mt-0 mb-5">
-                              Heather Harper
-                              <small>Last Access: 1 hour ago</small>
-                            </h5>
-                            <p>
-                              <i class="icon icon-color md-pin" aria-hidden="true"></i>                          Street 4393 Kelly Dr
-                            </p>
-                            <div>
-                              <a class="text-action" href="javascript:void(0)">
-                              <i class="icon icon-color md-email" aria-hidden="true"></i>
-                            </a>
-                              <a class="text-action" href="javascript:void(0)">
-                              <i class="icon icon-color md-smartphone" aria-hidden="true"></i>
-                            </a>
-                              <a class="text-action" href="javascript:void(0)">
-                              <i class="icon icon-color bd-twitter" aria-hidden="true"></i>
-                            </a>
-                              <a class="text-action" href="javascript:void(0)">
-                              <i class="icon icon-color bd-facebook" aria-hidden="true"></i>
-                            </a>
-                              <a class="text-action" href="javascript:void(0)">
-                              <i class="icon icon-color bd-dribbble" aria-hidden="true"></i>
-                            </a>
-                            </div>
-                          </div>
-                          <div class="pl-0 pl-sm-20 mt-15 mt-sm-0 align-self-center">
-                            <button type="button" class="btn btn-success btn-sm">
-                              <i class="icon md-check" aria-hidden="true"></i>Following
-                            </button>
-                          </div>
-                        </div>
-                      </li>
+                    <ul class="list-group twitter-group-list-item">
                     </ul>
                     <nav>
                       <ul data-plugin="paginator" data-total="50" data-skin="pagination-no-border"></ul>
@@ -444,8 +352,6 @@
   <script src="{{asset('asset/global/vendor/ladda/spin.minfd53.js?v4.0.1')}}"></script>
   <script src="{{asset('asset/global/vendor/ladda/ladda.minfd53.js?v4.0.1')}}"></script>
   <script src="{{asset('asset/global/vendor/raphael/raphael.minfd53.js?v4.0.1')}}"></script>
-  <!-- <script src="{{asset('asset/global/vendor/morris/morris.minfd53.js?v4.0.1')}}"></script> -->
-  <!-- <script src="{{asset('asset/global/vendor/chart-js/Chart.minfd53.js?v4.0.1')}}"></script> -->
 
   <!-- Scripts -->
   <script src="{{asset('asset/global/js/State.minfd53.js?v4.0.1')}}"></script>
@@ -486,15 +392,13 @@
   <script src="{{asset('asset/global/js/Plugin/more-button.minfd53.js?v4.0.1')}}"></script>
   
   <script src="{{asset('asset/global/js/Plugin/ladda.minfd53.js?v4.0.1')}}"></script>
-  
-  <!-- <script src="{{asset('asset/examples/js/charts/morris.minfd53.js?v4.0.1')}}"></script> -->
-
-  <!-- <script src="{{asset('asset/examples/js/charts/chartjs.minfd53.js?v4.0.1')}}"></script> -->
 
   <!-- ChartJS -->
   <script src="{{asset('asset2/plugins/chart.js/Chart.min.js')}}"></script>
   <!-- jQuery -->
   <script src="{{asset('asset2/plugins/jquery/jquery.min.js')}}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="{{asset('myjs/myscript.js')}}"></script>
 
 
   <script>
@@ -506,258 +410,21 @@
         Site.run();
       });
     })(document, window, jQuery);
-  </script>
 
+    $(".search-post-button").click(function(){
+      keyword = $("#keyword").val();
+      tgl_dari = $("#tgl_dari").val();
+      tgl_sampai = $("#tgl_sampai").val();
+      count = $("#jumlah_data").val();
 
-  <!-- Google Analytics -->
-  <script>
-    (function(i, s, o, g, r, a, m) {
-      i['GoogleAnalyticsObject'] = r;
-      i[r] = i[r] || function() {
-        (i[r].q = i[r].q || []).push(arguments)
-      }, i[r].l = 1 * new Date();
-      a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
-      a.async = 1;
-      a.src = g;
-      m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '../../../../../www.google-analytics.com/analytics.js',
-      'ga');
+      getPost(".twitter-group-list-item",".search-post-button",keyword, tgl_dari, tgl_sampai, count);
+    });
 
-    ga('create', 'UA-65522665-1', 'auto');
-    ga('send', 'pageview');
+    
   </script>
 
   <!-- page script -->
   <script>
-    $(function () {
-      /* ChartJS
-      * -------
-      * Here we will create a few charts using ChartJS
-      */
-
-      //--------------
-      //- AREA CHART -
-      //--------------
-
-      // Get context with jQuery - using jQuery's .get() method.
-      var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
-
-      var areaChartData = {
-        labels  : ['Positif', 'Negatif', 'Netral'],
-        datasets: [
-          {
-            label               : 'Facebook',
-            backgroundColor     : 'rgba(59,89,152,0.9)',
-            borderColor         : 'rgba(59,89,152,0.8)',
-            pointRadius          : false,
-            pointColor          : '#3b5998',
-            pointStrokeColor    : 'rgba(60,141,188,1)',
-            pointHighlightFill  : '#fff',
-            pointHighlightStroke: 'rgba(60,141,188,1)',
-            data                : [28, 48, 40]
-          },
-          {
-            label               : 'Instagram',
-            backgroundColor     : 'rgba(210, 214, 222, 1)',
-            borderColor         : 'rgba(210, 214, 222, 1)',
-            pointRadius         : false,
-            pointColor          : 'rgba(210, 214, 222, 1)',
-            pointStrokeColor    : '#c1c7d1',
-            pointHighlightFill  : '#fff',
-            pointHighlightStroke: 'rgba(220,220,220,1)',
-            data                : [65, 59, 80]
-          },
-          {
-            label               : 'Twitter',
-            backgroundColor     : 'rgba(85,172,238,0.9)',
-            borderColor         : 'rgba(85,172,238,0.8)',
-            pointRadius          : false,
-            pointColor          : '#55acee',
-            pointStrokeColor    : 'rgba(60,141,188,1)',
-            pointHighlightFill  : '#fff',
-            pointHighlightStroke: 'rgba(60,141,188,1)',
-            data                : [28, 48, 40]
-          },
-        ]
-      }
-
-      var areaChartOptions = {
-        maintainAspectRatio : false,
-        responsive : true,
-        legend: {
-          display: false
-        },
-        scales: {
-          xAxes: [{
-            gridLines : {
-              display : false,
-            }
-          }],
-          yAxes: [{
-            gridLines : {
-              display : false,
-            }
-          }]
-        }
-      }
-
-      // This will get the first returned node in the jQuery collection.
-      var areaChart       = new Chart(areaChartCanvas, { 
-        type: 'line',
-        data: areaChartData, 
-        options: areaChartOptions
-      })
-
-      //-------------
-      //- LINE CHART -
-      //--------------
-      var lineChartCanvas = $('#lineChart').get(0).getContext('2d')
-      var lineChartOptions = jQuery.extend(true, {}, areaChartOptions)
-      var lineChartData = jQuery.extend(true, {}, areaChartData)
-      lineChartData.datasets[0].fill = false;
-      lineChartData.datasets[1].fill = false;
-      lineChartOptions.datasetFill = false
-
-      var lineChart = new Chart(lineChartCanvas, { 
-        type: 'line',
-        data: lineChartData, 
-        options: lineChartOptions
-      })
-
-      //-------------
-      //- DONUT CHART -
-      //-------------
-      // Get context with jQuery - using jQuery's .get() method.
-      var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
-      var donutData        = {
-        labels: [
-            'Positif', 
-            'Negatif',
-            'Netral', 
-        ],
-        datasets: [
-          {
-            data: [700,500,100],
-            backgroundColor : ['#00a65a', '#f56954', '#d2d6de'],
-          }
-        ]
-      }
-      var donutOptions     = {
-        maintainAspectRatio : false,
-        responsive : true,
-      }
-      //Create pie or douhnut chart
-      // You can switch between pie and douhnut using the method below.
-      var donutChart = new Chart(donutChartCanvas, {
-        type: 'doughnut',
-        data: donutData,
-        options: donutOptions      
-      })
-
-      //-------------
-      //- PIE CHART 1 -
-      //-------------
-      // Get context with jQuery - using jQuery's .get() method.
-      var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
-      var pieData        = donutData;
-      var pieOptions     = {
-        maintainAspectRatio : false,
-        responsive : true,
-      }
-      //Create pie or douhnut chart
-      // You can switch between pie and douhnut using the method below.
-      var pieChart = new Chart(pieChartCanvas, {
-        type: 'pie',
-        data: pieData,
-        options: pieOptions      
-      })
-
-      //-------------
-      //- PIE CHART 2 -
-      //-------------
-      // Get context with jQuery - using jQuery's .get() method.
-      var pieChartCanvas = $('#pieChart2').get(0).getContext('2d')
-      var pieData        = donutData;
-      var pieOptions     = {
-        maintainAspectRatio : false,
-        responsive : true,
-      }
-      //Create pie or douhnut chart
-      // You can switch between pie and douhnut using the method below.
-      var pieChart2 = new Chart(pieChartCanvas, {
-        type: 'pie',
-        data: pieData,
-        options: pieOptions      
-      })
-
-      //-------------
-      //- PIE CHART 3 -
-      //-------------
-      // Get context with jQuery - using jQuery's .get() method.
-      var pieChartCanvas = $('#pieChart3').get(0).getContext('2d')
-      var pieData        = donutData;
-      var pieOptions     = {
-        maintainAspectRatio : false,
-        responsive : true,
-      }
-      //Create pie or douhnut chart
-      // You can switch between pie and douhnut using the method below.
-      var pieChart3 = new Chart(pieChartCanvas, {
-        type: 'pie',
-        data: pieData,
-        options: pieOptions      
-      })
-
-      //-------------
-      //- BAR CHART -
-      //-------------
-      var barChartCanvas = $('#barChart').get(0).getContext('2d')
-      var barChartData = jQuery.extend(true, {}, areaChartData)
-      var temp0 = areaChartData.datasets[0]
-      var temp1 = areaChartData.datasets[1]
-      var temp2 = areaChartData.datasets[2]
-      barChartData.datasets[0] = temp0
-      barChartData.datasets[1] = temp1
-      barChartData.datasets[2] = temp2
-
-      var barChartOptions = {
-        responsive              : true,
-        maintainAspectRatio     : false,
-        datasetFill             : false
-      }
-
-      var barChart = new Chart(barChartCanvas, {
-        type: 'bar', 
-        data: barChartData,
-        options: barChartOptions
-      })
-
-      //---------------------
-      //- STACKED BAR CHART -
-      //---------------------
-      var stackedBarChartCanvas = $('#stackedBarChart').get(0).getContext('2d')
-      var stackedBarChartData = jQuery.extend(true, {}, barChartData)
-
-      var stackedBarChartOptions = {
-        responsive              : true,
-        maintainAspectRatio     : false,
-        scales: {
-          xAxes: [{
-            stacked: true,
-          }],
-          yAxes: [{
-            stacked: true
-          }]
-        }
-      }
-
-      var stackedBarChart = new Chart(stackedBarChartCanvas, {
-        type: 'bar', 
-        data: stackedBarChartData,
-        options: stackedBarChartOptions
-      })
-    })
   </script>
 </body>
 

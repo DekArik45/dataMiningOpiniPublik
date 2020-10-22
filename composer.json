@@ -14,12 +14,8 @@
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^7.24",
         "laravel/tinker": "^2.0",
-<<<<<<< HEAD
-        "sastrawi/sastrawi": "1",
+        "sastrawi/sastrawi": "1.2.0",
         "thujohn/twitter": "^2.3"
-=======
-        "sastrawi/sastrawi": "1.2.0"
->>>>>>> 80b154e8afa409f8e63f65d0bc72f91270f9f629
     },
     "require-dev": {
         "facade/ignition": "^2.0",

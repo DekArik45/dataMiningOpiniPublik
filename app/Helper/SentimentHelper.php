@@ -180,18 +180,20 @@ class SentimentHelper
         $sentiment = DB::table('tm_sentiment')->get();
         foreach ($tf as $word => $value) {
             if (!empty($word)) {
-                foreach ($sentiment as $data) {
-                    $distance = Self::cosineSimilarity($word,$data->kata);
-                    if ($distance > 0.75) {
-                        if ($max < $distance) {
-                            $max = $distance;
-                            $kataSentiment[$i] = $word;
-                            $nilaiSentiment[$i] = $data->sentiment;
-                            $i++;
+                if (strlen($word) > 1) {
+                    foreach ($sentiment as $data) {
+                        $distance = Self::cosineSimilarity($word,$data->kata);
+                        if ($distance > 0.9) {
+                            if ($max < $distance) {
+                                $max = $distance;
+                                $kataSentiment[$i] = $word;
+                                $nilaiSentiment[$i] = $data->sentiment;
+                                $i++;
+                            }
                         }
                     }
+                    $totalKata += $value;
                 }
-                $totalKata += $value;
             }
         }
 
