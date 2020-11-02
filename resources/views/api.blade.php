@@ -251,12 +251,8 @@
   <script src="{{asset('asset/global/js/Plugin/more-button.minfd53.js?v4.0.1')}}"></script>
   
   <script src="{{asset('asset/global/js/Plugin/ladda.minfd53.js?v4.0.1')}}"></script>
+
   
-  <!-- <script src="{{asset('asset/examples/js/charts/morris.minfd53.js?v4.0.1')}}"></script> -->
-
-  <!-- <script src="{{asset('asset/examples/js/charts/chartjs.minfd53.js?v4.0.1')}}"></script> -->
-
-  <script src="{{asset('asset/global/js/Plugin/material.minfd53.js?v4.0.1')}}"></script>
 
   <!-- ChartJS -->
   <script src="{{asset('asset2/plugins/chart.js/Chart.min.js')}}"></script>

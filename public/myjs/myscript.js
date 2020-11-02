@@ -53,18 +53,18 @@ function getPost(listGroupItemElement, searchBtnClassElement, keyword, tgl_dari,
                     value[8]+
                 '</div>'+
                 '<div class="pl-0 pl-sm-20 mt-15 mt-sm-0 align-self-center">'+
-                  '<button type="button" class="btn btn-primary btn-sm" data-toggle="button">'+
+                  '<button type="button" onclick=createTrack() class="btn btn-primary btn-sm" data-toggle="button">'+
                     '<i class="icon md-tag text" aria-hidden="true"></i>'+
                     '<span class="text">Track</span>'+
                     '<i class="icon md-check text-active" aria-hidden="true"></i>'+
                     '<span class="text-active">Tracked</span>'+
                   '</button>'+
-                  '<button type="button" class="btn btn-success btn-sm" data-toggle="button">'+
-                    '<i class="icon md-book text" aria-hidden="true"></i>'+
-                    '<span class="text">Pin</span>'+
-                    '<i class="icon md-bookmark text-active" aria-hidden="true"></i>'+
-                    '<span class="text-active">Unpin</span>'+
-                  '</button>'+
+                  // '<button type="button" class="btn btn-success btn-sm" data-toggle="button">'+
+                  //   '<i class="icon md-book text" aria-hidden="true"></i>'+
+                  //   '<span class="text">Pin</span>'+
+                  //   '<i class="icon md-bookmark text-active" aria-hidden="true"></i>'+
+                  //   '<span class="text-active">Unpin</span>'+
+                  // '</button>'+
                   '<div style="margin:10px; text-align: center;">'+
                     '<p style="font-size:12px; margin-bottom:-5px;">Sentiment</p>'+
                     '<p style="font-size:25px; font-weight: bold;color:'+$color+';"> '+value[12]+' '+value[13].toFixed(3)+'</p>'+

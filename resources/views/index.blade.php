@@ -33,7 +33,6 @@
   <link rel="stylesheet" href="{{asset('asset/global/vendor/bootstrap-datepicker/bootstrap-datepicker.minfd53.css?v4.0.1')}}">
   <link rel="stylesheet" href="{{asset('asset/global/vendor/bootstrap-touchspin/bootstrap-touchspin.minfd53.css?v4.0.1')}}">
   <link rel="stylesheet" href="{{asset('asset/global/vendor/ladda/ladda.minfd53.css?v4.0.1')}}">
-  <!-- <link rel="stylesheet" href="{{asset('asset/global/vendor/morris/morris.minfd53.css?v4.0.1')}}"> -->
   
   <!-- Page -->
   <link rel="stylesheet" href="{{asset('asset/examples/css/pages/user.minfd53.css?v4.0.1')}}">
@@ -94,16 +93,16 @@
                     <h4 class="example-title" style="margin-bottom:-5px">Rentang Hari</h4>
                       <div class="example">
                           <div class="input-daterange" data-plugin="datepicker">
-                          <div class="input-group">
-                              <span class="input-group-addon">
-                              <i class="icon md-calendar" aria-hidden="true"></i>
-                              </span>
-                              <input type="text" id="tgl_dari" class="form-control" name="start" />
-                          </div>
-                          <div class="input-group">
-                              <span class="input-group-addon">to</span>
-                              <input type="text" class="form-control" id="tgl_sampai" name="end" />
-                          </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                <i class="icon md-calendar" aria-hidden="true"></i>
+                                </span>
+                                <input type="text" id="tgl_dari" class="form-control" name="start" />
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">to</span>
+                                <input type="text" class="form-control" id="tgl_sampai" name="end" />
+                            </div>
                           </div>
                       </div>
                   </div>

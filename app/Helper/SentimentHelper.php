@@ -7,9 +7,9 @@ use Sastrawi\Stemmer\StemmerFactory;
 class SentimentHelper
 {
     public static function instance()
-     {
-         return new SentimentHelper();
-     }
+    {
+        return new SentimentHelper();
+    }
 
      public function getDataFromCSV($namaFile="null")
      {
