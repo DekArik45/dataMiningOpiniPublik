@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
   <meta name="description" content="Opini Publik">
   <meta name="author" content="F4">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <title>Opini Publik</title>
 
@@ -60,11 +61,18 @@
 
     @include('layouts.sitemenu')
     
+
   <!-- Page -->
   <div class="page">
     <div class="page-content">
       <!-- Panel 1 -->
       <div class="panel">
+        {{-- @foreach ($data as $item)
+      </br>{{$item->id_post}}
+            @foreach ($item->tracking as $value)
+                {{$value->id_tracking}}
+            @endforeach
+        @endforeach --}}
         <div class="panel-body container-fluid">
           <form class="page-search-form" role="search">
 
@@ -109,118 +117,7 @@
                 <div class="tab-content">
                   <div class="tab-pane animation-fade active" id="facebook_data" role="tabpanel">
                     <ul class="list-group">
-                      <li class="list-group-item" style="padding: 0;">
-                        <div class="media">
-                          <div class="pr-0 pr-sm-20 align-self-center">
-                            <div class="avatar avatar-online">
-                              <img src="{{asset('asset/global/portraits/1.jpg')}}" alt="...">
-                              <i class="avatar avatar-busy"></i>
-                            </div>
-                          </div>
-                          <div class="media-body align-self-center">
-                            <h5 class="mt-0 mb-5" style="display:inline-block;">
-                              Nama nya
-                            </h5>
-                            <p style="float:right; display:inline-block;"><small>12 Juli 2020</small> &nbsp&nbsp&nbsp&nbsp <small>11.11</small></p>
-                            <p>
-                              ...ini baris 1... <br>
-                              ...ini baris 2... <br>
-                              ...ini baris 3... <br>
-                              ...ini baris 4... <br>
-                              ...ini baris 5... <br>
-                            </p>
-                            <p>
-                              <i class="icon icon-color md-pin" aria-hidden="true"></i>
-                              Lokasi
-                            </p>
-                              <i class="icon icon-color md-thumb-up" aria-hidden="true"></i>
-                              10K
-                          </div>
-                          <div class="pl-0 pl-sm-20 mt-15 mt-sm-0 align-self-center">
-                            <button type="button" class="btn btn-primary btn-sm" data-toggle="button">
-                              <i class="icon md-tag text" aria-hidden="true"></i>
-                              <span class="text">Track</span>
-                              <i class="icon md-check text-active" aria-hidden="true"></i>
-                              <span class="text-active">Tracked</span>
-                            </button>
-                            <button type="button" class="btn btn-success btn-sm" data-toggle="button">
-                              <i class="icon md-book text" aria-hidden="true"></i>
-                              <span class="text">Pin</span>
-                              <i class="icon md-bookmark text-active" aria-hidden="true"></i>
-                              <span class="text-active">Unpin</span>
-                            </button>
-                            <div style="margin:10px; text-align: center;">
-                              <p style="font-size:12px; margin-bottom:-5px;">Sentiment</p>
-                              <p style="font-size:25px; font-weight: bold;"> Positif 0.5</p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="example">
-                          <div class="panel-group panel-group-simple mb-0" id="exampleAccordion" aria-multiselectable="true"
-                            role="tablist">
-                            <div class="panel">
-                              <div class="panel-heading" id="tampilkanDetail" role="tab">
-                                <a class="panel-title collapsed" data-parent="#exampleAccordion" data-toggle="collapse"
-                                  href="#detailKonten" aria-controls="detailKonten"
-                                  aria-expanded="false">
-                                Tampilkan Tracking
-                              </a>
-                              </div>
-                              <div class="panel-collapse collapse" id="detailKonten" aria-labelledby="tampilkanDetail"
-                                role="tabpanel">
-                                <div class="panel-body">
-                                <div class="example table-responsive">
-                                  <table class="table table-hover">
-                                    <thead>
-                                      <tr>
-                                        <th>No</th>
-                                        <th>Tanggal</th>
-                                        <th>Like</th>
-                                        <th>Perkembangan</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                      <tr>
-                                        <td>1</td>
-                                        <td>Milk Powder</td>
-                                        <td>
-                                          <i class="icon md-favorite" aria-hidden="true"></i> 200
-                                        </td>
-                                        <td>
-                                          <span class="text-danger text-semibold"><i class="icon md-chevron-down" aria-hidden="true"></i>                            28.76%</span>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td>2</td>
-                                        <td>Air Conditioner</td>
-                                        <td>
-                                          <span data-plugin="peityLine">1,-1,-2,1,2,1,0,1,3,2</span>
-                                        </td>
-                                        <td>
-                                          <span class="text-warning text-semibold"><i class="icon md-chevron-down" aria-hidden="true"></i>                            8.55%</span>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td>3</td>
-                                        <td>RC Cars</td>
-                                        <td>
-                                          <span data-plugin="peityLine">3,2,3,-1,-3,-1,0,2,4,5</span>
-                                        </td>
-                                        <td>
-                                          <span class="text-success text-semibold"><i class="icon md-chevron-up" aria-hidden="true"></i>                            58.56%</span>
-                                        </td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-                                </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-
-                      </li>
+                      
                     </ul>
                     <nav>
                       <ul data-plugin="paginator" data-total="50" data-skin="pagination-no-border"></ul>
@@ -275,48 +172,8 @@
                   </div>
 
                   <div class="tab-pane animation-fade" id="twitter_data" role="tabpanel">
-                    <ul class="list-group">
-                      <li class="list-group-item">
-                        <div class="media">
-                          <div class="pr-0 pr-sm-20 align-self-center">
-                            <div class="avatar avatar-online">
-                              <img src="{{asset('asset/global/portraits/8.jpg')}}" alt="...">
-                              <i></i>
-                            </div>
-                          </div>
-                          <div class="media-body align-self-center">
-                            <h5 class="mt-0 mb-5">
-                              Heather Harper
-                              <small>Last Access: 1 hour ago</small>
-                            </h5>
-                            <p>
-                              <i class="icon icon-color md-pin" aria-hidden="true"></i>                          Street 4393 Kelly Dr
-                            </p>
-                            <div>
-                              <a class="text-action" href="javascript:void(0)">
-                              <i class="icon icon-color md-email" aria-hidden="true"></i>
-                            </a>
-                              <a class="text-action" href="javascript:void(0)">
-                              <i class="icon icon-color md-smartphone" aria-hidden="true"></i>
-                            </a>
-                              <a class="text-action" href="javascript:void(0)">
-                              <i class="icon icon-color bd-twitter" aria-hidden="true"></i>
-                            </a>
-                              <a class="text-action" href="javascript:void(0)">
-                              <i class="icon icon-color bd-facebook" aria-hidden="true"></i>
-                            </a>
-                              <a class="text-action" href="javascript:void(0)">
-                              <i class="icon icon-color bd-dribbble" aria-hidden="true"></i>
-                            </a>
-                            </div>
-                          </div>
-                          <div class="pl-0 pl-sm-20 mt-15 mt-sm-0 align-self-center">
-                            <button type="button" class="btn btn-success btn-sm">
-                              <i class="icon md-check" aria-hidden="true"></i>Following
-                            </button>
-                          </div>
-                        </div>
-                      </li>
+                    <ul class="list-group list-data-twitter">
+                      
                     </ul>
                     <nav>
                       <ul data-plugin="paginator" data-total="50" data-skin="pagination-no-border"></ul>
@@ -419,7 +276,8 @@
   <script src="{{asset('asset2/plugins/chart.js/Chart.min.js')}}"></script>
   <!-- jQuery -->
   <script src="{{asset('asset2/plugins/jquery/jquery.min.js')}}"></script>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="{{asset('myjs/tracking.js')}}"></script>
 
   <script>
     (function(document, window, $) {
@@ -430,259 +288,18 @@
         Site.run();
       });
     })(document, window, jQuery);
+    getPost(".list-data-twitter","");
+    $(".search-post-button").click(function(){
+      keyword = $("#keyword").val();
+      tgl_dari = $("#tgl_dari").val();
+      tgl_sampai = $("#tgl_sampai").val();
+      count = $("#jumlah_data").val();
+
+      getPost(".twitter-group-list-item",".search-post-button",keyword, tgl_dari, tgl_sampai, count);
+    });
+
   </script>
 
-
-  <!-- Google Analytics -->
-  <script>
-    (function(i, s, o, g, r, a, m) {
-      i['GoogleAnalyticsObject'] = r;
-      i[r] = i[r] || function() {
-        (i[r].q = i[r].q || []).push(arguments)
-      }, i[r].l = 1 * new Date();
-      a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
-      a.async = 1;
-      a.src = g;
-      m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '../../../../../www.google-analytics.com/analytics.js',
-      'ga');
-
-    ga('create', 'UA-65522665-1', 'auto');
-    ga('send', 'pageview');
-  </script>
-
-  <!-- page script -->
-  <script>
-    $(function () {
-      /* ChartJS
-      * -------
-      * Here we will create a few charts using ChartJS
-      */
-
-      //--------------
-      //- AREA CHART -
-      //--------------
-
-      // Get context with jQuery - using jQuery's .get() method.
-      var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
-
-      var areaChartData = {
-        labels  : ['Positif', 'Negatif', 'Netral'],
-        datasets: [
-          {
-            label               : 'Facebook',
-            backgroundColor     : 'rgba(59,89,152,0.9)',
-            borderColor         : 'rgba(59,89,152,0.8)',
-            pointRadius          : false,
-            pointColor          : '#3b5998',
-            pointStrokeColor    : 'rgba(60,141,188,1)',
-            pointHighlightFill  : '#fff',
-            pointHighlightStroke: 'rgba(60,141,188,1)',
-            data                : [28, 48, 40]
-          },
-          {
-            label               : 'Instagram',
-            backgroundColor     : 'rgba(210, 214, 222, 1)',
-            borderColor         : 'rgba(210, 214, 222, 1)',
-            pointRadius         : false,
-            pointColor          : 'rgba(210, 214, 222, 1)',
-            pointStrokeColor    : '#c1c7d1',
-            pointHighlightFill  : '#fff',
-            pointHighlightStroke: 'rgba(220,220,220,1)',
-            data                : [65, 59, 80]
-          },
-          {
-            label               : 'Twitter',
-            backgroundColor     : 'rgba(85,172,238,0.9)',
-            borderColor         : 'rgba(85,172,238,0.8)',
-            pointRadius          : false,
-            pointColor          : '#55acee',
-            pointStrokeColor    : 'rgba(60,141,188,1)',
-            pointHighlightFill  : '#fff',
-            pointHighlightStroke: 'rgba(60,141,188,1)',
-            data                : [28, 48, 40]
-          },
-        ]
-      }
-
-      var areaChartOptions = {
-        maintainAspectRatio : false,
-        responsive : true,
-        legend: {
-          display: false
-        },
-        scales: {
-          xAxes: [{
-            gridLines : {
-              display : false,
-            }
-          }],
-          yAxes: [{
-            gridLines : {
-              display : false,
-            }
-          }]
-        }
-      }
-
-      // This will get the first returned node in the jQuery collection.
-      var areaChart       = new Chart(areaChartCanvas, { 
-        type: 'line',
-        data: areaChartData, 
-        options: areaChartOptions
-      })
-
-      //-------------
-      //- LINE CHART -
-      //--------------
-      var lineChartCanvas = $('#lineChart').get(0).getContext('2d')
-      var lineChartOptions = jQuery.extend(true, {}, areaChartOptions)
-      var lineChartData = jQuery.extend(true, {}, areaChartData)
-      lineChartData.datasets[0].fill = false;
-      lineChartData.datasets[1].fill = false;
-      lineChartOptions.datasetFill = false
-
-      var lineChart = new Chart(lineChartCanvas, { 
-        type: 'line',
-        data: lineChartData, 
-        options: lineChartOptions
-      })
-
-      //-------------
-      //- DONUT CHART -
-      //-------------
-      // Get context with jQuery - using jQuery's .get() method.
-      var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
-      var donutData        = {
-        labels: [
-            'Positif', 
-            'Negatif',
-            'Netral', 
-        ],
-        datasets: [
-          {
-            data: [700,500,100],
-            backgroundColor : ['#00a65a', '#f56954', '#d2d6de'],
-          }
-        ]
-      }
-      var donutOptions     = {
-        maintainAspectRatio : false,
-        responsive : true,
-      }
-      //Create pie or douhnut chart
-      // You can switch between pie and douhnut using the method below.
-      var donutChart = new Chart(donutChartCanvas, {
-        type: 'doughnut',
-        data: donutData,
-        options: donutOptions      
-      })
-
-      //-------------
-      //- PIE CHART 1 -
-      //-------------
-      // Get context with jQuery - using jQuery's .get() method.
-      var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
-      var pieData        = donutData;
-      var pieOptions     = {
-        maintainAspectRatio : false,
-        responsive : true,
-      }
-      //Create pie or douhnut chart
-      // You can switch between pie and douhnut using the method below.
-      var pieChart = new Chart(pieChartCanvas, {
-        type: 'pie',
-        data: pieData,
-        options: pieOptions      
-      })
-
-      //-------------
-      //- PIE CHART 2 -
-      //-------------
-      // Get context with jQuery - using jQuery's .get() method.
-      var pieChartCanvas = $('#pieChart2').get(0).getContext('2d')
-      var pieData        = donutData;
-      var pieOptions     = {
-        maintainAspectRatio : false,
-        responsive : true,
-      }
-      //Create pie or douhnut chart
-      // You can switch between pie and douhnut using the method below.
-      var pieChart2 = new Chart(pieChartCanvas, {
-        type: 'pie',
-        data: pieData,
-        options: pieOptions      
-      })
-
-      //-------------
-      //- PIE CHART 3 -
-      //-------------
-      // Get context with jQuery - using jQuery's .get() method.
-      var pieChartCanvas = $('#pieChart3').get(0).getContext('2d')
-      var pieData        = donutData;
-      var pieOptions     = {
-        maintainAspectRatio : false,
-        responsive : true,
-      }
-      //Create pie or douhnut chart
-      // You can switch between pie and douhnut using the method below.
-      var pieChart3 = new Chart(pieChartCanvas, {
-        type: 'pie',
-        data: pieData,
-        options: pieOptions      
-      })
-
-      //-------------
-      //- BAR CHART -
-      //-------------
-      var barChartCanvas = $('#barChart').get(0).getContext('2d')
-      var barChartData = jQuery.extend(true, {}, areaChartData)
-      var temp0 = areaChartData.datasets[0]
-      var temp1 = areaChartData.datasets[1]
-      var temp2 = areaChartData.datasets[2]
-      barChartData.datasets[0] = temp0
-      barChartData.datasets[1] = temp1
-      barChartData.datasets[2] = temp2
-
-      var barChartOptions = {
-        responsive              : true,
-        maintainAspectRatio     : false,
-        datasetFill             : false
-      }
-
-      var barChart = new Chart(barChartCanvas, {
-        type: 'bar', 
-        data: barChartData,
-        options: barChartOptions
-      })
-
-      //---------------------
-      //- STACKED BAR CHART -
-      //---------------------
-      var stackedBarChartCanvas = $('#stackedBarChart').get(0).getContext('2d')
-      var stackedBarChartData = jQuery.extend(true, {}, barChartData)
-
-      var stackedBarChartOptions = {
-        responsive              : true,
-        maintainAspectRatio     : false,
-        scales: {
-          xAxes: [{
-            stacked: true,
-          }],
-          yAxes: [{
-            stacked: true
-          }]
-        }
-      }
-
-      var stackedBarChart = new Chart(stackedBarChartCanvas, {
-        type: 'bar', 
-        data: stackedBarChartData,
-        options: stackedBarChartOptions
-      })
-    })
-  </script>
 </body>
 
 </html>

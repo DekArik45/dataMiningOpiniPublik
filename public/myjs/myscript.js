@@ -24,36 +24,36 @@ function getPost(listGroupItemElement, searchBtnClassElement, keyword, tgl_dari,
             // $(searchBtnClassElement).html(data.msg);
             data.forEach(value => {
               $color = "#757575";
-              if (value[12]=="Positif") {
+              if (value['sentiment']=="Positif") {
                 $color = "#00a65a";
               }
-              else if (value[12] == "Negatif") {
+              else if (value['sentiment'] == "Negatif") {
                 $color = "#f56954";
               }
               html += '<li class="list-group-item">'+
               '<div class="media">'+
                 '<div class="pr-0 pr-sm-20 align-self-center">'+
                   '<div class="avatar avatar-online">'+
-                    '<img src="'+value[3]+'" alt="...">'+
+                    '<img src="'+value['foto_profile']+'" alt="...">'+
                     '<i class="avatar avatar-busy"></i>'+
                   '</div>'+
                 '</div>'+
                 '<div class="media-body align-self-center">'+
                   '<h5 class="mt-0 mb-5" style="display:inline-block;">'+
-                    value[2]+
+                    value['username']+
                   '</h5>'+
                   '<p style="float:right; display:inline-block;">'+
-                    '<small>'+ value[4] +'</small> &nbsp&nbsp&nbsp&nbsp <small>'+value[5]+'</small></p>'+
-                  '<pre style="width: 100%;border: 0px;overflow-x: hidden !important; white-space: pre-wrap;white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;"><p class="content-post"> '+ value[7] +' </p></pre>'+
+                    '<small>'+ value['tanggal'] +'</small> &nbsp&nbsp&nbsp&nbsp <small>'+value['jam']+'</small></p>'+
+                  '<pre style="width: 100%;border: 0px;overflow-x: hidden !important; white-space: pre-wrap;white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;"><p class="content-post"> '+ value['content'] +' </p></pre>'+
                   '<p>'+
                     '<i class="icon icon-color md-pin" aria-hidden="true"></i>'+
-                    value[6]+
+                    value['lokasi']+
                   '</p>'+
                     '<i class="icon icon-color md-thumb-up" aria-hidden="true"></i>'+
-                    value[8]+
+                    value['like']+
                 '</div>'+
                 '<div class="pl-0 pl-sm-20 mt-15 mt-sm-0 align-self-center">'+
-                  '<button type="button" onclick=createTrack() class="btn btn-primary btn-sm" data-toggle="button">'+
+                  '<button type="button" onclick="createTrack('+value['id_post']+', '+value['status_tracking']+');" style="width: 100%;" class="btn btn-primary btn-sm '+(value['status_tracking'] == 1 ? "active": "")+'" data-toggle="button">'+
                     '<i class="icon md-tag text" aria-hidden="true"></i>'+
                     '<span class="text">Track</span>'+
                     '<i class="icon md-check text-active" aria-hidden="true"></i>'+
@@ -67,16 +67,16 @@ function getPost(listGroupItemElement, searchBtnClassElement, keyword, tgl_dari,
                   // '</button>'+
                   '<div style="margin:10px; text-align: center;">'+
                     '<p style="font-size:12px; margin-bottom:-5px;">Sentiment</p>'+
-                    '<p style="font-size:25px; font-weight: bold;color:'+$color+';"> '+value[12]+' '+value[13].toFixed(3)+'</p>'+
+                    '<p style="font-size:25px; font-weight: bold;color:'+$color+';"> '+value['sentiment']+' '+value['nilai_sentiment'].toFixed(3)+'</p>'+
                   '</div>'+
                 '</div>'+
               '</div>'+
             '</li>';
 
-                    if (value[12] == "Positif") {
+                    if (value['sentiment'] == "Positif") {
                         positif += 1;
                     }
-                    else if (value[12] == "Negatif") {
+                    else if (value['sentiment'] == "Negatif") {
                         negatif += 1;
                     }
                     else{
@@ -90,6 +90,29 @@ function getPost(listGroupItemElement, searchBtnClassElement, keyword, tgl_dari,
             
         }
     });
+}
+
+function createTrack(idPost, statusTracking) {
+  if (statusTracking == 1) {
+    statusTracking = 0;
+  }
+  else{
+    statusTracking = 1;
+  }
+  $.ajax({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+    type: 'POST',
+    url: '/update-tracking-from-index',
+    data: {
+        'id_post': idPost,
+        'status_tracking' : statusTracking
+    },
+    success: function (data) {
+      alert("berhasil update");
+    }
+  });
 }
 
 

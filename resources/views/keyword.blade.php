@@ -80,30 +80,20 @@
                 </tr>
               </thead>
               <tbody>
+                @foreach ($data as $item)
                 <tr>
-                  <td>1</td>
-                  <td>Pemerintah Bali</td>
+                  <td>{{$loop->iteration}}</td>
+                  <td>{{$item->keyword}}</td>
                   <td>
-                    31 Desember 2020
+                    {{$item->tanggal}}
                   </td>
                   <td class="text-nowrap">
-                    <button type="button" class="btn btn-danger btn-icon">
-                      <i class="icon md-delete" aria-hidden="true"></i>
-                    </button>
+                    <a class="btn btn-danger btn-icon" href="/delete-keyword/{{$item->id_keyword}}">
+                      <i class="icon md-delete" style="color: white;" aria-hidden="true"></i>
+                    </a>
                   </td>
                 </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Bali</td>
-                  <td>
-                    31 Desember 2020
-                  </td>
-                  <td class="text-nowrap">
-                    <button type="button" class="btn btn-danger btn-icon">
-                      <i class="icon md-delete" aria-hidden="true"></i>
-                    </button>
-                  </td>
-                </tr>
+                @endforeach
               </tbody>
             </table>
           </div>
@@ -131,24 +121,25 @@
           </button>
           <h4 class="modal-title">Tambah Keyword</h4>
         </div>
-        <div class="modal-body">
-          <div class="panel-body container-fluid">
-            <form autocomplete="off">
+        <form autocomplete="off" action="keyword" method="POST">
+          @csrf
+          <div class="modal-body">
+            <div class="panel-body container-fluid">
               <div class="form-group form-material floating" data-plugin="formMaterial">
                 <input type="text" class="form-control" name="keyword" />
                 <label class="floating-label">Keyword</label>
               </div>
               <div class="form-group form-material floating" data-plugin="formMaterial">
-                <input type="text" class="form-control" name="dariTanggal" data-plugin="datepicker" />
+                <input type="text" class="form-control" name="dari_tgl" data-plugin="datepicker" />
                 <label class="floating-label">Dari Tanggal</label>
               </div>
-            </form>
+            </div>
           </div>
-        </div>
-        <div class="modal-footer">
-          <!-- <button type="button" class="btn btn-default btn-pure" data-dismiss="modal">Close</button> -->
-          <button type="button" class="btn btn-success">Simpan</button>
-        </div>
+          <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-default btn-pure" data-dismiss="modal">Close</button> -->
+            <button type="submit" class="btn btn-success">Simpan</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

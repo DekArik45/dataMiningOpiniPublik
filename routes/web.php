@@ -17,20 +17,17 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('tracking', function () {
-    return view('tracking');
-});
 
-Route::get('api', function () {
-    return view('api');
-});
 
-Route::get('keyword', function () {
-    return view('keyword');
-});
-
-Route::get("testing","TestController@index");
-Route::get("ggwp","IndexController@index");
 Route::get('crawl', "TwitterCrawlerController@crawl");
 Route::post('get-data-post', "IndexController@getDataPost");
-Route::get('get-data-post', "IndexController@getDataPost");
+
+Route::get("tracking","TrackingController@index");
+Route::post("get-post-tracking","TrackingController@getPostTracking");
+Route::post("get-tracking","TrackingController@getTracking");
+Route::post('update-tracking-from-index','TrackingController@updateTrackingFromIndex');
+
+Route::get('keyword','KeywordController@index');
+Route::post('keyword','KeywordController@createKeyword');
+Route::put('keyword/{id}','KeywordController@updateKeyword');
+Route::get('delete-keyword/{id}','KeywordController@deleteKeyword');
