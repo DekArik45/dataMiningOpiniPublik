@@ -44,7 +44,7 @@ function getPost(listGroupItemElement, searchBtnClassElement, keyword, tgl_dari,
                   '</h5>'+
                   '<p style="float:right; display:inline-block;">'+
                     '<small>'+ value['tanggal'] +'</small> &nbsp&nbsp&nbsp&nbsp <small>'+value['jam']+'</small></p>'+
-                  '<pre style="width: 100%;border: 0px;overflow-x: hidden !important; white-space: pre-wrap;white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;"><p class="content-post"> '+ value['content'] +' </p></pre>'+
+                  '<pre style="width: 100%;border: 0px;overflow-x: hidden !important; white-space: pre-wrap;white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;"><p class="content-post">'+ value['content'] +' </p></pre>'+
                   '<p>'+
                     '<i class="icon icon-color md-pin" aria-hidden="true"></i>'+
                     value['lokasi']+
