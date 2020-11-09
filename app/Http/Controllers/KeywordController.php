@@ -11,6 +11,7 @@ class KeywordController extends Controller
     {
         $this->data['data'] = DB::table('tb_keyword')
         ->select('id_keyword','keyword',DB::raw('DATE_FORMAT(dari_tgl, "%d %M %Y") as tanggal'))
+        ->where('status','1')
         ->get();
 
         return view('keyword',$this->data);
