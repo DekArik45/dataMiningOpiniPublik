@@ -70,7 +70,7 @@
             </div> -->
 
             <div class="example-wrap" style="margin-bottom:10px">
-              <h4 class="example-title" style="margin-bottom:10px">Judul</h4>
+              <h4 class="example-title" style="margin-bottom:10px">Keyword</h4>
                 <div class="form-group">
                   <div class="input-group">
                     <input type="text" class="form-control" id="keyword" name="" placeholder="Cari Topik...">

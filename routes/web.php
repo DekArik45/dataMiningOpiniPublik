@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/api', function () {
+    return view('api');
+});
+
 
 
 Route::get('crawl', "TwitterCrawlerController@crawl");

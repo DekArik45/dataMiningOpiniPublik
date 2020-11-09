@@ -10,6 +10,35 @@
                   <span class="site-menu-title">Dashboard</span>
               </a>
             </li>
+            <li class="site-menu-item has-sub">
+              <a href="javascript:void(0)">
+                  <i class="site-menu-icon md-view-compact" aria-hidden="true"></i>
+                  <span class="site-menu-title">Master Data</span>
+                  <span class="site-menu-arrow"></span>
+              </a>
+              <ul class="site-menu-sub">
+                <li class="site-menu-item">
+                  <a href="layouts/menu-collapsed.html">
+                    <span class="site-menu-title">Keyword</span>
+                  </a>
+                </li>
+                <li class="site-menu-item">
+                  <a href="layouts/menu-expended.html">
+                    <span class="site-menu-title">Kata Dasar</span>
+                  </a>
+                </li>
+                <li class="site-menu-item">
+                  <a href="layouts/grids.html">
+                    <span class="site-menu-title">Sentimen</span>
+                  </a>
+                </li>
+                <li class="site-menu-item">
+                  <a href="layouts/layout-grid.html">
+                    <span class="site-menu-title">Stopword</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
             <li class="site-menu-item {{ (request()->is('tracking')) ? 'active' : '' }}">
               <a href="{{ url('tracking') }}">
                   <i class="site-menu-icon md-chart" aria-hidden="true"></i>
@@ -31,6 +60,13 @@
                 <!-- <span class="site-menu-arrow"></span> -->
               </a>
             </li>
+            <li class="site-menu-item">
+              <a href="{{ url('logout') }}">
+                <i class="site-menu-icon md-power" aria-hidden="true"></i>
+                <span class="site-menu-title">Logout</span>
+                <!-- <span class="site-menu-arrow"></span> -->
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -38,14 +74,7 @@
 
 <!-- bawah menu -->
     <div class="site-menubar-footer">
-      <a href="javascript: void(0);" class="fold-show" data-placement="top" data-toggle="tooltip"
-        data-original-title="Settings">
-        <span class="icon md-settings" aria-hidden="true"></span>
-      </a>
-      <a href="javascript: void(0);" data-placement="top" data-toggle="tooltip" data-original-title="Lock">
-        <span class="icon md-eye-off" aria-hidden="true"></span>
-      </a>
-      <a href="javascript: void(0);" data-placement="top" data-toggle="tooltip" data-original-title="Logout">
+      <a href="javascript: void(0);" class="fold-show" data-placement="top" data-toggle="tooltip" data-original-title="Logout" style="width: 100%;">
         <span class="icon md-power" aria-hidden="true"></span>
       </a>
     </div>
