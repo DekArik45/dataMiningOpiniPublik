@@ -146,10 +146,6 @@
   <!-- End Modal -->
 
   
-  
-
-  
-
   <!-- Core  -->
   <script src="{{asset('asset/global/vendor/babel-external-helpers/babel-external-helpersfd53.js?v4.0.1')}}"></script>
   <script src="{{asset('asset2/plugins/jquery/jquery.min.js')}}"></script>

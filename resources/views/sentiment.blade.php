@@ -148,19 +148,10 @@
   </div>
   <!-- End Modal -->
 
-
-  <!-- ChartJS -->
-  <script src="{{asset('asset2/plugins/chart.js/Chart.min.js')}}"></script>
-  <!-- jQuery -->
-  <script src="{{asset('asset2/plugins/jquery/jquery.min.js')}}"></script>
-  <script src="{{asset('asset/global/js/Plugin/jquery-placeholder.minfd53.js?v4.0.1')}}"></script>
-  <script src="{{asset('asset/global/js/Plugin/material.minfd53.js?v4.0.1')}}"></script>
-  <script src="{{asset('asset/global/vendor/jquery-ui/jquery-ui.minfd53.js?v4.0.1')}}"></script>
-  <script src="{{asset('asset/global/vendor/jquery-placeholder/jquery.placeholder.minfd53.js?v4.0.1')}}"></script>
-
   <!-- Core  -->
   <script src="{{asset('asset/global/vendor/babel-external-helpers/babel-external-helpersfd53.js?v4.0.1')}}"></script>
-  <script src="{{asset('asset/global/vendor/jquery/jquery.minfd53.js?v4.0.1')}}"></script>
+  <script src="{{asset('asset2/plugins/jquery/jquery.min.js')}}"></script>
+  {{-- <script src="{{asset('asset/global/vendor/jquery/jquery.minfd53.js?v4.0.1')}}"></script> --}}
   <script src="{{asset('asset/global/vendor/popper-js/umd/popper.minfd53.js?v4.0.1')}}"></script>
   <script src="{{asset('asset/global/vendor/bootstrap/bootstrap.minfd53.js?v4.0.1')}}"></script>
   <script src="{{asset('asset/global/vendor/animsition/animsition.minfd53.js?v4.0.1')}}"></script>
@@ -223,6 +214,15 @@
   <script src="{{asset('asset/global/js/Plugin/more-button.minfd53.js?v4.0.1')}}"></script>
   
   <script src="{{asset('asset/global/js/Plugin/ladda.minfd53.js?v4.0.1')}}"></script>
+
+  <!-- ChartJS -->
+  <script src="{{asset('asset2/plugins/chart.js/Chart.min.js')}}"></script>
+  <!-- jQuery -->
+  
+  <script src="{{asset('asset/global/js/Plugin/jquery-placeholder.minfd53.js?v4.0.1')}}"></script>
+  <script src="{{asset('asset/global/js/Plugin/material.minfd53.js?v4.0.1')}}"></script>
+  <script src="{{asset('asset/global/vendor/jquery-ui/jquery-ui.minfd53.js?v4.0.1')}}"></script>
+  <script src="{{asset('asset/global/vendor/jquery-placeholder/jquery.placeholder.minfd53.js?v4.0.1')}}"></script>
   
 
   <script>
