@@ -10,30 +10,25 @@
                   <span class="site-menu-title">Dashboard</span>
               </a>
             </li>
-            <li class="site-menu-item has-sub">
+            <li class="site-menu-item has-sub {{ (request()->is('keyword','katadasar','sentiment','stopword')) ? 'active open' : '' }}">
               <a href="javascript:void(0)">
                   <i class="site-menu-icon md-view-compact" aria-hidden="true"></i>
                   <span class="site-menu-title">Master Data</span>
                   <span class="site-menu-arrow"></span>
               </a>
               <ul class="site-menu-sub">
-                <li class="site-menu-item">
-                  <a href="layouts/menu-collapsed.html">
+                <li class="site-menu-item {{ (request()->is('keyword')) ? 'active' : '' }}">
+                  <a href="{{ url('keyword') }}">
                     <span class="site-menu-title">Keyword</span>
                   </a>
                 </li>
-                <li class="site-menu-item">
-                  <a href="layouts/menu-expended.html">
-                    <span class="site-menu-title">Kata Dasar</span>
+                <li class="site-menu-item {{ (request()->is('sentiment')) ? 'active' : '' }}">
+                  <a href="{{ url('sentiment') }}">
+                    <span class="site-menu-title">Sentiment</span>
                   </a>
                 </li>
-                <li class="site-menu-item">
-                  <a href="layouts/grids.html">
-                    <span class="site-menu-title">Sentimen</span>
-                  </a>
-                </li>
-                <li class="site-menu-item">
-                  <a href="layouts/layout-grid.html">
+                <li class="site-menu-item {{ (request()->is('stopword')) ? 'active' : '' }}">
+                  <a href="{{ url('stopword') }}">
                     <span class="site-menu-title">Stopword</span>
                   </a>
                 </li>
@@ -50,13 +45,6 @@
               <a href="{{ url('api') }}">
                 <i class="site-menu-icon md-puzzle-piece" aria-hidden="true"></i>
                 <span class="site-menu-title">API</span>
-                <!-- <span class="site-menu-arrow"></span> -->
-              </a>
-            </li>
-            <li class="site-menu-item {{ (request()->is('keyword')) ? 'active' : '' }}">
-              <a href="{{ url('keyword') }}">
-                <i class="site-menu-icon md-google-pages" aria-hidden="true"></i>
-                <span class="site-menu-title">Keyword</span>
                 <!-- <span class="site-menu-arrow"></span> -->
               </a>
             </li>

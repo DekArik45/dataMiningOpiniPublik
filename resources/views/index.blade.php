@@ -2,16 +2,7 @@
 <html class="no-js css-menubar" lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-  <meta name="description" content="Opini Publik">
-  <meta name="author" content="F4">
-  <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title>Opini Publik</title>
-
-  <link rel="apple-touch-icon" href="{{asset('asset/images/Lambang Daerah Provinsi Bali.png')}}">
-  <link rel="shortcut icon" href="{{asset('asset/images/Lambang Daerah Provinsi Bali.png')}}">
+  @include('layouts.head')
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="{{asset('asset/global/css/bootstrap.minfd53.css?v4.0.1')}}">
@@ -326,6 +317,11 @@
   <!-- Footer -->
   @include('layouts.footer')
 
+  <!-- jQuery -->
+  <script src="{{asset('asset2/plugins/jquery/jquery.min.js')}}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="{{asset('myjs/myscript.js')}}"></script>
+  
   <!-- Core  -->
   <script src="{{asset('asset/global/vendor/babel-external-helpers/babel-external-helpersfd53.js?v4.0.1')}}"></script>
   <script src="{{asset('asset/global/vendor/jquery/jquery.minfd53.js?v4.0.1')}}"></script>
@@ -373,7 +369,6 @@
   </script>
 
   <!-- Page -->
-
   <script src="{{asset('asset/js/Site.minfd53.js?v4.0.1')}}"></script>
   <script src="{{asset('asset/global/js/Plugin/asscrollable.minfd53.js?v4.0.1')}}"></script>
 
@@ -394,10 +389,6 @@
 
   <!-- ChartJS -->
   <script src="{{asset('asset2/plugins/chart.js/Chart.min.js')}}"></script>
-  <!-- jQuery -->
-  <script src="{{asset('asset2/plugins/jquery/jquery.min.js')}}"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="{{asset('myjs/myscript.js')}}"></script>
 
 
   <script>

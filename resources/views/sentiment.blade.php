@@ -8,7 +8,7 @@
   <meta name="description" content="Opini Publik">
   <meta name="author" content="F4">
 
-  <title>Opini Publik</title>
+  <title>Opini Publik | Sentiment</title>
 
   <link rel="apple-touch-icon" href="{{asset('asset/images/Lambang Daerah Provinsi Bali.png')}}">
   <link rel="shortcut icon" href="{{asset('asset/images/Lambang Daerah Provinsi Bali.png')}}">
@@ -74,13 +74,13 @@
               <thead>
                 <tr>
                   <th>No</th>
-                  <th>Keyword</th>
-                  <th>Dari Tanggal</th>
+                  <th>Kata</th>
+                  <th>Nilai Sentiment</th>
                   <th>Aksi</th>
                 </tr>
               </thead>
               <tbody>
-                @foreach ($data as $item)
+                <!-- @foreach ($data as $item) -->
                 <tr>
                   <td>{{$loop->iteration}}</td>
                   <td>{{$item->keyword}}</td>
@@ -88,12 +88,15 @@
                     {{$item->tanggal}}
                   </td>
                   <td class="text-nowrap">
+                    <a class="btn btn-info btn-icon" href="/delete-keyword/{{$item->id_keyword}}">
+                      <i class="icon md-edit" style="color: white;" aria-hidden="true"></i>
+                    </a>
                     <a class="btn btn-danger btn-icon" href="/delete-keyword/{{$item->id_keyword}}">
                       <i class="icon md-delete" style="color: white;" aria-hidden="true"></i>
                     </a>
                   </td>
                 </tr>
-                @endforeach
+                <!-- @endforeach -->
               </tbody>
             </table>
           </div>

@@ -21,6 +21,18 @@ Route::get('/api', function () {
     return view('api');
 });
 
+Route::get('/coba', function () {
+    return view('coba');
+});
+
+Route::get('/sentiment', function () {
+    return view('sentiment');
+});
+
+Route::get('/stopword', function () {
+    return view('stopword');
+});
+
 
 
 Route::get('crawl', "TwitterCrawlerController@crawl");
