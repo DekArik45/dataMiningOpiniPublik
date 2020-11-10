@@ -394,6 +394,7 @@
 
   <!-- ChartJS -->
   <script src="{{asset('asset2/plugins/chart.js/Chart.min.js')}}"></script>
+  
   <!-- jQuery -->
   <script src="{{asset('asset2/plugins/jquery/jquery.min.js')}}"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

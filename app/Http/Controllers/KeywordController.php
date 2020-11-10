@@ -48,4 +48,19 @@ class KeywordController extends Controller
 
         return redirect('keyword');
     }
+
+    public function uploadSqlDump(Request $req)
+    {
+        
+    }
+
+    public function uploadExcel(Request $req)
+    {
+        
+    }
+
+    public function uploadXML(Request $req)
+    {
+        
+    }
 }
