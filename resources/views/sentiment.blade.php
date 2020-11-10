@@ -80,23 +80,23 @@
                 </tr>
               </thead>
               <tbody>
-                <!-- @foreach ($data as $item) -->
+                @foreach ($data as $item)
                 <tr>
                   <td>{{$loop->iteration}}</td>
-                  <td>{{$item->keyword}}</td>
+                  <td>{{$item->kata}}</td>
                   <td>
-                    {{$item->tanggal}}
+                    {{$item->sentiment}}
                   </td>
                   <td class="text-nowrap">
-                    <a class="btn btn-info btn-icon" href="/delete-keyword/{{$item->id_keyword}}">
+                    <a class="btn btn-info btn-icon" href="/delete-sentiment/{{$item->id_sentiment}}">
                       <i class="icon md-edit" style="color: white;" aria-hidden="true"></i>
                     </a>
-                    <a class="btn btn-danger btn-icon" href="/delete-keyword/{{$item->id_keyword}}">
+                    <a class="btn btn-danger btn-icon" href="/delete-sentiment/{{$item->id_sentiment}}">
                       <i class="icon md-delete" style="color: white;" aria-hidden="true"></i>
                     </a>
                   </td>
                 </tr>
-                <!-- @endforeach -->
+                @endforeach
               </tbody>
             </table>
           </div>

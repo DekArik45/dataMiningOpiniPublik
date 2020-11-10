@@ -2,7 +2,16 @@
 <html class="no-js css-menubar" lang="en">
 
 <head>
-  @include('layouts.head')
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+  <meta name="description" content="Opini Publik">
+  <meta name="author" content="F4">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <title>Opini Publik</title>
+
+  <link rel="apple-touch-icon" href="{{asset('asset/images/Lambang Daerah Provinsi Bali.png')}}">
+  <link rel="shortcut icon" href="{{asset('asset/images/Lambang Daerah Provinsi Bali.png')}}">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="{{asset('asset/global/css/bootstrap.minfd53.css?v4.0.1')}}">
