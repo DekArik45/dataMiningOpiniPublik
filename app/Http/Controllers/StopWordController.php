@@ -15,7 +15,7 @@ class StopWordController extends Controller
         return view('stopword', $this->data);
     }
 
-    public function craete(Request $req)
+    public function create(Request $req)
     {
         DB::table('tm_stopword')
         ->insert([
@@ -30,16 +30,16 @@ class StopWordController extends Controller
         DB::table('tm_stopword')
         ->where('id', $id)
         ->update([
-            'stpwords' => $req->stopwords
+            'stpwords' => $req->stpwords
         ]);
 
         return redirect('stopword');
     }
 
-    public function delete(Request $req)
+    public function delete($id)
     {
         DB::table('tm_stopword')
-        ->where('id', $req->id)
+        ->where('id', $id)
         ->delete();
 
         return redirect('stopword');

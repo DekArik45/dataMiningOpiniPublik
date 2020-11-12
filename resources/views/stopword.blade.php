@@ -8,7 +8,7 @@
   <meta name="description" content="Opini Publik">
   <meta name="author" content="F4">
 
-  <title>Opini Publik</title>
+  <title>Opini Publik | Sentiment</title>
 
   <link rel="apple-touch-icon" href="{{asset('asset/images/Lambang Daerah Provinsi Bali.png')}}">
   <link rel="shortcut icon" href="{{asset('asset/images/Lambang Daerah Provinsi Bali.png')}}">
@@ -75,8 +75,23 @@
       <div class="panel">
         <div class="panel-body container-fluid">
           <div class="btn-group hidden-sm-down" id="exampleToolbar" role="group">
-            <button type="button" class="btn btn-info btn-icon" data-target="#examplePositionCenter" data-toggle="modal">
+            <button type="button" class="btn btn-info btn-icon" data-target="#modalAdd" data-toggle="modal">
               <i class="icon md-plus" aria-hidden="true"></i> Tambah Data
+            </button>
+          </div>
+          <div class="btn-group hidden-sm-down" id="exampleToolbar" role="group">
+            <button type="button" class="btn btn-success btn-icon">
+              <i class="icon md-file-text" aria-hidden="true"></i> File Excel
+            </button>
+          </div>
+          <div class="btn-group hidden-sm-down" id="exampleToolbar" role="group">
+            <button type="button" class="btn social-tumblr btn-icon">
+              <i class="icon md-file-text" aria-hidden="true"></i> File XML
+            </button>
+          </div>
+          <div class="btn-group hidden-sm-down" id="exampleToolbar" role="group">
+            <button type="button" class="btn social-twitter btn-icon">
+              <i class="icon md-file-text" aria-hidden="true"></i> File SQL Dump
             </button>
           </div>
           <div class="example table-responsive">
@@ -84,8 +99,7 @@
               <thead>
                 <tr>
                   <th>No</th>
-                  <th>Keyword</th>
-                  <th>Dari Tanggal</th>
+                  <th>Stopwords</th>
                   <th>Aksi</th>
                 </tr>
               </thead>
@@ -93,12 +107,12 @@
                 @foreach ($data as $item)
                 <tr>
                   <td>{{$loop->iteration}}</td>
-                  <td>{{$item->keyword}}</td>
-                  <td>
-                    {{$item->tanggal}}
-                  </td>
+                  <td>{{$item->stpwords}}</td>
                   <td class="text-nowrap">
-                    <a class="btn btn-danger btn-icon" href="/delete-keyword/{{$item->id_keyword}}">
+                    <a class="edit-button btn btn-info btn-icon" data-target="#modalEdit" data-toggle="modal" data-id="{{$item->id}}" data-stpwords="{{$item->stpwords}}" href="/edit-stopword">
+                      <i class="icon md-edit" style="color: white;" aria-hidden="true"></i>
+                    </a>
+                    <a class="btn btn-danger btn-icon" href="/delete-stopword/{{$item->id}}">
                       <i class="icon md-delete" style="color: white;" aria-hidden="true"></i>
                     </a>
                   </td>
@@ -119,9 +133,8 @@
   <!-- Footer -->
   @include('layouts.footer')
 
-  <!-- Modal -->
-  <!-- Modal -->
-  <div class="modal fade" id="examplePositionCenter" aria-hidden="true" aria-labelledby="examplePositionCenter"
+  <!-- Modal Add -->
+  <div class="modal fade" id="modalAdd" aria-hidden="true" aria-labelledby="modalAdd"
     role="dialog" tabindex="-1">
     <div class="modal-dialog modal-simple modal-center">
       <div class="modal-content">
@@ -131,23 +144,21 @@
           </button>
           <h4 class="modal-title">Tambah Keyword</h4>
         </div>
-        <form autocomplete="off" action="keyword" method="POST">
+        <form autocomplete="off" action="create-stopword" method="POST">
           @csrf
           <div class="modal-body">
             <div class="panel-body container-fluid">
               <div class="form-group form-material floating" data-plugin="formMaterial">
-                <input type="text" class="form-control" name="keyword" />
-                <label class="floating-label">Keyword</label>
-              </div>
-              <div class="form-group form-material floating" data-plugin="formMaterial">
-                <input type="text" class="form-control" name="dari_tgl" data-plugin="datepicker" />
-                <label class="floating-label">Dari Tanggal</label>
+                <input type="text" class="form-control" name="stopword" />
+                <label class="floating-label">Stopwords</label>
               </div>
             </div>
           </div>
           <div class="modal-footer">
             <!-- <button type="button" class="btn btn-default btn-pure" data-dismiss="modal">Close</button> -->
-            <button type="submit" class="btn btn-success">Simpan</button>
+            <button type="submit" class="btn btn-success">
+              <i class="icon md-floppy" aria-hidden="true"></i> Simpan
+            </button>
           </div>
         </form>
       </div>
@@ -155,7 +166,40 @@
   </div>
   <!-- End Modal -->
 
-  
+  <!-- Modal Edit -->
+  <div class="modal fade" id="modalEdit" aria-hidden="true" aria-labelledby="modalEdit"
+    role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-simple modal-center">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+          <h4 class="modal-title">Edit Keyword</h4>
+        </div>
+        <form autocomplete="off" id="form-edit" action="stopword" method="POST">
+          @csrf
+          @method("PUT")
+          <div class="modal-body">
+            <div class="panel-body container-fluid">
+              <div class="form-group form-material floating" data-plugin="formMaterial">
+                <input type="text" class="form-control" name="stpwords" id="stpwords" />
+                <label class="floating-label">Stopword</label>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-default btn-pure" data-dismiss="modal">Close</button> -->
+            <button type="submit" class="btn btn-success">
+              <i class="icon md-floppy" aria-hidden="true"></i> Simpan
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal -->
+
   <!-- Core  -->
   
   <script src="{{asset('asset/global/vendor/babel-external-helpers/babel-external-helpersfd53.js?v4.0.1')}}"></script>
@@ -249,7 +293,6 @@
   <script src="{{asset('asset2/plugins/chart.js/Chart.min.js')}}"></script>
   <!-- jQuery -->
   <script src="{{asset('asset/global/js/Plugin/material.minfd53.js?v4.0.1')}}"></script>
-  
 
   <script>
     (function(document, window, $) {
@@ -260,6 +303,12 @@
         Site.run();
       });
     })(document, window, jQuery);
+
+    $(".edit-button").click(function(){
+        var id = $(this).data('id');
+        $('#stpwords').val($(this).data('stpwords'));
+        $('#form-edit').attr('action', 'update-stopword/'+id);
+    });
   </script>
 
 </body>

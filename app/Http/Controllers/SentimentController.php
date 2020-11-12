@@ -13,7 +13,7 @@ class SentimentController extends Controller
         return view('sentiment', $this->data);
     }
 
-    public function craete(Request $req)
+    public function create(Request $req)
     {
         DB::table('tm_sentiment')->insert([
             'kata'=>$req->kata,
@@ -21,6 +21,15 @@ class SentimentController extends Controller
         ]);
 
         return redirect("sentiment");
+    }
+
+    public function edit($id, Request $req)
+    {
+        $this->datas['datas']=DB::table('tm_sentiment')
+        ->where('id_sentiment',$id)
+        ->get();
+
+        return redirect("sentiment", $this->datas);
     }
 
     public function update($id, Request $req)
@@ -35,10 +44,12 @@ class SentimentController extends Controller
         return redirect("sentiment");
     }
 
-    public function delete(Request $req)
+    public function delete($id)
     {
+        
+        // return $id;
         DB::table('tm_sentiment')
-        ->where('id_sentiment',$req->id_sentiment)
+        ->where('id_sentiment',$id)
         ->delete();
 
         return redirect('sentiment');
