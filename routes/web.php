@@ -33,7 +33,7 @@ Route::get('/stopword', function () {
     return view('stopword');
 });
 
-
+Route::get('test', "IndexController@index");
 
 Route::get('crawl', "TwitterCrawlerController@crawl");
 Route::post('get-data-post', "IndexController@getDataPost");

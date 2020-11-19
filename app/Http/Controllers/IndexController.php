@@ -11,6 +11,22 @@ class IndexController extends Controller
 {
     public function index()
     {
+        $tf[] = array();
+        $content = "Gubernur Koster berdayakan mantan atlet berprestasi jadi pembina: Gubernur Bali Wayan Koster berencana memberdayakan mantan atlet berprestasi menjadi pembina olahraga sebagai bentuk perhatian serius pemerintah setempat kepada mereka";
+
+        $lowerCase = SentimentHelper::instance()->lowerCase($content);
+        
+        $menghilangkanSimbol = SentimentHelper::instance()->menghilangkanSimbol($lowerCase);
+        echo "menghilangkan simbol dan lowercase = ".$menghilangkanSimbol."</br></br>";
+        $stopWord = SentimentHelper::instance()->stopWord($menghilangkanSimbol);
+        echo "stopword = ".$stopWord."</br></br>";
+        $stemming = SentimentHelper::instance()->stemming($stopWord);
+        echo "stemming = ".$stemming."</br></br>";
+        $tf = SentimentHelper::instance()->tfIdf($stemming);
+        echo "tf-idf transform = ";print_r($tf);
+        $sentiment = SentimentHelper::instance()->sentimentAnalysis($tf);
+        echo "</br></br> sentiment = ".$sentiment[0]."</br></br>";
+        echo "nilai sentiment = ".$sentiment[1];
 
     }
 
