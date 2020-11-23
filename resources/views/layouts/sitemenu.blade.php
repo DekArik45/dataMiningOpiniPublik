@@ -10,9 +10,9 @@
                   <span class="site-menu-title">Dashboard</span>
               </a>
             </li>
-            <li class="site-menu-item has-sub {{ (request()->is('keyword','katadasar','sentiment','stopword')) ? 'active open' : '' }}">
+            <li class="site-menu-item has-sub {{ (request()->is('keyword','katadasar','sentiment','stopword','user')) ? 'active open' : '' }}">
               <a href="javascript:void(0)">
-                  <i class="site-menu-icon md-view-compact" aria-hidden="true"></i>
+                  <i class="site-menu-icon md-dns" aria-hidden="true"></i>
                   <span class="site-menu-title">Master Data</span>
                   <span class="site-menu-arrow"></span>
               </a>
@@ -32,18 +32,23 @@
                     <span class="site-menu-title">Stopword</span>
                   </a>
                 </li>
+                <li class="site-menu-item {{ (request()->is('user')) ? 'active' : '' }}">
+                  <a href="{{ url('user') }}">
+                    <span class="site-menu-title">User</span>
+                  </a>
+                </li>
               </ul>
             </li>
             <li class="site-menu-item {{ (request()->is('tracking')) ? 'active' : '' }}">
               <a href="{{ url('tracking') }}">
-                  <i class="site-menu-icon md-chart" aria-hidden="true"></i>
+                  <i class="site-menu-icon md-assignment" aria-hidden="true"></i>
                   <span class="site-menu-title">Tracking</span>
                   <!-- <span class="site-menu-arrow"></span> -->
               </a>
             </li>
             <li class="site-menu-item {{ (request()->is('api')) ? 'active' : '' }}">
               <a href="{{ url('api') }}">
-                <i class="site-menu-icon md-puzzle-piece" aria-hidden="true"></i>
+                <i class="site-menu-icon md-fire" aria-hidden="true"></i>
                 <span class="site-menu-title">API</span>
                 <!-- <span class="site-menu-arrow"></span> -->
               </a>
@@ -61,11 +66,11 @@
     </div>
 
 <!-- bawah menu -->
-    <div class="site-menubar-footer">
+    {{-- <div class="site-menubar-footer">
       <a href="javascript: void(0);" class="fold-show" data-placement="top" data-toggle="tooltip" data-original-title="Logout" style="width: 100%;">
         <span class="icon md-power" aria-hidden="true"></span>
       </a>
-    </div>
+    </div> --}}
 <!-- bawah menu -->
   </div>
 

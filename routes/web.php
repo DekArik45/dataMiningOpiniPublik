@@ -33,6 +33,9 @@ Route::get('/stopword', function () {
     return view('stopword');
 });
 
+Route::get('/login', function () {
+    return view('login');
+});
 
 
 Route::get('crawl', "TwitterCrawlerController@crawl");
@@ -69,3 +72,8 @@ Route::get('delete-stopword/{id}','StopWordController@delete');
 Route::post('stopword-upload-sqldump','StopWordController@uploadSqlDump');
 Route::post('stopword-upload-excel','StopWordController@uploadExcel');
 Route::post('stopword-upload-xml','StopWordController@uploadXML');
+
+//user
+Route::get('user','UsersController@index');
+Route::post('user','UsersController@create');
+Route::get('delete-user/{id}','UsersController@delete');
