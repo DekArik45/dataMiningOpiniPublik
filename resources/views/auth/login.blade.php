@@ -58,7 +58,7 @@
       <div class="page-brand-info">
         <div class="brand">
           <img class="brand-img" src="{{asset('asset/images/bali1.png')}}" alt="...">
-          <h2 class="brand-text font-size-40">DISKOMINFOS</h2>
+          <h2 class="brand-text font-size-40">DISKOMINFOS PEMPROV</h2>
         </div>
         <p class="font-size-20">Sistem Informasi Analisis Sentiment Masyarakat pada Sosial Media.</p>
       </div>
@@ -71,21 +71,41 @@
         <h3 class="font-size-24">Sign In</h3>
         <p>Tell admin to create account.</p>
 
-        <form method="post" action="https://getbootstrapadmin.com/remark/material/base/pages/login-v2.html" autocomplete="off">
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
+
           <div class="form-group form-material floating" data-plugin="formMaterial">
-            <input type="email" class="form-control empty" id="inputEmail" name="email">
+            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+            @error('email')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+
             <label class="floating-label" for="inputEmail">Email</label>
           </div>
+
           <div class="form-group form-material floating" data-plugin="formMaterial">
-            <input type="password" class="form-control empty" id="inputPassword" name="password">
+            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+            @error('password')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+
             <label class="floating-label" for="inputPassword">Password</label>
           </div>
+
           <div class="form-group clearfix">
             <div class="checkbox-custom checkbox-inline checkbox-primary float-left">
-              <input type="checkbox" id="remember" name="checkbox">
+              <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
               <label for="inputCheckbox">Remember me</label>
             </div>
-            <a class="float-right" href="forgot-password.html">Forgot password?</a>
+            
+            @if (Route::has('password.request'))
+                <a class="float-right" href="{{ route('password.request') }}">Forgot password?</a>
+            @endif
           </div>
           <button type="submit" class="btn btn-primary btn-block">Sign in</button>
         </form>

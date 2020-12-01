@@ -87,7 +87,7 @@
                 <tr>
                   <th>No</th>
                   <th>Nama</th>
-                  <th>Username</th>
+                  <th>Email</th>
                   <th>Tipe User</th>
                   <th>Aksi</th>
                 </tr>
@@ -96,11 +96,18 @@
                 @foreach ($data as $item)
                 <tr>
                   <td>{{$loop->iteration}}</td>
-                  <td>{{$item->nama}}</td>
-                  <td>{{$item->username}}</td>
-                  <td>{{$item->tipe_user}}</td>
+                  <td>{{$item->name}}</td>
+                  <td>{{$item->email}}</td>
+                  <td>
+                    @if ($item->is_admin==1)
+                        Admin
+                    @else
+                        Pegawai
+                    @endif
+                    {{-- {{$item->is_admin}} --}}
+                  </td>
                   <td class="text-nowrap">
-                    <a class="btn btn-danger btn-icon" href="/delete-user/{{$item->id_user}}">
+                    <a class="btn btn-danger btn-icon" href="/delete-user/{{$item->id}}">
                       <i class="icon md-delete" style="color: white;" aria-hidden="true"></i>
                     </a>
                   </td>
@@ -138,23 +145,27 @@
           <div class="modal-body">
             <div class="panel-body container-fluid">
               <div class="form-group form-material floating" data-plugin="formMaterial">
-                <input type="text" class="form-control" name="nama" />
+                <input type="text" class="form-control" name="name" />
                 <label class="floating-label">Nama</label>
               </div>
               <div class="form-group form-material floating" data-plugin="formMaterial">
-                <input type="text" class="form-control" name="username" />
-                <label class="floating-label">Username</label>
+                <input type="text" class="form-control" name="email" />
+                <label class="floating-label">Email</label>
               </div>
               <div class="form-group form-material floating" data-plugin="formMaterial">
                 <input type="text" class="form-control" name="password" />
                 <label class="floating-label">Password</label>
               </div>
+              {{-- <div class="form-group form-material floating" data-plugin="formMaterial">
+                <input type="text" class="form-control" name="c-password" />
+                <label class="floating-label">c-Password</label>
+              </div> --}}
               {{-- <div class="example-wrap"> --}}
                 <p style="margin-bottom: -15px; color: #000000;">Tipe User</p>
                 <div class="example">
-                  <select data-plugin="selectpicker" name="tipe_user">
-                    <option value="pegawai">Pegawai</option>
-                    <option value="admin">Admin</option>
+                  <select data-plugin="selectpicker" name="is_admin">
+                    <option value="0">Pegawai</option>
+                    <option value="1">Admin</option>
                   </select>
                 </div>
               {{-- </div> --}}

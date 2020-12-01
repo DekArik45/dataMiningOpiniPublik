@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Users;
+use App\User;
 use Illuminate\Http\Request;
 use DB;
 
@@ -15,8 +15,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $this->data['data'] = DB::table('tb_user')
-        ->select('id_user','nama','username','tipe_user')
+        $this->data['data'] = DB::table('users')
+        ->select('id','name','email','is_admin')
         ->get();
 
         return view('user',$this->data);
@@ -30,11 +30,11 @@ class UsersController extends Controller
     public function create(Request $req)
     {
         //
-        DB::table('tb_user')->insert([
-            'nama'=>$req->nama,
-            'username'=>$req->username,
-            'password'=>$req->password,
-            'tipe_user'=>$req->tipe_user
+        DB::table('users')->insert([
+            'name'=>$req->name,
+            'email'=>$req->email,
+            'password'=>bcrypt($req->password),
+            'is_admin'=>$req->is_admin
         ]);
 
         return redirect('user');
@@ -94,8 +94,8 @@ class UsersController extends Controller
     public function delete($id)
     {
         //
-        DB::table('tb_user')
-        ->where('id_user', $id)
+        DB::table('users')
+        ->where('id', $id)
         ->delete();
 
         return redirect('user');

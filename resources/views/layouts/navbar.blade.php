@@ -48,6 +48,55 @@
     </ul>
     <!-- End Navbar Toolbar -->
   </div>
+  <div class="collapse navbar-collapse navbar-collapse-toolbar" id="example-navbar-toolbar-1" style="margin-right: 35px">
+
+    <!-- Authentication Links -->
+    @guest
+      <ul class="nav navbar-toolbar navbar-right">
+        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+      </ul>
+      {{-- @if (Route::has('register'))
+          <li class="nav-item">
+              <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+          </li>
+      @endif --}}
+    @else
+      <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
+        <li class="nav-item dropdown">
+          <a class="nav-link navbar-avatar" data-toggle="dropdown" href="#" aria-expanded="false">
+            <span class="avatar avatar-online">
+
+              @if (Auth::user()->is_admin==1)
+                <img src="{{asset('asset/global/portraits/11.jpg')}}" alt="...">
+              @else
+                <img src="{{asset('asset/global/portraits/9.jpg')}}" alt="...">
+              @endif
+
+              <i></i>
+            </span>
+          </a>
+          <div class="dropdown-menu" role="menu">
+            <a class="dropdown-item" href="javascript:void(0)" role="menuitem">
+              <i class="icon md-account" aria-hidden="true"></i> {{ Auth::user()->name }}
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{{ route('logout') }}" role="menuitem" onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();">
+              <i class="icon md-power" aria-hidden="true"></i> Logout
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+
+          </div>
+        </li>
+      </ul>
+    @endguest
+
+    {{-- <button type="submit" class="btn btn-default navbar-right navbar-btn">Sign in</button> --}}
+
+  </div>
   <!-- End Navbar Collapse -->
 
   <!-- Site Navbar Seach -->
