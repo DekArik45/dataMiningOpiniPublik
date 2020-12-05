@@ -34,14 +34,11 @@ Route::get('/coba', function () {
 //     return view('stopword');
 // });
 
-<<<<<<< HEAD
 Route::get('test', "IndexController@index");
-=======
 // Route::get('/login', function () {
 //     return view('login');
 // });
 
->>>>>>> 8c6c9f3e7ebe37e4eea31947de97f64b10221273
 
 Route::get('crawl', "TwitterCrawlerController@crawl");
 Route::post('get-data-post', "IndexController@getDataPost");
