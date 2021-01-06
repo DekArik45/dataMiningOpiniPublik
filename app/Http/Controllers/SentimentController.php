@@ -20,7 +20,7 @@ class SentimentController extends Controller
             'sentiment'=>$req->sentiment
         ]);
 
-        return redirect("sentiment");
+        return redirect("sentiment")->with('success', 'Sentimen Berhasil Ditambahkan.');
     }
 
     public function edit($id, Request $req)
@@ -41,7 +41,7 @@ class SentimentController extends Controller
             "sentiment"=>$req->sentiment
         ]);
 
-        return redirect("sentiment");
+        return redirect("sentiment")->with('success', 'Sentimen Berhasil Dirubah.');
     }
 
     public function delete($id)
@@ -52,7 +52,7 @@ class SentimentController extends Controller
         ->where('id_sentiment',$id)
         ->delete();
 
-        return redirect('sentiment');
+        return redirect('sentiment')->with('success', 'Sentimen Berhasil Dihapus.');
     }
 
     public function uploadSqlDump(Request $req)

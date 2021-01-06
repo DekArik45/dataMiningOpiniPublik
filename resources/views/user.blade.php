@@ -63,6 +63,13 @@
   <script>
     Breakpoints();
   </script>
+  <script>
+    var msg = '{{Session::get('alert')}}';
+    var exist = '{{Session::has('alert')}}';
+    if(exist){
+      alert(msg);
+    }
+  </script>
 </head>
 <body class="animsition page-user">
 
@@ -73,6 +80,9 @@
   <!-- Page -->
   <div class="page">
     <div class="page-content">
+
+      @include('flash-message')
+
       <!-- Panel 1 -->
       <div class="panel">
         <div class="panel-body container-fluid">
@@ -181,6 +191,13 @@
   </div>
   <!-- End Modal -->
 
+  <script>
+    window.setTimeout(function() {
+      $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+      });
+    }, 5000);
+  </script>
   
   <!-- Core  -->
   

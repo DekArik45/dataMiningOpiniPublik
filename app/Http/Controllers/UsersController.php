@@ -37,7 +37,7 @@ class UsersController extends Controller
             'is_admin'=>$req->is_admin
         ]);
 
-        return redirect('user');
+        return redirect('user')->with('success', 'Data Berhasil Ditambahkan.');
     }
 
     /**
@@ -104,6 +104,6 @@ class UsersController extends Controller
         ->where('id', $id)
         ->delete();
 
-        return redirect('user');
+        return redirect('user')->with('success', 'Data Berhasil Dihapus.');
     }
 }

@@ -51,13 +51,13 @@ class LoginController extends Controller
         if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
         {
             if (auth()->user()->is_admin == 1) {
-                return redirect()->route('admin.home')->with('success', 'Selamat Anda Berhasil Login Sebagai Admin.');
+                return redirect()->route('admin.home')->with('success', 'Login Berhasil! Anda Login Sebagai Admin.');
             }else{
                 return redirect()->route('home')->with('success','Selamat Anda Berhasil Login.');
             }
         }else{
             return redirect()->route('login')
-                ->with('error','Email atau Password Salah!.');
+                ->with('error','Login Gagal! Email atau Password Salah!');
         }
           
     }

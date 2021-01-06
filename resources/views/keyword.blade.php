@@ -61,6 +61,13 @@
   <script>
     Breakpoints();
   </script>
+  <script>
+    var msg = '{{Session::get('alert')}}';
+    var exist = '{{Session::has('alert')}}';
+    if(exist){
+      alert(msg);
+    }
+  </script>
 </head>
 <body class="animsition page-user">
 
@@ -71,6 +78,9 @@
   <!-- Page -->
   <div class="page">
     <div class="page-content">
+
+      @include('flash-message')
+
       <!-- Panel 1 -->
       <div class="panel">
         <div class="panel-body container-fluid">
@@ -120,7 +130,6 @@
   @include('layouts.footer')
 
   <!-- Modal -->
-  <!-- Modal -->
   <div class="modal fade" id="examplePositionCenter" aria-hidden="true" aria-labelledby="examplePositionCenter"
     role="dialog" tabindex="-1">
     <div class="modal-dialog modal-simple modal-center">
@@ -136,11 +145,11 @@
           <div class="modal-body">
             <div class="panel-body container-fluid">
               <div class="form-group form-material floating" data-plugin="formMaterial">
-                <input type="text" class="form-control" name="keyword" />
+                <input type="text" class="form-control" name="keyword" required/>
                 <label class="floating-label">Keyword</label>
               </div>
               <div class="form-group form-material floating" data-plugin="formMaterial">
-                <input type="text" class="form-control" name="dari_tgl" data-plugin="datepicker" />
+                <input type="text" class="form-control" name="dari_tgl" data-plugin="datepicker" required/>
                 <label class="floating-label">Dari Tanggal</label>
               </div>
             </div>
@@ -155,6 +164,13 @@
   </div>
   <!-- End Modal -->
 
+  <script>
+    window.setTimeout(function() {
+      $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+      });
+    }, 5000);
+  </script>
   
   <!-- Core  -->
   

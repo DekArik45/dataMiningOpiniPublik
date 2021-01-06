@@ -9,7 +9,7 @@
               <li class="site-menu-item {{ (request()->is('home')) ? 'active' : '' }}">
                 <a href="{{ url('/home') }}">
                     <i class="site-menu-icon md-view-dashboard" aria-hidden="true"></i>
-                    <span class="site-menu-title">Dashboard</span>
+                    <span class="site-menu-title">Beranda</span>
                 </a>
               </li>
               <li class="site-menu-item {{ (request()->is('tracking')) ? 'active' : '' }}">
@@ -30,7 +30,7 @@
               <li class="site-menu-item {{ (request()->is('admin/home')) ? 'active' : '' }}">
                 <a href="{{ url('/admin/home') }}">
                     <i class="site-menu-icon md-view-dashboard" aria-hidden="true"></i>
-                    <span class="site-menu-title">Dashboard</span>
+                    <span class="site-menu-title">Beranda</span>
                 </a>
               </li>
               <li class="site-menu-item has-sub {{ (request()->is('keyword','katadasar','sentiment','stopword','user')) ? 'active open' : '' }}">
@@ -72,6 +72,16 @@
                     <span class="site-menu-title">Tracking</span>
                     <!-- <span class="site-menu-arrow"></span> -->
                 </a>
+              </li>
+              <li class="site-menu-item">
+                <a href="{{ route('logout') }}" role="menuitem" onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+                    <i class="site-menu-icon md-power" aria-hidden="true"></i>
+                    <span class="site-menu-title">Logout</span>
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+                </form>
               </li>
               {{-- <li class="site-menu-item {{ (request()->is('api')) ? 'active' : '' }}">
                 <a href="{{ url('api') }}">

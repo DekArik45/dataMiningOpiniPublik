@@ -93,7 +93,7 @@
             </div> -->
 
             <div class="example-wrap" style="margin-bottom:10px">
-              <h4 class="example-title" style="margin-bottom:10px">Keyword</h4>
+              <h4 class="example-title" style="margin-bottom:10px">Kata Kunci</h4>
                 <div class="form-group">
                   <div class="input-group">
                     <input type="text" class="form-control" id="keyword" name="" placeholder="Cari Topik...">
@@ -456,7 +456,7 @@
       $(".alert").fadeTo(500, 0).slideUp(500, function(){
         $(this).remove(); 
       });
-    }, 5000);
+    }, 10000);
   </script>
 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
