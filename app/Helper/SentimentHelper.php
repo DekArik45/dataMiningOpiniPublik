@@ -85,10 +85,22 @@ class SentimentHelper
         //     $menghilangkanSimbol = $this->menghilangkanSimbol($lowerCase);
         //     $stopWord = $this->stopWord($menghilangkanSimbol);
         //     $stemming = $this->lowerCase($stopWord);
-            $words = explode(" ", $string);
+        //perulangan sentiment dan jumlahkan berdasarkan kata di sentiment jika tidak terdapat kata yang bersangkutan di sentiment maka langsung jumlah kan saja
+        $tf = array();
+        $dataSentiment = DB::table('tm_sentiment')->orderBy('jumlah_kata','DESC')->get();
+        foreach ($dataSentiment as $value) {
+            if (str_contains($string, $value->kata)) {
+                $tf[$value->kata] = substr_count($string, $value->kata);
+                $string = str_replace($value->kata,"",$string);
+            }    
+        }
+        return $tf;
+
+            // $words = explode(" ", $string);
             //tf
-            $tf  = array_count_values($words);
-            return $tf;
+            
+            // $tf  = array_count_values($words);
+            // return $tf;
             // foreach ($tf as $word => $value) {
             //     echo $word.":".$value."<br>";
             // }
@@ -176,7 +188,7 @@ class SentimentHelper
         $kataSentiment = array();
         $nilaiSentiment = array();
         $totalKata = 0;
-
+        //perulangan tm sentiment check jumlah word sentiment 
         $sentiment = DB::table('tm_sentiment')->get();
         foreach ($tf as $word => $value) {
             if (!empty($word)) {

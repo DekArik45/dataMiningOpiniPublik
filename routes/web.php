@@ -34,6 +34,7 @@ Route::get('/forgotpassword', function () {
 //     return view('stopword');
 // });
 
+Route::get('test', "IndexController@index");
 // Route::get('/login', function () {
 //     return view('login');
 // });
