@@ -80,9 +80,15 @@ class UsersController extends Controller
      * @param  \App\Users  $users
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Users $users)
+    public function update(Request $req)
     {
-        //
+        DB::table('users')
+        ->where('email',$req->email)
+        ->update([
+            "password"=>bcrypt($req->password) 
+        ]);
+
+        return redirect("/");
     }
 
     /**

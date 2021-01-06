@@ -142,14 +142,14 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
-          <h4 class="modal-title">Tambah Keyword</h4>
+          <h4 class="modal-title">Tambah Stopword</h4>
         </div>
         <form autocomplete="off" action="create-stopword" method="POST">
           @csrf
           <div class="modal-body">
             <div class="panel-body container-fluid">
               <div class="form-group form-material floating" data-plugin="formMaterial">
-                <input type="text" class="form-control" name="stopword" />
+                <input type="text" class="form-control" name="stopword" required />
                 <label class="floating-label">Stopwords</label>
               </div>
             </div>
@@ -175,7 +175,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
-          <h4 class="modal-title">Edit Keyword</h4>
+          <h4 class="modal-title">Edit Stopword</h4>
         </div>
         <form autocomplete="off" id="form-edit" action="stopword" method="POST">
           @csrf
@@ -183,7 +183,7 @@
           <div class="modal-body">
             <div class="panel-body container-fluid">
               <div class="form-group form-material floating" data-plugin="formMaterial">
-                <input type="text" class="form-control" name="stpwords" id="stpwords" />
+                <input type="text" class="form-control" value ="stpwords" name="stpwords" id="stpwords" required />
                 <label class="floating-label">Stopword</label>
               </div>
             </div>

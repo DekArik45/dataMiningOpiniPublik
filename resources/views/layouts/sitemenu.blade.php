@@ -19,13 +19,13 @@
                     <!-- <span class="site-menu-arrow"></span> -->
                 </a>
               </li>
-              <li class="site-menu-item {{ (request()->is('api')) ? 'active' : '' }}">
+              {{-- <li class="site-menu-item {{ (request()->is('api')) ? 'active' : '' }}">
                 <a href="{{ url('api') }}">
                   <i class="site-menu-icon md-fire" aria-hidden="true"></i>
                   <span class="site-menu-title">API</span>
                   <!-- <span class="site-menu-arrow"></span> -->
                 </a>
-              </li> 
+              </li>  --}}
             @else
               <li class="site-menu-item {{ (request()->is('admin/home')) ? 'active' : '' }}">
                 <a href="{{ url('/admin/home') }}">
@@ -43,19 +43,19 @@
                   <li class="site-menu-item {{ (request()->is('keyword')) ? 'active' : '' }}">
                     <a href="{{ url('keyword') }}">
                       <i class="site-menu-icon md-key" aria-hidden="true"></i>
-                      <span class="site-menu-title">Keyword</span>
+                      <span class="site-menu-title">Kata Kunci</span>
                     </a>
                   </li>
                   <li class="site-menu-item {{ (request()->is('sentiment')) ? 'active' : '' }}">
                     <a href="{{ url('sentiment') }}">
                       <i class="site-menu-icon md-chart" aria-hidden="true"></i>
-                      <span class="site-menu-title">Sentiment</span>
+                      <span class="site-menu-title">Sentimen</span>
                     </a>
                   </li>
                   <li class="site-menu-item {{ (request()->is('stopword')) ? 'active' : '' }}">
                     <a href="{{ url('stopword') }}">
                       <i class="site-menu-icon md-file" aria-hidden="true"></i>
-                      <span class="site-menu-title">Stopword</span>
+                      <span class="site-menu-title">Kata Hubung</span>
                     </a>
                   </li>
                   <li class="site-menu-item {{ (request()->is('user')) ? 'active' : '' }}">
@@ -73,13 +73,13 @@
                     <!-- <span class="site-menu-arrow"></span> -->
                 </a>
               </li>
-              <li class="site-menu-item {{ (request()->is('api')) ? 'active' : '' }}">
+              {{-- <li class="site-menu-item {{ (request()->is('api')) ? 'active' : '' }}">
                 <a href="{{ url('api') }}">
                   <i class="site-menu-icon md-fire" aria-hidden="true"></i>
                   <span class="site-menu-title">API</span>
                   <!-- <span class="site-menu-arrow"></span> -->
                 </a>
-              </li>
+              </li> --}}
             @endif
 
             {{-- <li class="site-menu-item">

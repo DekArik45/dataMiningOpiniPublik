@@ -154,11 +154,11 @@
           <div class="modal-body">
             <div class="panel-body container-fluid">
               <div class="form-group form-material floating" data-plugin="formMaterial">
-                <input type="text" class="form-control" name="kata" />
+                <input type="text" class="form-control" name="kata" required/>
                 <label class="floating-label">Kata</label>
               </div>
               <div class="form-group form-material floating" data-plugin="formMaterial">
-                <input type="number" class="form-control" name="sentiment" />
+                <input type="number" class="form-control" name="sentiment" required/>
                 <label class="floating-label">Nilai Sentiment</label>
               </div>
             </div>
@@ -192,11 +192,11 @@
           <div class="modal-body">
             <div class="panel-body container-fluid">
               <div class="form-group form-material floating" data-plugin="formMaterial">
-                <input type="text" class="form-control" name="kata" id="kata" />
+                <input type="text" class="form-control" value ="kata" name="kata" id="kata" required/>
                 <label class="floating-label">Kata</label>
               </div>
               <div class="form-group form-material floating" data-plugin="formMaterial">
-                <input type="number" class="form-control" name="sentiment" id="sentiment" />
+                <input type="number" class="form-control" value ="1" name="sentiment" id="sentiment" required/>
                 <label class="floating-label">Nilai Sentiment</label>
               </div>
             </div>

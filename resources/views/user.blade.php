@@ -145,15 +145,15 @@
           <div class="modal-body">
             <div class="panel-body container-fluid">
               <div class="form-group form-material floating" data-plugin="formMaterial">
-                <input type="text" class="form-control" name="name" />
+                <input type="text" class="form-control" name="name" required/>
                 <label class="floating-label">Nama</label>
               </div>
               <div class="form-group form-material floating" data-plugin="formMaterial">
-                <input type="text" class="form-control" name="email" />
+                <input type="email" class="form-control" name="email" required/>
                 <label class="floating-label">Email</label>
               </div>
               <div class="form-group form-material floating" data-plugin="formMaterial">
-                <input type="text" class="form-control" name="password" />
+                <input type="password" class="form-control" name="password" required/>
                 <label class="floating-label">Password</label>
               </div>
               {{-- <div class="form-group form-material floating" data-plugin="formMaterial">

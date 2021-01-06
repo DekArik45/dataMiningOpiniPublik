@@ -7,6 +7,7 @@ use DB;
 
 class StopWordController extends Controller
 {
+    // makek useDB itu namanya eloquent
     public function index()
     {
         $this->data['data'] = DB::table('tm_stopword')

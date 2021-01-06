@@ -20,6 +20,8 @@
     .w3-left, .w3-right {height:15px;width:15px;margin-bottom:35px}
   </style>
 
+{{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> --}}
+
   <link rel="stylesheet" href="{{asset('asset/css/w3.css')}}">
 
   <!-- Stylesheets -->
@@ -58,16 +60,27 @@
   <script>
     Breakpoints();
   </script>
+  <script>
+    var msg = '{{Session::get('alert')}}';
+    var exist = '{{Session::has('alert')}}';
+    if(exist){
+      alert(msg);
+    }
+  </script>
 </head>
 <body class="animsition page-user">
 
     @include('layouts.navbar')
 
     @include('layouts.sitemenu')
+
     
   <!-- Page -->
   <div class="page">
     <div class="page-content">
+
+      @include('flash-message')
+
       <!-- Panel 1 -->
       <div class="panel">
         <div class="panel-body container-fluid" style="height: auto; padding-bottom:0">
@@ -437,6 +450,17 @@
 
   <!-- Footer -->
   @include('layouts.footer')
+
+  <script>
+    window.setTimeout(function() {
+      $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+      });
+    }, 5000);
+  </script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
   <!-- jQuery -->
   <script src="{{asset('asset2/plugins/jquery/jquery.min.js')}}"></script>
