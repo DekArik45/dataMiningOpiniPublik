@@ -195,6 +195,11 @@
   <!-- Footer -->
   @include('layouts.footer')
 
+  <!-- jQuery -->
+  <script src="{{asset('asset2/plugins/jquery/jquery.min.js')}}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="{{asset('myjs/tracking.js')}}"></script>
+  
   <!-- Core  -->
   <script src="{{asset('asset/global/vendor/babel-external-helpers/babel-external-helpersfd53.js?v4.0.1')}}"></script>
   <script src="{{asset('asset/global/vendor/jquery/jquery.minfd53.js?v4.0.1')}}"></script>
@@ -274,10 +279,6 @@
 
   <!-- ChartJS -->
   <script src="{{asset('asset2/plugins/chart.js/Chart.min.js')}}"></script>
-  <!-- jQuery -->
-  <script src="{{asset('asset2/plugins/jquery/jquery.min.js')}}"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="{{asset('myjs/tracking.js')}}"></script>
 
   <script>
     (function(document, window, $) {

@@ -22,8 +22,8 @@ Route::get('/api', function () {
     return view('api');
 });
 
-Route::get('/coba', function () {
-    return view('coba');
+Route::get('/forgotpassword', function () {
+    return view('forgotpassword');
 });
 
 // Route::get('/sentiment', function () {
@@ -90,3 +90,5 @@ Route::group(['middleware' => ['is_admin']], function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('forgotpassword','UsersController@update');

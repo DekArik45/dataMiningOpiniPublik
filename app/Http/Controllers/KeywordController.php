@@ -26,7 +26,7 @@ class KeywordController extends Controller
             'status'=>1
         ]);
 
-        return redirect('keyword');
+        return redirect('keyword')->with('success', 'Kata Kunci Berhasil Ditambahkan.');
     }
 
     public function updateKeyword($id,Request $req)
@@ -46,7 +46,7 @@ class KeywordController extends Controller
             'status'=>0
         ]);
 
-        return redirect('keyword');
+        return redirect('keyword')->with('info', 'Kata Kunci Dinonaktifkan.');
     }
 
     public function uploadSqlDump(Request $req)

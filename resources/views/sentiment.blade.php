@@ -62,6 +62,13 @@
   <script>
     Breakpoints();
   </script>
+  <script>
+    var msg = '{{Session::get('alert')}}';
+    var exist = '{{Session::has('alert')}}';
+    if(exist){
+      alert(msg);
+    }
+  </script>
 </head>
 <body class="animsition page-user">
 
@@ -72,6 +79,9 @@
   <!-- Page -->
   <div class="page">
     <div class="page-content">
+
+      @include('flash-message')
+
       <!-- Panel 1 -->
       <div class="panel">
         <div class="panel-body container-fluid">
@@ -154,11 +164,11 @@
           <div class="modal-body">
             <div class="panel-body container-fluid">
               <div class="form-group form-material floating" data-plugin="formMaterial">
-                <input type="text" class="form-control" name="kata" />
+                <input type="text" class="form-control" name="kata" required/>
                 <label class="floating-label">Kata</label>
               </div>
               <div class="form-group form-material floating" data-plugin="formMaterial">
-                <input type="number" class="form-control" name="sentiment" />
+                <input type="number" class="form-control" name="sentiment" required/>
                 <label class="floating-label">Nilai Sentiment</label>
               </div>
             </div>
@@ -192,11 +202,11 @@
           <div class="modal-body">
             <div class="panel-body container-fluid">
               <div class="form-group form-material floating" data-plugin="formMaterial">
-                <input type="text" class="form-control" name="kata" id="kata" />
+                <input type="text" class="form-control" value ="kata" name="kata" id="kata" required/>
                 <label class="floating-label">Kata</label>
               </div>
               <div class="form-group form-material floating" data-plugin="formMaterial">
-                <input type="number" class="form-control" name="sentiment" id="sentiment" />
+                <input type="number" class="form-control" value ="1" name="sentiment" id="sentiment" required/>
                 <label class="floating-label">Nilai Sentiment</label>
               </div>
             </div>
@@ -212,6 +222,14 @@
     </div>
   </div>
   <!-- End Modal -->
+
+  <script>
+    window.setTimeout(function() {
+      $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+      });
+    }, 5000);
+  </script>
 
   <!-- Core  -->
   

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html class="no-js css-menubar" lang="en">
 
-<!-- Mirrored from getbootstrapadmin.com/remark/material/base/pages/login-v2.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Jun 2019 08:46:04 GMT -->
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +8,7 @@
   <meta name="description" content="bootstrap material admin template">
   <meta name="author" content="">
 
-  <title>Login</title>
+  <title>Forgot password</title>
 
   <link rel="apple-touch-icon" href="{{asset('asset/images/Lambang Daerah Provinsi Bali.png')}}">
   <link rel="shortcut icon" href="{{asset('asset/images/Lambang Daerah Provinsi Bali.png')}}">
@@ -33,108 +32,84 @@
   <link rel="stylesheet" href="{{asset('asset/global/vendor/waves/waves.minfd53.css?v4.0.1')}}">
 
   <!-- Page -->
-  <link rel="stylesheet" href="{{asset('asset/examples/css/pages/login-v2.minfd53.css?v4.0.1')}}">
+  <link rel="stylesheet" href="{{asset('asset/examples/css/pages/forgot-password.minfd53.css?v4.0.1')}}">
 
   <!-- Fonts -->
   <link rel="stylesheet" href="{{asset('asset/global/fonts/material-design/material-design.minfd53.css?v4.0.1')}}">
   <link rel="stylesheet" href="{{asset('asset/global/fonts/brand-icons/brand-icons.minfd53.css?v4.0.1')}}">
   <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Roboto:400,400italic,700">
 
+  <style>
+    /* body {
+      background-image: url('login.jpg');
+    } */
+    html { 
+  background: url(login.jpg) no-repeat center fixed; 
+  background-size: cover;
+}
+  </style>
+
+  <!--[if lt IE 9]>
+    <script src="../../global/vendor/html5shiv/html5shiv.min.js?v4.0.1"></script>
+    <![endif]-->
+
+  <!--[if lt IE 10]>
+    <script src="../../global/vendor/media-match/media.match.min.js?v4.0.1"></script>
+    <script src="../../global/vendor/respond/respond.min.js?v4.0.1"></script>
+    <![endif]-->
+
   <!-- Scripts -->
   <script src="{{asset('asset/global/vendor/breakpoints/breakpoints.minfd53.js?v4.0.1')}}"></script>
   <script>
     Breakpoints();
   </script>
-
 </head>
-<body class="animsition page-login-v2 layout-full page-dark">
+<body class="animsition page-forgot-password layout-full">
   <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
 
   <!-- Page -->
-  <div class="page" data-animsition-in="fade-in" data-animsition-out="fade-out">
-    <div class="page-content">
-      <div class="page-brand-info">
-        <div class="brand">
-          <img class="brand-img" src="{{asset('asset/images/bali1.png')}}" alt="...">
-          <h2 class="brand-text font-size-30">DISKOMINFOS PROVINSI BALI</h2>
+  <div class="page vertical-align text-center" data-animsition-in="fade-in" data-animsition-out="fade-out">
+    <div class="page-content vertical-align-middle">
+      <h2>Lupa Kata Sandi?</h2>
+      <p>Masukkan email dan kata sandi yang baru</p>
+
+      <form role="form" autocomplete="off" action="forgotpassword" method="POST">
+        @csrf
+        <div class="form-group form-material floating" data-plugin="formMaterial">
+          <input type="email" class="form-control empty" id="email" name="email">
+          <label class="floating-label" for="email">Email</label>
         </div>
-        <p class="font-size-20">Sistem Informasi Analisis Sentiment Masyarakat pada Sosial Media.</p>
-      </div>
-
-      <div class="page-login-main">
-        <div class="brand hidden-md-up">
-          <img class="brand-img" src="{{asset('asset/images/bali1.png')}}" alt="...">
-          <h3 class="brand-text font-size-40">Diskominfos</h3>
+        <div class="form-group form-material floating" data-plugin="formMaterial">
+            <input type="password" class="form-control empty" id="password" name="password">
+            <label class="floating-label" for="password">Kata Sandi Baru</label>
         </div>
-        <h3 class="font-size-24">Login</h3>
-        <p>Hanya admin yang dapat membuat user baru.</p>
+        <div class="form-group form-material floating" data-plugin="formMaterial">
+            <input type="password" class="form-control empty" id="c-password" name="c-password">
+            <label class="floating-label" for="c-password">Konformasi Kata Sandi Baru</label>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block">Reset Password</button>
+        </div>
+      </form>
 
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-
-          <div class="form-group form-material floating" data-plugin="formMaterial">
-            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-            @error('email')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-
-            <label class="floating-label" for="inputEmail">Email</label>
-          </div>
-
-          <div class="form-group form-material floating" data-plugin="formMaterial">
-            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-            @error('password')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-
-            <label class="floating-label" for="inputPassword">Password</label>
-          </div>
-
-          @include('flash-message')
-
-          <div class="form-group clearfix">
-            <div class="checkbox-custom checkbox-inline checkbox-primary float-left">
-              <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-              <label for="inputCheckbox">Remember me</label>
-            </div>
-            
-            {{-- @if (Route::has('password.request'))
-                <a class="float-right" href="{{ route('password.request') }}">Forgot password?</a>
-            @endif --}}
-
-            <a class="float-right" href="{{ url('forgotpassword') }}">Forgot password?</a>
-
-          </div>
-          <button type="submit" class="btn btn-primary btn-block">Sign in</button>
-        </form>
-
-        {{-- <p>No account? <a href="register-v2.html">Sign Up</a></p> --}}
-
-        <footer class="page-copyright" style="margin-bottom: 60px">
-          <p>Made By F4</p>
-          <p>©2020. All Right Reserved.</p>
-          {{-- <div class="social">
-            <a class="btn btn-icon btn-round social-twitter mx-5" href="javascript:void(0)">
-              <i class="icon bd-twitter" aria-hidden="true"></i>
-            </a>
-            <a class="btn btn-icon btn-round social-facebook mx-5" href="javascript:void(0)">
-              <i class="icon bd-facebook" aria-hidden="true"></i>
-            </a>
-            <a class="btn btn-icon btn-round social-google-plus mx-5" href="javascript:void(0)">
-              <i class="icon bd-google-plus" aria-hidden="true"></i>
-            </a>
-          </div> --}}
-        </footer>
-      </div>
-
+      <footer class="page-copyright">
+        <p>WEBSITE BY F4</p>
+        <p>© 2020. All RIGHT RESERVED.</p>
+        {{-- <div class="social">
+          <a class="btn btn-icon btn-pure" href="javascript:void(0)">
+            <i class="icon bd-twitter" aria-hidden="true"></i>
+          </a>
+          <a class="btn btn-icon btn-pure" href="javascript:void(0)">
+            <i class="icon bd-facebook" aria-hidden="true"></i>
+          </a>
+          <a class="btn btn-icon btn-pure" href="javascript:void(0)">
+            <i class="icon bd-google-plus" aria-hidden="true"></i>
+          </a>
+        </div> --}}
+      </footer>
     </div>
   </div>
   <!-- End Page -->
@@ -157,9 +132,6 @@
   <script src="{{asset('asset/global/vendor/intro-js/intro.minfd53.js?v4.0.1')}}"></script>
   <script src="{{asset('asset/global/vendor/screenfull/screenfull.minfd53.js?v4.0.1')}}"></script>
   <script src="{{asset('asset/global/vendor/slidepanel/jquery-slidePanel.minfd53.js?v4.0.1')}}"></script>
-
-  <!-- Plugins For This Page -->
-  <script src="{{asset('asset/global/vendor/jquery-placeholder/jquery.placeholder.minfd53.js?v4.0.1')}}"></script>
 
   <!-- Scripts -->
   <script src="{{asset('asset/global/js/State.minfd53.js?v4.0.1')}}"></script>
@@ -189,8 +161,24 @@
   <script src="{{asset('asset/global/js/Plugin/slidepanel.minfd53.js?v4.0.1')}}"></script>
   <script src="{{asset('asset/global/js/Plugin/switchery.minfd53.js?v4.0.1')}}"></script>
 
-  <script src="{{asset('asset/global/js/Plugin/jquery-placeholder.minfd53.js?v4.0.1')}}"></script>
   <script src="{{asset('asset/global/js/Plugin/material.minfd53.js?v4.0.1')}}"></script>
+
+
+  <script type="text/javascript">
+    window.onload = function () {
+        document.getElementById("password").onchange = validatePassword;
+        document.getElementById("c-password").onchange = validatePassword;
+    }
+
+    function validatePassword(){
+    var pass2=document.getElementById("c-password").value;
+    var pass1=document.getElementById("password").value;
+    if(pass1!=pass2)
+        document.getElementById("c-password").setCustomValidity("Passwords Tidak Sama, Coba Lagi");
+    else
+        document.getElementById("c-password").setCustomValidity('');
+    }
+</script>
 
 
   <script>
@@ -226,5 +214,4 @@
 </body>
 
 
-<!-- Mirrored from getbootstrapadmin.com/remark/material/base/pages/login-v2.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Jun 2019 08:46:04 GMT -->
 </html>

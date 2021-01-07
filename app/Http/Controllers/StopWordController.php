@@ -7,6 +7,7 @@ use DB;
 
 class StopWordController extends Controller
 {
+    // makek useDB itu namanya eloquent
     public function index()
     {
         $this->data['data'] = DB::table('tm_stopword')
@@ -22,7 +23,7 @@ class StopWordController extends Controller
             'stpwords' => $req->stopword
         ]);
 
-        return redirect('stopword');
+        return redirect('stopword')->with('success', 'Kata Hubung Berhasil Ditambahkan.');
     }
 
     public function update($id, Request $req)
@@ -33,7 +34,7 @@ class StopWordController extends Controller
             'stpwords' => $req->stpwords
         ]);
 
-        return redirect('stopword');
+        return redirect('stopword')->with('success', 'Kata Hubung Berhasil Diperbarui.');
     }
 
     public function delete($id)
@@ -42,7 +43,7 @@ class StopWordController extends Controller
         ->where('id', $id)
         ->delete();
 
-        return redirect('stopword');
+        return redirect('stopword')->with('success', 'Kata Hubung Berhasil Dihapus.');
     }
 
     public function uploadSqlDump(Request $req)

@@ -12,7 +12,7 @@
   </button>
   <div class="navbar-brand navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
     <img class="navbar-brand-logo" src="{{asset('asset/images/Lambang Daerah Provinsi Bali.png')}}" title="Diskominfos">
-    <span class="navbar-brand-text hidden-xs-down"> DISKOMINFOS</span>
+    <span class="navbar-brand-text hidden-xs-down"> OPINI PUBLIK</span>
   </div>
   <button type="button" class="navbar-toggler collapsed" data-target="#site-navbar-search"
     data-toggle="collapse">
@@ -34,17 +34,17 @@
             </i>
           </a>
       </li>
-      <li class="nav-item hidden-sm-down" id="toggleFullscreen">
+      {{-- <li class="nav-item hidden-sm-down" id="toggleFullscreen">
         <a class="nav-link icon icon-fullscreen" data-toggle="fullscreen" href="#" role="button">
           <span class="sr-only">Toggle fullscreen</span>
         </a>
-      </li>
-      <li class="nav-item hidden-float">
+      </li> --}}
+      {{-- <li class="nav-item hidden-float">
         <a class="nav-link icon md-search" data-toggle="collapse" href="#" data-target="#site-navbar-search"
           role="button">
           <span class="sr-only">Toggle Search</span>
         </a>
-      </li>
+      </li> --}}
     </ul>
     <!-- End Navbar Toolbar -->
   </div>
@@ -62,6 +62,7 @@
       @endif --}}
     @else
       <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
+        <li class="nav-item"><a class="nav-link" href="javascript:void(0)">{{ Auth::user()->name }}</a></li>
         <li class="nav-item dropdown">
           <a class="nav-link navbar-avatar" data-toggle="dropdown" href="#" aria-expanded="false">
             <span class="avatar avatar-online">

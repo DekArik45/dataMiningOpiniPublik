@@ -37,7 +37,7 @@ class UsersController extends Controller
             'is_admin'=>$req->is_admin
         ]);
 
-        return redirect('user');
+        return redirect('user')->with('success', 'Data Berhasil Ditambahkan.');
     }
 
     /**
@@ -80,9 +80,15 @@ class UsersController extends Controller
      * @param  \App\Users  $users
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Users $users)
+    public function update(Request $req)
     {
-        //
+        DB::table('users')
+        ->where('email',$req->email)
+        ->update([
+            "password"=>bcrypt($req->password) 
+        ]);
+
+        return redirect("/");
     }
 
     /**
@@ -98,6 +104,6 @@ class UsersController extends Controller
         ->where('id', $id)
         ->delete();
 
-        return redirect('user');
+        return redirect('user')->with('success', 'Data Berhasil Dihapus.');
     }
 }
