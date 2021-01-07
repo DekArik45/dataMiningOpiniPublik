@@ -316,7 +316,12 @@ function createTrack(idPost, statusTracking) {
         'status_tracking' : statusTracking
     },
     success: function (data) {
-      alert("berhasil update");
+      if (statusTracking == 0) {
+        alert("delete tracking");
+      }
+      else{
+        alert("berhasil membuat tracking");
+      }
     }
   });
 }
@@ -325,18 +330,7 @@ function createTrack(idPost, statusTracking) {
 function chart(twitterNegatif, twitterNetral, twitterPositif, FbNegatif, FbNetral, FbPositif, IgNegatif, IgNetral, IgPositif) {
   
     $(function () {
-      /* ChartJS
-      * -------
-      * Here we will create a few charts using ChartJS
-      */
-  
-      //--------------
-      //- AREA CHART -
-      //--------------
-  
-      // Get context with jQuery - using jQuery's .get() method.
       var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
-  
       var areaChartData = {
         labels  : ['Positif', 'Negatif', 'Netral'],
         datasets: [
@@ -395,17 +389,11 @@ function chart(twitterNegatif, twitterNetral, twitterPositif, FbNegatif, FbNetra
           }]
         }
       }
-  
-      // This will get the first returned node in the jQuery collection.
       var areaChart       = new Chart(areaChartCanvas, { 
         type: 'line',
         data: areaChartData, 
         options: areaChartOptions
       })
-  
-      //-------------
-      //- LINE CHART -
-      //--------------
       var lineChartCanvas = $('#lineChart').get(0).getContext('2d')
       var lineChartOptions = jQuery.extend(true, {}, areaChartOptions)
       var lineChartData = jQuery.extend(true, {}, areaChartData)
@@ -418,11 +406,6 @@ function chart(twitterNegatif, twitterNetral, twitterPositif, FbNegatif, FbNetra
         data: lineChartData, 
         options: lineChartOptions
       })
-  
-      //-------------
-      //- DONUT CHART -
-      //-------------
-      // Get context with jQuery - using jQuery's .get() method.
       var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
       var donutDataTwitter        = {
         labels: [
@@ -470,71 +453,44 @@ function chart(twitterNegatif, twitterNetral, twitterPositif, FbNegatif, FbNetra
         maintainAspectRatio : false,
         responsive : true,
       }
-      //Create pie or douhnut chart
-      // You can switch between pie and douhnut using the method below.
       var donutChart = new Chart(donutChartCanvas, {
         type: 'doughnut',
         data: donutDataFb,
         options: donutOptions      
       })
-  
-      //-------------
-      //- PIE CHART 1 -
-      //-------------
-      // Get context with jQuery - using jQuery's .get() method.
       var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
       var pieData        = donutDataFb;
       var pieOptions     = {
         maintainAspectRatio : false,
         responsive : true,
       }
-      //Create pie or douhnut chart
-      // You can switch between pie and douhnut using the method below.
       var pieChart = new Chart(pieChartCanvas, {
         type: 'pie',
         data: pieData,
         options: pieOptions      
       })
-  
-      //-------------
-      //- PIE CHART 2 -
-      //-------------
-      // Get context with jQuery - using jQuery's .get() method.
       var pieChartCanvas = $('#pieChart2').get(0).getContext('2d')
       var pieData        = donutDataIg;
       var pieOptions     = {
         maintainAspectRatio : false,
         responsive : true,
       }
-      //Create pie or douhnut chart
-      // You can switch between pie and douhnut using the method below.
       var pieChart2 = new Chart(pieChartCanvas, {
         type: 'pie',
         data: pieData,
         options: pieOptions      
       })
-  
-      //-------------
-      //- PIE CHART 3 -
-      //-------------
-      // Get context with jQuery - using jQuery's .get() method.
       var pieChartCanvas = $('#pieChart3').get(0).getContext('2d')
       var pieData        = donutDataTwitter;
       var pieOptions     = {
         maintainAspectRatio : false,
         responsive : true,
       }
-      //Create pie or douhnut chart
-      // You can switch between pie and douhnut using the method below.
       var pieChart3 = new Chart(pieChartCanvas, {
         type: 'pie',
         data: pieData,
         options: pieOptions      
       })
-  
-      //-------------
-      //- BAR CHART -
-      //-------------
       var barChartCanvas = $('#barChart').get(0).getContext('2d')
       var barChartData = jQuery.extend(true, {}, areaChartData)
       var temp0 = areaChartData.datasets[0]

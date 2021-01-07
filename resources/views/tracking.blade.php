@@ -116,7 +116,7 @@
                 </ul>
                 <div class="tab-content">
                   <div class="tab-pane animation-fade active" id="facebook_data" role="tabpanel">
-                    <ul class="list-group">
+                    <ul class="list-group facebook-group-list-item">
                       
                     </ul>
                     <nav>
@@ -125,46 +125,7 @@
                   </div>
 
                   <div class="tab-pane animation-fade" id="instagram_data" role="tabpanel">
-                    <ul class="list-group">
-                      <li class="list-group-item">
-                        <div class="media">
-                          <div class="pr-0 pr-sm-20 align-self-center">
-                            <div class="avatar avatar-online">
-                              <img src="{{asset('asset/global/portraits/13.jpg')}}" alt="...">
-                              <i></i>
-                            </div>
-                          </div>
-                          <div class="media-body align-self-center">
-                            <h5 class="mt-0 mb-5">
-                              Sarah Graves
-                              <small>Last Access: 1 hour ago</small>
-                            </h5>
-                            <p>
-                              <i class="icon icon-color md-pin" aria-hidden="true"></i>                          Street 4190 W Lone Mountain Rd
-                            </p>
-                            <div>
-                              <a class="text-action" href="javascript:void(0)">
-                              <i class="icon icon-color md-email" aria-hidden="true"></i>
-                            </a>
-                              <a class="text-action" href="javascript:void(0)">
-                              <i class="icon icon-color md-smartphone" aria-hidden="true"></i>
-                            </a>
-                              <a class="text-action" href="javascript:void(0)">
-                              <i class="icon icon-color bd-twitter" aria-hidden="true"></i>
-                            </a>
-                              <a class="text-action" href="javascript:void(0)">
-                              <i class="icon icon-color bd-facebook" aria-hidden="true"></i>
-                            </a>
-                              <a class="text-action" href="javascript:void(0)">
-                              <i class="icon icon-color bd-dribbble" aria-hidden="true"></i>
-                            </a>
-                            </div>
-                          </div>
-                          <div class="pl-0 pl-sm-20 mt-15 mt-sm-0 align-self-center">
-                            <button type="button" class="btn btn-primary btn-sm">Follow</button>
-                          </div>
-                        </div>
-                      </li>
+                    <ul class="list-group instagram-group-list-item">
                     </ul>
                     <nav>
                       <ul data-plugin="paginator" data-total="50" data-skin="pagination-no-border"></ul>
@@ -172,7 +133,7 @@
                   </div>
 
                   <div class="tab-pane animation-fade" id="twitter_data" role="tabpanel">
-                    <ul class="list-group list-data-twitter">
+                    <ul class="list-group twitter-group-list-item">
                       
                     </ul>
                     <nav>
@@ -289,14 +250,15 @@
         Site.run();
       });
     })(document, window, jQuery);
-    getPost(".list-data-twitter","");
+    getPost(".twitter-group-list-item",".facebook-group-list-item",".instagram-group-list-item","");
+
     $(".search-post-button").click(function(){
       keyword = $("#keyword").val();
       tgl_dari = $("#tgl_dari").val();
       tgl_sampai = $("#tgl_sampai").val();
       count = $("#jumlah_data").val();
 
-      getPost(".twitter-group-list-item",".search-post-button",keyword, tgl_dari, tgl_sampai, count);
+      getPost(".twitter-group-list-item",".facebook-group-list-item",".instagram-group-list-item",".search-post-button",keyword, tgl_dari, tgl_sampai, count);
     });
 
   </script>

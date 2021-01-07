@@ -38,7 +38,6 @@ class IndexController extends Controller
         $dataPost = DB::table('tb_post')
         ->where('status_sentiment',0)
         ->get();
-
         foreach ($dataPost as $value) {
             $content = $value->content;
             $lowerCase = SentimentHelper::instance()->lowerCase($content);

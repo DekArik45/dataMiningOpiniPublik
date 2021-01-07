@@ -208,7 +208,6 @@ class SentimentHelper
                 }
             }
         }
-
         
         if ($kataSentiment != null && $nilaiSentiment != null) {
             // menjumlahkan serta mengelompokan kata negatif dan positif

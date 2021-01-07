@@ -19,37 +19,55 @@ class TrackingController extends Controller
 
     public function getPostTracking(Request $req)
     {
-
         $checkData = Tracking::join('tb_post','tb_post.id_post','tb_tracking.id_post');
-        if (isset($req->keyword)) {
+        if (isset($req->keyword) && $req->keyword != "") {
             $checkData->where(function ($query) {
-                $query->where('tb_post.content', 'like', '%'.$req->keyword.'%' )
+                $query->orWhere('tb_post.content', 'like', '%'.$req->keyword.'%' )
                 ->orWhere('tb_post.lokasi','like','%'.$req->keyword.'%')
                 ->orWhere('tb_post.username','like','%'.$req->keyword.'%');
             });
         }
         $checkData->groupBy('tb_post.id_post');
-
-        $data = Post::select('*');
+        
+        $dataTwitter = Post::select('*')->where('id_sosmed','1');
         if (!$checkData->get()->isEmpty()) {
-            // return $checkData->get();
             foreach ($checkData->get() as $value) {
-                $data->where(function ($query) use ($value) {
+                $dataTwitter->where(function ($query) use ($value) {
                     $query->orWhere('id_post', $value->id_post);
                 });
             }
         }
-        
-        if (isset($req->keyword)) {
-            $data->where(function ($query) {
-                $query->orWhere('content', 'like', '%'.$req->keyword.'%' )
-                ->orWhere('lokasi','like','%'.$req->keyword.'%')
-                ->orWhere('username','like','%'.$req->keyword.'%');
-            });
+        $dataFb = Post::select('*')->where('id_sosmed','2');
+        if (!$checkData->get()->isEmpty()) {
+            foreach ($checkData->get() as $value) {
+                $dataFb->where(function ($query) use ($value) {
+                    $query->orWhere('id_post', $value->id_post);
+                });
+            }
         }
-        return $data->get();
+        $dataIg = Post::select('*')->where('id_sosmed','3');
+        if (!$checkData->get()->isEmpty()) {
+            foreach ($checkData->get() as $value) {
+                $dataIg->where(function ($query) use ($value) {
+                    $query->orWhere('id_post', $value->id_post);
+                });
+            }
+        }
+        // return $data->get();
+        // if (isset($req->keyword)) {
+        //     $data->where(function ($query) {
+        //         $query->orWhere('content', 'like', '%'.$req->keyword.'%' )
+        //         ->orWhere('lokasi','like','%'.$req->keyword.'%')
+        //         ->orWhere('username','like','%'.$req->keyword.'%');
+        //     });
+        // }
 
-        // return view('tracking', $this->data);
+        return response()->json(
+            array(
+                'dataTwitter'=> $dataTwitter->get(),
+                'dataFacebook'=> $dataFb->get(),
+                'dataInstagram'=> $dataIg->get()
+            ), 200);
     }
 
     public function getTracking(Request $req)
@@ -92,7 +110,5 @@ class TrackingController extends Controller
                     'status'=> true,
                     'message'=> "Berhasil"
                 ), 200);
-
-        // return redirect('/tracking');
     }
 }
