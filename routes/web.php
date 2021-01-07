@@ -42,6 +42,7 @@ Route::get('test', "IndexController@index");
 
 Route::get('crawl', "TwitterCrawlerController@crawl");
 Route::post('get-data-post', "IndexController@getDataPost");
+Route::get('service-sentiment', "IndexController@serviceSentiment");
 
 Route::get("tracking","TrackingController@index");
 Route::post("get-post-tracking","TrackingController@getPostTracking");

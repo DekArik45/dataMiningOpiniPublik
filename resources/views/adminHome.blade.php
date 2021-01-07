@@ -257,7 +257,7 @@
                 </ul>
                 <div class="tab-content">
                   <div class="tab-pane animation-fade active" id="facebook_data" role="tabpanel">
-                    <ul class="list-group">
+                    <ul class="list-group facebook-group-list-item">
                       
                       <li class="list-group-item">
                         <div class="media">
@@ -357,24 +357,6 @@
                                 role="tabpanel">
                                 <div class="panel-body">
 
-                                  {{-- <div class="tab-content" style="max-width:1200px">
-                                    <img class="mySlides" src="{{asset('asset/examples/images/login.jpg')}}" style="width:75%;display:none; vertical-align: middle;">
-                                    <img class="mySlides" src="{{asset('asset/examples/images/login-backup.jpg')}}" style="width:75%; vertical-align: middle;">
-                                    <img class="mySlides" src="{{asset('asset/examples/images/login.jpg')}}" style="width:75%;display:none; vertical-align: middle;">
-                                  
-                                    <div class="row">
-                                      <div class="col-4">
-                                        <img class="demo w3-opacity w3-hover-opacity-off" src="{{asset('asset/examples/images/login.jpg')}}" style="width:100%;cursor:pointer" onclick="currentDiv(1)">
-                                      </div>
-                                      <div class="col-4">
-                                        <img class="demo w3-opacity w3-hover-opacity-off" src="{{asset('asset/examples/images/login-backup.jpg')}}" style="width:100%;cursor:pointer" onclick="currentDiv(2)">
-                                      </div>
-                                      <div class="col-4">
-                                        <img class="demo w3-opacity w3-hover-opacity-off" src="{{asset('asset/examples/images/login.jpg')}}" style="width:100%;cursor:pointer" onclick="currentDiv(3)">
-                                      </div>
-                                    </div>
-                                  </div> --}}
-
                                   <div class="w3-content w3-display-container" style="max-width:800px">
                                     <img class="mySlides" src="{{asset('asset/examples/images/login-backup.jpg')}}" style="width:100%">
                                     <img class="mySlides" src="{{asset('asset/examples/images/login.jpg')}}" style="width:100%">
@@ -395,7 +377,7 @@
                             </div>
 
                           </div>
-                      </div>
+                        </div>
 
                       </li>
 
@@ -406,7 +388,7 @@
                   </div>
 
                   <div class="tab-pane animation-fade" id="instagram_data" role="tabpanel">
-                    <ul class="list-group">
+                    <ul class="list-group instagram-group-list-item">
                       
                     </ul>
                     <nav>
@@ -557,7 +539,7 @@
       tgl_sampai = $("#tgl_sampai").val();
       count = $("#jumlah_data").val();
 
-      getPost(".twitter-group-list-item",".search-post-button",keyword, tgl_dari, tgl_sampai, count);
+      getPost(".twitter-group-list-item",".facebook-group-list-item",".instagram-group-list-item",".search-post-button",keyword, tgl_dari, tgl_sampai, count);
     });
 
     
