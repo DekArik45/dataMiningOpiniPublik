@@ -19,6 +19,16 @@
                     <!-- <span class="site-menu-arrow"></span> -->
                 </a>
               </li>
+              <li class="site-menu-item">
+                <a href="{{ route('logout') }}" role="menuitem" onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+                    <i class="site-menu-icon md-power" aria-hidden="true"></i>
+                    <span class="site-menu-title">Logout</span>
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+                </form>
+              </li>
               {{-- <li class="site-menu-item {{ (request()->is('api')) ? 'active' : '' }}">
                 <a href="{{ url('api') }}">
                   <i class="site-menu-icon md-fire" aria-hidden="true"></i>
