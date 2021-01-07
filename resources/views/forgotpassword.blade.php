@@ -39,15 +39,7 @@
   <link rel="stylesheet" href="{{asset('asset/global/fonts/brand-icons/brand-icons.minfd53.css?v4.0.1')}}">
   <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Roboto:400,400italic,700">
 
-  <style>
-    /* body {
-      background-image: url('login.jpg');
-    } */
-    html { 
-  background: url(login.jpg) no-repeat center fixed; 
-  background-size: cover;
-}
-  </style>
+ 
 
   <!--[if lt IE 9]>
     <script src="../../global/vendor/html5shiv/html5shiv.min.js?v4.0.1"></script>
@@ -91,7 +83,7 @@
             <label class="floating-label" for="c-password">Konformasi Kata Sandi Baru</label>
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-block">Reset Password</button>
+          <button type="submit" class="btn btn-primary btn-block">Ubah Kata Sandi</button>
         </div>
       </form>
 

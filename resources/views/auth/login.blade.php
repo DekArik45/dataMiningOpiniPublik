@@ -95,7 +95,7 @@
                 </span>
             @enderror
 
-            <label class="floating-label" for="inputPassword">Password</label>
+            <label class="floating-label" for="inputPassword">Kata Sandi</label>
           </div>
 
           @include('flash-message')
@@ -103,17 +103,17 @@
           <div class="form-group clearfix">
             <div class="checkbox-custom checkbox-inline checkbox-primary float-left">
               <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-              <label for="inputCheckbox">Remember me</label>
+              <label for="inputCheckbox">Ingatkan Saya</label>
             </div>
             
             {{-- @if (Route::has('password.request'))
                 <a class="float-right" href="{{ route('password.request') }}">Forgot password?</a>
             @endif --}}
 
-            <a class="float-right" href="{{ url('forgotpassword') }}">Forgot password?</a>
+            <a class="float-right" href="{{ url('forgotpassword') }}">Lupa Kata Sandi?</a>
 
           </div>
-          <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+          <button type="submit" class="btn btn-primary btn-block">Login</button>
         </form>
 
         {{-- <p>No account? <a href="register-v2.html">Sign Up</a></p> --}}
