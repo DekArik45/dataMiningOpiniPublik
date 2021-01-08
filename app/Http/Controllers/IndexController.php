@@ -63,17 +63,18 @@ class IndexController extends Controller
         $dataTwitter = DB::table('tb_post')->where('id_sosmed','1');
         if ($req->keyword != null && $req->keyword != "") {
             $keywordData = $req->keyword;
-            $dataTwitter->where(function ($query) use ($keywordData)  {
-                $query->orWhere('content','like','%'."$keywordData".'%')
-                ->orWhere('username','like','%',"$keywordData".'%');
-            });
+            $dataTwitter->where('content','like','%'."$keywordData".'%');
+            // $dataTwitter->where(function ($query) use ($keywordData)  {
+            //     $query->where('content','like','%'."$keywordData".'%')
+            //     ->orWhere('username','like','%',"$keywordData".'%');
+            // });
         }
         if ($req->tgl_dari != null && $req->tgl_dari != "") {
             $newDateDari = date("Y-m-d", strtotime($req->tgl_dari));
             $dataTwitter->where('tanggal','>=',"$newDateDari");
         }
-        if ($req->tgl_dari != null && $req->tgl_dari != "") {
-            $newDateSampai = date("Y-m-d", strtotime($req->tgl_dari));
+        if ($req->tgl_sampai != null && $req->tgl_sampai != "") {
+            $newDateSampai = date("Y-m-d", strtotime($req->tgl_sampai));
             $dataTwitter->where('tanggal','<=',"$newDateSampai");
         }
         
@@ -82,17 +83,18 @@ class IndexController extends Controller
         $dataFacebook = DB::table('tb_post')->where('id_sosmed','2');
         if ($req->keyword != null && $req->keyword != "") {
             $keywordData = $req->keyword;
-            $dataFacebook->where(function ($query) use ($keywordData)  {
-                $query->orWhere('content','like','%'."$keywordData".'%')
-                ->orWhere('username','like','%',"$keywordData".'%');
-            });
+            $dataFacebook->where('content','like','%'."$keywordData".'%');
+            // $dataFacebook->where(function ($query) use ($keywordData)  {
+            //     $query->where('content','like','%'."$keywordData".'%')
+            //     ->orWhere('username','like','%',"$keywordData".'%');
+            // });
         }
         if ($req->tgl_dari != null && $req->tgl_dari != "") {
             $newDateDari = date("Y-m-d", strtotime($req->tgl_dari));
             $dataFacebook->where('tanggal','>=',"$newDateDari");
         }
-        if ($req->tgl_dari != null && $req->tgl_dari != "") {
-            $newDateSampai = date("Y-m-d", strtotime($req->tgl_dari));
+        if ($req->tgl_sampai != null && $req->tgl_sampai != "") {
+            $newDateSampai = date("Y-m-d", strtotime($req->tgl_sampai));
             $dataFacebook->where('tanggal','<=',"$newDateSampai");
         }
         
@@ -101,17 +103,17 @@ class IndexController extends Controller
         $dataInstagram = DB::table('tb_post')->where('id_sosmed','3');
         if ($req->keyword != null && $req->keyword != "") {
             $keywordData = $req->keyword;
-            $dataInstagram->where(function ($query) use ($keywordData)  {
-                $query->orWhere('content','like','%'."$keywordData".'%')
-                ->orWhere('username','like','%',"$keywordData".'%');
-            });
+            // $dataInstagram->where(function ($query) use ($keywordData)  {
+                $dataInstagram->where('content','like','%'."$keywordData".'%');
+            //     ->orWhere('username','like','%',"$keywordData".'%');
+            // });
         }
         if ($req->tgl_dari != null && $req->tgl_dari != "") {
             $newDateDari = date("Y-m-d", strtotime($req->tgl_dari));
             $dataInstagram->where('tanggal','>=',"$newDateDari");
         }
-        if ($req->tgl_dari != null && $req->tgl_dari != "") {
-            $newDateSampai = date("Y-m-d", strtotime($req->tgl_dari));
+        if ($req->tgl_sampai != null && $req->tgl_sampai != "") {
+            $newDateSampai = date("Y-m-d", strtotime($req->tgl_sampai));
             $dataInstagram->where('tanggal','<=',"$newDateSampai");
         }
         
