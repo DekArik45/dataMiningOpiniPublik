@@ -44,9 +44,11 @@ Route::get('crawl', "TwitterCrawlerController@crawl");
 Route::post('get-data-post', "IndexController@getDataPost");
 Route::get('service-sentiment', "IndexController@serviceSentiment");
 
+Route::post("get-total-sentiment","IndexController@getTotalSentiment");
 Route::get("tracking","TrackingController@index");
 Route::post("get-post-tracking","TrackingController@getPostTracking");
 Route::post("get-tracking","TrackingController@getTracking");
+Route::post("get-media-post","IndexController@getMediaPost");
 Route::post('update-tracking-from-index','TrackingController@updateTrackingFromIndex');
 
 Route::group(['middleware' => ['is_admin']], function () {

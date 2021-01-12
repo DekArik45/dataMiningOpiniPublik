@@ -250,7 +250,8 @@
         Site.run();
       });
     })(document, window, jQuery);
-    getPost(".twitter-group-list-item",".facebook-group-list-item",".instagram-group-list-item","");
+    var assetBaseUrl = "{{ asset('') }}";
+    getPost(".twitter-group-list-item",".facebook-group-list-item",".instagram-group-list-item","",assetBaseUrl);
 
     $(".search-post-button").click(function(){
       keyword = $("#keyword").val();
@@ -258,7 +259,7 @@
       tgl_sampai = $("#tgl_sampai").val();
       count = $("#jumlah_data").val();
 
-      getPost(".twitter-group-list-item",".facebook-group-list-item",".instagram-group-list-item",".search-post-button",keyword, tgl_dari, tgl_sampai, count);
+      getPost(".twitter-group-list-item",".facebook-group-list-item",".instagram-group-list-item",keyword, assetBaseUrl);
     });
 
   </script>

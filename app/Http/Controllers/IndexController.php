@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use App\Helper\SentimentHelper;
 use App\Helper\TwitterCrawlHelper;
 use DB;
+use Image;
+use App\Post;
+use App\Media;
+use Illuminate\Support\Str;
+use Response;
 
 class IndexController extends Controller
 {
@@ -53,22 +58,26 @@ class IndexController extends Controller
                 'nilai_sentiment'=>$sentiment[1],
                 'status_sentiment'=>1
             ]);
+            sleep(1);
         }
         return "selesai update sentiment";
     }
 
     public function getDataPost(Request $req)
     {
-        
-        $dataTwitter = DB::table('tb_post')->where('id_sosmed','1');
+        $perpage = 10;
+        $page = $req->page * 10;
+        //twitter
+        $dataTwitter = Post::where('id_sosmed','1');
         if ($req->keyword != null && $req->keyword != "") {
-            $keywordData = $req->keyword;
-            $dataTwitter->where('content','like','%'."$keywordData".'%');
-            // $dataTwitter->where(function ($query) use ($keywordData)  {
-            //     $query->where('content','like','%'."$keywordData".'%')
-            //     ->orWhere('username','like','%',"$keywordData".'%');
-            // });
+            $keywordData = "%".$req->keyword."%";
+
+            $dataTwitter->where(function ($query)  use ($keywordData)  {
+                $query->where('username','like',$keywordData); 
+                $query->orWhere('content','like',$keywordData);
+            });
         }
+        
         if ($req->tgl_dari != null && $req->tgl_dari != "") {
             $newDateDari = date("Y-m-d", strtotime($req->tgl_dari));
             $dataTwitter->where('tanggal','>=',"$newDateDari");
@@ -78,16 +87,22 @@ class IndexController extends Controller
             $dataTwitter->where('tanggal','<=',"$newDateSampai");
         }
         
-        $dataTwitter->limit($req->jumlah_data);
+        if ($req->jumlah_data != "" && $req->jumlah_data != null) {
+            if ($req->jumlah_data < $perpage) {
+                $dataTwitter->limit($req->jumlah_data);
+            }
+        }
 
-        $dataFacebook = DB::table('tb_post')->where('id_sosmed','2');
+        $dataTwitter->skip($page)->take($perpage);
+
+        $dataFacebook = Post::where('id_sosmed','2');
         if ($req->keyword != null && $req->keyword != "") {
-            $keywordData = $req->keyword;
-            $dataFacebook->where('content','like','%'."$keywordData".'%');
-            // $dataFacebook->where(function ($query) use ($keywordData)  {
-            //     $query->where('content','like','%'."$keywordData".'%')
-            //     ->orWhere('username','like','%',"$keywordData".'%');
-            // });
+            $keywordData = "%".$req->keyword."%";
+            
+            $dataFacebook->where(function ($query)  use ($keywordData)  {
+                $query->where('username','like',$keywordData); 
+                $query->orWhere('content','like',$keywordData);
+            });
         }
         if ($req->tgl_dari != null && $req->tgl_dari != "") {
             $newDateDari = date("Y-m-d", strtotime($req->tgl_dari));
@@ -98,15 +113,23 @@ class IndexController extends Controller
             $dataFacebook->where('tanggal','<=',"$newDateSampai");
         }
         
-        $dataFacebook->limit($req->jumlah_data);
+        if ($req->jumlah_data != "" && $req->jumlah_data != null) {
+            if ($req->jumlah_data < $perpage) {
+                $dataFacebook->limit($req->jumlah_data);
+            }
+        }
 
-        $dataInstagram = DB::table('tb_post')->where('id_sosmed','3');
+        $dataFacebook->skip($page)->take($perpage);
+
+            //ig
+        $dataInstagram = Post::where('id_sosmed','3');
         if ($req->keyword != null && $req->keyword != "") {
-            $keywordData = $req->keyword;
-            // $dataInstagram->where(function ($query) use ($keywordData)  {
-                $dataInstagram->where('content','like','%'."$keywordData".'%');
-            //     ->orWhere('username','like','%',"$keywordData".'%');
-            // });
+            $keywordData = "%".$req->keyword."%";
+            
+            $dataInstagram->where(function ($query)  use ($keywordData)  {
+                $query->where('username','like',$keywordData); 
+                $query->orWhere('content','like',$keywordData);
+            });
         }
         if ($req->tgl_dari != null && $req->tgl_dari != "") {
             $newDateDari = date("Y-m-d", strtotime($req->tgl_dari));
@@ -117,7 +140,100 @@ class IndexController extends Controller
             $dataInstagram->where('tanggal','<=',"$newDateSampai");
         }
         
-        $dataInstagram->limit($req->jumlah_data);
+        if ($req->jumlah_data != "" && $req->jumlah_data != null) {
+            if ($req->jumlah_data < $perpage) {
+                $dataInstagram->limit($req->jumlah_data);
+            }
+        }
+
+        $dataInstagram->skip($page)->take($perpage);
+
+        return response()->json(
+            array(
+                'dataTwitter'=> $dataTwitter->get(),
+                'dataFacebook'=> $dataFacebook->get(),
+                'dataInstagram'=> $dataInstagram->get(),
+                'jumlahDataInstagram'=> $dataInstagram->count(),
+                'jumlahDataFacebook'=> $dataFacebook->count(),
+                'jumlahDataTwitter'=> $dataTwitter->count()
+            ), 200);
+    }
+
+    public function getMediaPost(Request $req)
+    {
+        $data = DB::table('tb_media')->where('id_post',$req->id_post)->get();
+        return $data;
+    }
+
+    public function getTotalSentiment(Request $req)
+    {
+        $dataTwitter = Post::where('id_sosmed','1');
+        if ($req->keyword != null && $req->keyword != "") {
+            $keywordData = "%".$req->keyword."%";
+
+            $dataTwitter->where(function ($query)  use ($keywordData)  {
+                $query->where('username','like',$keywordData); 
+                $query->orWhere('content','like',$keywordData);
+            });
+        }
+        
+        if ($req->tgl_dari != null && $req->tgl_dari != "") {
+            $newDateDari = date("Y-m-d", strtotime($req->tgl_dari));
+            $dataTwitter->where('tanggal','>=',"$newDateDari");
+        }
+        if ($req->tgl_sampai != null && $req->tgl_sampai != "") {
+            $newDateSampai = date("Y-m-d", strtotime($req->tgl_sampai));
+            $dataTwitter->where('tanggal','<=',"$newDateSampai");
+        }
+        
+        if ($req->jumlah_data != "" && $req->jumlah_data != null) {
+            $dataTwitter->limit($req->jumlah_data);
+        }
+        
+
+        $dataFacebook = Post::where('id_sosmed','2');
+        if ($req->keyword != null && $req->keyword != "") {
+            $keywordData = "%".$req->keyword."%";
+            
+            $dataFacebook->where(function ($query)  use ($keywordData)  {
+                $query->where('username','like',$keywordData); 
+                $query->orWhere('content','like',$keywordData);
+            });
+        }
+        if ($req->tgl_dari != null && $req->tgl_dari != "") {
+            $newDateDari = date("Y-m-d", strtotime($req->tgl_dari));
+            $dataFacebook->where('tanggal','>=',"$newDateDari");
+        }
+        if ($req->tgl_sampai != null && $req->tgl_sampai != "") {
+            $newDateSampai = date("Y-m-d", strtotime($req->tgl_sampai));
+            $dataFacebook->where('tanggal','<=',"$newDateSampai");
+        }
+        
+        if ($req->jumlah_data != "" && $req->jumlah_data != null) {
+            $dataFacebook->limit($req->jumlah_data);
+        }
+
+        $dataInstagram = Post::where('id_sosmed','3');
+        if ($req->keyword != null && $req->keyword != "") {
+            $keywordData = "%".$req->keyword."%";
+            
+            $dataInstagram->where(function ($query)  use ($keywordData)  {
+                $query->where('username','like',$keywordData); 
+                $query->orWhere('content','like',$keywordData);
+            });
+        }
+        if ($req->tgl_dari != null && $req->tgl_dari != "") {
+            $newDateDari = date("Y-m-d", strtotime($req->tgl_dari));
+            $dataInstagram->where('tanggal','>=',"$newDateDari");
+        }
+        if ($req->tgl_sampai != null && $req->tgl_sampai != "") {
+            $newDateSampai = date("Y-m-d", strtotime($req->tgl_sampai));
+            $dataInstagram->where('tanggal','<=',"$newDateSampai");
+        }
+        
+        if ($req->jumlah_data != "" && $req->jumlah_data != null) {
+            $dataInstagram->limit($req->jumlah_data);
+        }
 
         return response()->json(
             array(
@@ -125,5 +241,6 @@ class IndexController extends Controller
                 'dataFacebook'=> $dataFacebook->get(),
                 'dataInstagram'=> $dataInstagram->get()
             ), 200);
+
     }
 }

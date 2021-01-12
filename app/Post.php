@@ -15,4 +15,9 @@ class Post extends Model
     {
         return $this->hasMany('App\Tracking','id_post');
     }
+
+    public function media()
+    {
+        return $this->hasMany('App\Media','id_post');
+    }
 }

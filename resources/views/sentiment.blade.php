@@ -90,7 +90,7 @@
               <i class="icon md-plus" aria-hidden="true"></i> Tambah Data
             </button>
           </div>
-          <div class="btn-group hidden-sm-down" id="exampleToolbar" role="group">
+          {{-- <div class="btn-group hidden-sm-down" id="exampleToolbar" role="group">
             <button type="button" class="btn btn-success btn-icon">
               <i class="icon md-file-text" aria-hidden="true"></i> File Excel
             </button>
@@ -104,7 +104,7 @@
             <button type="button" class="btn social-twitter btn-icon">
               <i class="icon md-file-text" aria-hidden="true"></i> File SQL Dump
             </button>
-          </div>
+          </div> --}}
           <div class="example table-responsive">
             <table class="table table-hover dataTable table-striped w-full" id="exampleTableSearch">
               <thead>

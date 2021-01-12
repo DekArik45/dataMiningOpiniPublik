@@ -1,4 +1,4 @@
-function getPost(listGroupItemElementTwitter, listGroupItemElementFb, listGroupItemElementIg, keyword) {
+function getPost(listGroupItemElementTwitter, listGroupItemElementFb, listGroupItemElementIg, keyword, url) {
     $.ajax({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -25,7 +25,7 @@ function getPost(listGroupItemElementTwitter, listGroupItemElementFb, listGroupI
               '<div class="media">'+
                   '<div class="pr-0 pr-sm-20 align-self-center">'+
                     '<div class="avatar avatar-online">'+
-                        '<img src="'+value['foto_profile']+'" alt="...">'+
+                        '<img src="'+url+value['foto_profile']+'" alt="...">'+
                         '<i class="avatar avatar-busy"></i>'+
                     '</div>'+
                   '</div>'+
@@ -99,17 +99,9 @@ function getPost(listGroupItemElementTwitter, listGroupItemElementFb, listGroupI
                   '</div>'+
                   '<div class="panel-collapse collapse" id="exampleCollapseThree" aria-labelledby="exampleHeadingThree" role="tabpanel">'+
                     '<div class="panel-body">'+
-                      '<div class="w3-content w3-display-container" style="max-width:800px">'+
+                      '<div class="w3-content w3-display-container .data-image'+value['id_post']+'" style="max-width:800px">'+
                         // 'data image'
-                        '<div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">'+
-                          '<span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>'+
-                          '<span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>'+
-                          '<span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>'+
-                        '</div>'+
-                        '<div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-middle" style="width:100%">'+
-                          '<div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>'+
-                          '<div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>'+
-                        '</div>'+
+                        
                       '</div>'+
                     '</div>'+
                   '</div>'+
@@ -118,6 +110,7 @@ function getPost(listGroupItemElementTwitter, listGroupItemElementFb, listGroupI
             '</div>'+
           '</li>';
                 $(listGroupItemElementTwitter).append(html);
+                getMedia('.data-image'+value['id_post'], value['id_post'], url);
                 getTracking(".data-tracking-perpost"+value['id_post'],value['id_post'], value['like']);
             });
 
@@ -136,7 +129,7 @@ function getPost(listGroupItemElementTwitter, listGroupItemElementFb, listGroupI
               '<div class="media">'+
                   '<div class="pr-0 pr-sm-20 align-self-center">'+
                     '<div class="avatar avatar-online">'+
-                        '<img src="'+value['foto_profile']+'" alt="...">'+
+                        '<img src="'+url+value['foto_profile']+'" alt="...">'+
                         '<i class="avatar avatar-busy"></i>'+
                     '</div>'+
                   '</div>'+
@@ -210,17 +203,9 @@ function getPost(listGroupItemElementTwitter, listGroupItemElementFb, listGroupI
                   '</div>'+
                   '<div class="panel-collapse collapse" id="exampleCollapseThree" aria-labelledby="exampleHeadingThree" role="tabpanel">'+
                     '<div class="panel-body">'+
-                      '<div class="w3-content w3-display-container" style="max-width:800px">'+
+                      '<div class="w3-content w3-display-container .data-image'+value['id_post']+'" style="max-width:800px">'+
                         // 'data image'
-                        '<div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">'+
-                          '<span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>'+
-                          '<span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>'+
-                          '<span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>'+
-                        '</div>'+
-                        '<div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-middle" style="width:100%">'+
-                          '<div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>'+
-                          '<div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>'+
-                        '</div>'+
+                        
                       '</div>'+
                     '</div>'+
                   '</div>'+
@@ -229,6 +214,7 @@ function getPost(listGroupItemElementTwitter, listGroupItemElementFb, listGroupI
             '</div>'+
           '</li>';
                 $(listGroupItemElementFb).append(html);
+                getMedia('.data-image'+value['id_post'], value['id_post'], url);
                 getTracking(".data-tracking-perpost"+value['id_post'],value['id_post'], value['like']);
             });
             
@@ -247,7 +233,7 @@ function getPost(listGroupItemElementTwitter, listGroupItemElementFb, listGroupI
               '<div class="media">'+
                   '<div class="pr-0 pr-sm-20 align-self-center">'+
                     '<div class="avatar avatar-online">'+
-                        '<img src="'+value['foto_profile']+'" alt="...">'+
+                        '<img src="'+url+value['foto_profile']+'" alt="...">'+
                         '<i class="avatar avatar-busy"></i>'+
                     '</div>'+
                   '</div>'+
@@ -321,17 +307,9 @@ function getPost(listGroupItemElementTwitter, listGroupItemElementFb, listGroupI
                   '</div>'+
                   '<div class="panel-collapse collapse" id="exampleCollapseThree" aria-labelledby="exampleHeadingThree" role="tabpanel">'+
                     '<div class="panel-body">'+
-                      '<div class="w3-content w3-display-container" style="max-width:800px">'+
+                      '<div class="w3-content w3-display-container .data-image'+value['id_post']+'" style="max-width:800px">'+
                         // 'data image'
-                        '<div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">'+
-                          '<span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>'+
-                          '<span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>'+
-                          '<span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>'+
-                        '</div>'+
-                        '<div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-middle" style="width:100%">'+
-                          '<div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>'+
-                          '<div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>'+
-                        '</div>'+
+                        
                       '</div>'+
                     '</div>'+
                   '</div>'+
@@ -340,11 +318,44 @@ function getPost(listGroupItemElementTwitter, listGroupItemElementFb, listGroupI
             '</div>'+
           '</li>';
                 $(listGroupItemElementIg).append(html);
+                getMedia('.data-image'+value['id_post'], value['id_post'], url);
                 getTracking(".data-tracking-perpost"+value['id_post'],value['id_post'], value['like']);
             });
             
         }
     });
+}
+
+function getMedia(elementMedia, idPost, url) {
+  htmlMedia="";
+  
+  $.ajax({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+    type: 'POST',
+    url: '/get-media-post',
+    data: {
+        'id_post': idPost
+    },
+    success: function (data) {
+      data.forEach(value=>{
+        
+        htmlMedia += '<img class="mySlides" src="'+url+value['path']+'" style="width:100%"></img>';
+      });
+      htmlMedia += '<div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">'+
+            '<span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>'+
+            '<span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>'+
+            '<span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>'+
+          '</div>'+
+          '<div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-middle" style="width:100%">'+
+            '<div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>'+
+            '<div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>'+
+          '</div>';
+          document.querySelector(elementMedia).innerHTML = htmlMedia;        
+    }
+  }); 
+
 }
 
 function getTracking(elementClassData, idPost, like) {

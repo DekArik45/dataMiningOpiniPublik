@@ -14,7 +14,7 @@
   <link rel="shortcut icon" href="{{asset('asset/images/Lambang Daerah Provinsi Bali.png')}}">
 
   <style>
-    .slidegone {display:none}
+    .mySlides {display:none}
     .w3-left, .w3-right, .w3-badge {cursor:pointer}
     .w3-badge {height:15px;width:15px;padding:0}
     .w3-left, .w3-right {height:15px;width:15px;margin-bottom:35px}
@@ -136,7 +136,7 @@
                       <div class="example">
                       <input type="text" class="form-control" id="jumlah_data" name="touchSpinPrefix" data-plugin="TouchSpin"
                     data-min="-1000000000" data-max="1000000000" data-stepinterval="50"
-                    data-maxboostedstep="10000000" value="" />
+                    data-maxboostedstep="10000000" value="0" />
                       </div>
                   </div>
                 </div>
@@ -271,13 +271,132 @@
                 <div class="tab-content">
                   <div class="tab-pane animation-fade active" id="facebook_data" role="tabpanel">
                     <ul class="list-group facebook-group-list-item">
+                      
+                      <li class="list-group-item">
+                        <div class="media">
+                          <div class="pr-0 pr-sm-20 align-self-center">
+                            <div class="avatar avatar-online">
+                              <img src="{{asset('asset/global/portraits/13.jpg')}}" alt="...">
+                              <i></i>
+                            </div>
+                          </div>
+                          <div class="media-body align-self-center">
+                            <h5 class="mt-0 mb-5">
+                              Sarah Graves
+                              <small>Last Access: 1 hour ago</small>
+                            </h5>
+                            <p>
+                              <i class="icon icon-color md-pin" aria-hidden="true"></i>                          Street 4190 W Lone Mountain Rd
+                            </p>
+                            <div>
+                              <a class="text-action" href="javascript:void(0)">
+                              <i class="icon icon-color md-email" aria-hidden="true"></i>
+                            </a>
+                              <a class="text-action" href="javascript:void(0)">
+                              <i class="icon icon-color md-smartphone" aria-hidden="true"></i>
+                            </a>
+                              <a class="text-action" href="javascript:void(0)">
+                              <i class="icon icon-color bd-twitter" aria-hidden="true"></i>
+                            </a>
+                              <a class="text-action" href="javascript:void(0)">
+                              <i class="icon icon-color bd-facebook" aria-hidden="true"></i>
+                            </a>
+                              <a class="text-action" href="javascript:void(0)">
+                              <i class="icon icon-color bd-dribbble" aria-hidden="true"></i>
+                            </a>
+                            </div>
+                          </div>
+                          <div class="pl-0 pl-sm-20 mt-15 mt-sm-0 align-self-center">
+                            <button type="button" class="btn btn-primary btn-sm">Follow</button>
+                          </div>
+                        </div>
+                      </li>
+
+                      <li class="list-group-item">
+                        <div class="media">
+                          <div class="pr-0 pr-sm-20 align-self-center">
+                            <div class="avatar avatar-online">
+                              <img src="{{asset('asset/global/portraits/13.jpg')}}" alt="...">
+                              <i class="avatar avatar-busy"></i>
+                            </div>
+                          </div>
+                          <div class="media-body align-self-center">
+                            <h5 class="mt-0 mb-5" style="display:inline-block;">
+                              Nama
+                            </h5>
+                            <p style="float:right; display:inline-block;">
+                              <small>tgl</small> &nbsp&nbsp&nbsp&nbsp <small>jam</small></p>
+                            <pre style="width: 100%;border: 0px;overflow-x: hidden !important; white-space: pre-wrap;white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word;"><p class="content-post"> 
+                             teks
+                             teks
+                            </p></pre>
+                            <p>
+                              <i class="icon icon-color md-pin" aria-hidden="true"></i> lokasi
+                            </p>
+                              <i class="icon icon-color md-thumb-up" aria-hidden="true"></i> likes
+                          </div>
+                          <div class="pl-0 pl-sm-20 mt-15 mt-sm-0 align-self-center">
+                            <button type="button" style="width: 100%" onclick="" class="btn btn-primary btn-sm active" data-toggle="button">
+                              <i class="icon md-tag text" aria-hidden="true"></i>
+                              <span class="text">Track</span>
+                              <i class="icon md-check text-active" aria-hidden="true"></i>
+                              <span class="text-active">Tracked</span>
+                            </button>
+                            {{-- <button type="button" class="btn btn-success btn-sm" data-toggle="button">
+                              <i class="icon md-book text" aria-hidden="true"></i>
+                              <span class="text">Pin</span>
+                              <i class="icon md-bookmark text-active" aria-hidden="true"></i>
+                              <span class="text-active">Unpin</span>
+                            </button> --}}
+                            <div style="margin:10px; text-align: center;">
+                              <p style="font-size:12px; margin-bottom:-5px;">Sentiment</p>
+                              <p style="font-size:25px; font-weight: bold; color: red;"> Negatif 35 </p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="example">
+                          <div class="panel-group panel-group-simple mb-0" id="exampleAccordion" aria-multiselectable="true" role="tablist">
+
+                            <div class="panel">
+                              <div class="panel-heading" id="exampleHeadingThree" role="tab">
+                                <a class="panel-title collapsed" data-parent="#exampleAccordion" data-toggle="collapse"
+                                  href="#exampleCollapseThree" aria-controls="exampleCollapseThree"
+                                  aria-expanded="false">
+                                Tampilkan Media
+                              </a>
+                              </div>
+                              <div class="panel-collapse collapse" id="exampleCollapseThree" aria-labelledby="exampleHeadingThree"
+                                role="tabpanel">
+                                <div class="panel-body">
+
+                                  <div class="w3-content w3-display-container" style="max-width:800px">
+                                    <img class="mySlides" src="{{asset('asset/examples/images/login-backup.jpg')}}" style="width:100%">
+                                    <img class="mySlides" src="{{asset('asset/examples/images/login.jpg')}}" style="width:100%">
+                                    <img class="mySlides" src="{{asset('asset/examples/images/login-backup.jpg')}}" style="width:100%">
+                                    <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
+                                      <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+                                      <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+                                      <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+                                    </div>
+                                    <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-middle" style="width:100%">
+                                      <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+                                      <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+
+                      </li>
 
                     </ul>
                     <nav>
-                      <ul id="paginatorFB" >
-                        {{-- <li><a href="#" onclick="prevFb('.facebook-group-list-item','.search-post-button','{{ asset('') }}')">prev</a></li> --}}
-                        <li><button type="button" onclick="nextFb('.facebook-group-list-item','.search-post-button','{{ asset('') }}')">Load More</button></li>
-                      </ul>
+                      <ul data-plugin="paginator" data-total="50" data-skin="pagination-no-border"></ul>
                     </nav>
                   </div>
 
@@ -286,10 +405,7 @@
                       
                     </ul>
                     <nav>
-                      <ul id="paginatorIG" >
-                        {{-- <li><a href="#" onclick="prevIg('.instagram-group-list-item','.search-post-button','{{ asset('') }}')">prev</a></li> --}}
-                        <li><button type="button" onclick="nextIg('.instagram-group-list-item',' .search-post-button','{{ asset('') }}')">Load More</button></li>
-                      </ul>
+                      <ul data-plugin="paginator" data-total="50" data-skin="pagination-no-border"></ul>
                     </nav>
                   </div>
 
@@ -297,11 +413,7 @@
                     <ul class="list-group twitter-group-list-item">
                     </ul>
                     <nav>
-                      <ul id="paginatorTwitter" >
-                        
-                        {{-- <li><a href="#" onclick="prevTwitter('.twitter-group-list-item','.search-post-button','{{ asset('') }}')">prev</a></li> --}}
-                        <li><button type="button" onclick="nextTwitter('.twitter-group-list-item','.search-post-button','{{ asset('') }}')">Load More</button></li>
-                      </ul>
+                      <ul data-plugin="paginator" data-total="50" data-skin="pagination-no-border"></ul>
                     </nav>
                   </div>
                 </div>
@@ -322,7 +434,6 @@
   @include('layouts.footer')
 
   <script>
-
     window.setTimeout(function() {
       $(".alert").fadeTo(500, 0).slideUp(500, function(){
         $(this).remove(); 
@@ -408,7 +519,32 @@
 
 
   <script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
     
+    function plusDivs(n) {
+      showDivs(slideIndex += n);
+    }
+    
+    function currentDiv(n) {
+      showDivs(slideIndex = n);
+    }
+    
+    function showDivs(n) {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("demo");
+      if (n > x.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = x.length}
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" w3-white", "");
+      }
+      x[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " w3-white";
+    }
   </script>
 
   <script>
@@ -421,21 +557,13 @@
       });
     })(document, window, jQuery);
     var assetBaseUrl = "{{ asset('') }}";
-    getTotalSentiment("", "", "", "");
-    getPostFb(".facebook-group-list-item",".search-post-button","", "", "", "", assetBaseUrl,0);
-    getPostTwitter(".twitter-group-list-item",".search-post-button","", "", "", "", assetBaseUrl,0);
-    getPostIg(".instagram-group-list-item",".search-post-button","", "", "", "", assetBaseUrl,0);
-
     $(".search-post-button").click(function(){
       keyword = $("#keyword").val();
       tgl_dari = $("#tgl_dari").val();
       tgl_sampai = $("#tgl_sampai").val();
       count = $("#jumlah_data").val();
 
-      getPostTwitter(".twitter-group-list-item",".search-post-button",keyword, tgl_dari, tgl_sampai, count, assetBaseUrl,0);
-      getPostIg(".instagram-group-list-item",".search-post-button",keyword, tgl_dari, tgl_sampai, count, assetBaseUrl,0);
-      getPostFb(".facebook-group-list-item",".search-post-button",keyword, tgl_dari, tgl_sampai, count, assetBaseUrl,0);
-      getTotalSentiment(keyword, tgl_dari, tgl_sampai, count);
+      getPost(".twitter-group-list-item",".facebook-group-list-item",".instagram-group-list-item",".search-post-button",keyword, tgl_dari, tgl_sampai, count, assetBaseUrl);
     });
 
     
