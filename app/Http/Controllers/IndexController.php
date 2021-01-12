@@ -51,14 +51,47 @@ class IndexController extends Controller
             $stemming = SentimentHelper::instance()->stemming($stopWord);
             $tf = SentimentHelper::instance()->tfIdf($stemming);
             $sentiment = SentimentHelper::instance()->sentimentAnalysis($tf);
-            
+
+            $dataJumlah = DB::table('tb_media')->where('id_post',$value->id_post)->count();
+            $dataSentimentMedia = 0;
+            sleep(0.5);
+            if ($dataJumlah > 0) {
+                $tf1[] = array();
+                $data = DB::table('tb_media')->where('id_post',$value->id_post)->get();
+                foreach ($data as $dataMedia) {
+                    $lowerCase1 = SentimentHelper::instance()->lowerCase($content);
+                    $menghilangkanSimbol1 = SentimentHelper::instance()->menghilangkanSimbol($lowerCase1);
+                    $stopWord1 = SentimentHelper::instance()->stopWord($menghilangkanSimbol1);
+                    $stemming1 = SentimentHelper::instance()->stemming($stopWord1);
+                    $tf1 = SentimentHelper::instance()->tfIdf($stemming1);
+                    $sentiment1 = SentimentHelper::instance()->sentimentAnalysis($tf1);
+                    $dataSentimentMedia += $sentiment1[1];
+
+                    sleep(0.5);
+                }
+                $dataSentimentMedia = $dataSentimentMedia / $dataJumlah;
+                if ($dataSentimentMedia != 0) {
+                    $sentiment[1] = ($dataSentimentMedia + $sentiment[1]) / 2;
+                }
+
+                if ($sentiment[1] > 0) {
+                    $sentiment[0] = "Positif";
+                }
+                elseif ($sentiment[1] < 0) {
+                    $sentiment[0] = "Negatif";
+                }
+                else if ($sentiment[1] == 0) {
+                    $sentiment[0] = "Netral";
+                }
+            }
+
             DB::table('tb_post')->where('id_post',$value->id_post)
             ->update([
                 'sentiment'=>$sentiment[0],
                 'nilai_sentiment'=>$sentiment[1],
                 'status_sentiment'=>1
             ]);
-            sleep(1);
+            
         }
         return "selesai update sentiment";
     }
